@@ -1,5 +1,3 @@
-import javafx.beans.binding.ObjectExpression;
-
 public class Pessoa extends Object {
 
     private String nome;
