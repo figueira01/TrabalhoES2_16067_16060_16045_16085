@@ -2,20 +2,18 @@ public class DadosFisicos {
 
     private double peso;
     private double altura;
-    private String gorduraCorporal;
-    private String gorduraVisceral;
-    private String musculo;
+    private double gorduraCorporal;
+    private double gorduraVisceral;
     private String idadeMetabolica;
     private String h2o;
     private String osso;
     private Pessoa p;
 
-    public DadosFisicos(double peso, double altura, String gorduraCorporal, String gorduraVisceral, String musculo, String idadeMetabolica, String h2o, String osso) {
+    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral,String idadeMetabolica, String h2o, String osso) {
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
         this.gorduraVisceral = gorduraVisceral;
-        this.musculo = musculo;
         this.idadeMetabolica = idadeMetabolica;
         this.h2o = h2o;
         this.osso = osso;
@@ -29,16 +27,10 @@ public class DadosFisicos {
         return altura;
     }
 
-    public String getGorduraCorporal() {
-        return gorduraCorporal;
-    }
+    public double getGorduraCorporal() {return gorduraCorporal; }
 
-    public String getGorduraVisceral() {
+    public double getGorduraVisceral() {
         return gorduraVisceral;
-    }
-
-    public String getMusculo() {
-        return musculo;
     }
 
     public String getIdadeMetabolica() {
@@ -53,24 +45,20 @@ public class DadosFisicos {
         return osso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
-    public void setGorduraCorporal(String gorduraCorporal) {
+    public void setGorduraCorporal(double gorduraCorporal) {
         this.gorduraCorporal = gorduraCorporal;
     }
 
-    public void setGorduraVisceral(String gorduraVisceral) {
+    public void setGorduraVisceral(double gorduraVisceral) {
         this.gorduraVisceral = gorduraVisceral;
-    }
-
-    public void setMusculo(String musculo) {
-        this.musculo = musculo;
     }
 
     public void setIdadeMetabolica(String idadeMetabolica) {
@@ -99,6 +87,25 @@ public class DadosFisicos {
         else if(p.getSexo().equals("Feminino"))
         {
             return taxa * (655 + ((9.6 * peso) + ( 1.8 * altura) - (4.7 * p.getIdade())));
+        }
+        else
+            return 0;
+    }
+
+    public double calculateMusculo(){
+
+        return peso-(peso*gorduraCorporal);
+    }
+
+    public double calculateWater(){
+
+        if(p.getSexo().equals("Masculino"))
+        {
+            return 2.447 - 0.09156 * p.getIdade() + (altura*100) + 0.3362 * peso;
+        }
+        else if(p.getSexo().equals("Feminino"))
+        {
+            return -2.097 + 0.1069 * (altura*100) + 0.2466 * peso;
         }
         else
             return 0;
