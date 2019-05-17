@@ -90,13 +90,18 @@ public class DadosFisicos {
         return peso/(altura*altura);
     }
 
-    public double calculateMetabolismoBasal(){
+    public double calculateMetabolismoBasal(float taxa){
 
         if(p.getSexo().equals("Masculino"))
         {
-            return  66 + ((13.7 * peso) + ( 5 * altura) - (6.8 * p.getIdade()));
+            return taxa * (66 + ((13.7 * peso) + ( 5 * altura) - (6.8 * p.getIdade())));
         }
-        return 1;
+        else if(p.getSexo().equals("Feminino"))
+        {
+            return taxa * (655 + ((9.6 * peso) + ( 1.8 * altura) - (4.7 * p.getIdade())));
+        }
+        else
+            return 0;
     }
 
 

@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class HabitosAlimentares extends Object {
+public class HabitosAlimentares {
 
     private String refeicao;
     private String comida;
