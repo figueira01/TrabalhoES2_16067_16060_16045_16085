@@ -9,9 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class TestPlanoAlimentar {
 
     private LocalDate time;
+    private Pessoa p;
 
     @BeforeEach
     void setUp() {
+        p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programcao");
     }
 
     @AfterEach
@@ -33,6 +35,6 @@ class TestPlanoAlimentar {
     @Test
     void testConstrutorHabitosAlimentares()
     {
-        //HabitosAlimentares habitosAlimentares = new HabitosAlimentares("Almoco","arroz, Carne",);
+        HabitosAlimentares habitosAlimentares = new HabitosAlimentares("Almoco","arroz, Carne",time,p);
     }
 }
