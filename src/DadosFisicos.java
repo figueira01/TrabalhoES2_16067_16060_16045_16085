@@ -1,18 +1,16 @@
 public class DadosFisicos {
 
-    private float peso;
-    private int altura;
-    private int imc;
+    private double peso;
+    private double altura;
     private String gorduraCorporal;
     private String gorduraVisceral;
     private String musculo;
     private String idadeMetabolica;
     private String h2o;
-    private String metabolismoBasal;
     private String osso;
     private Pessoa p;
 
-    public DadosFisicos(float peso, int altura, int imc, String gorduraCorporal, String gorduraVisceral, String musculo, String idadeMetabolica, String h2o, String metabolismoBasal, String osso) {
+    public DadosFisicos(double peso, double altura, String gorduraCorporal, String gorduraVisceral, String musculo, String idadeMetabolica, String h2o, String osso) {
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
@@ -20,20 +18,15 @@ public class DadosFisicos {
         this.musculo = musculo;
         this.idadeMetabolica = idadeMetabolica;
         this.h2o = h2o;
-        this.metabolismoBasal = metabolismoBasal;
         this.osso = osso;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public int getAltura() {
+    public double getAltura() {
         return altura;
-    }
-
-    public int getImc() {
-        return imc;
     }
 
     public String getGorduraCorporal() {
@@ -56,10 +49,6 @@ public class DadosFisicos {
         return h2o;
     }
 
-    public String getMetabolismoBasal() {
-        return metabolismoBasal;
-    }
-
     public String getOsso() {
         return osso;
     }
@@ -70,10 +59,6 @@ public class DadosFisicos {
 
     public void setAltura(int altura) {
         this.altura = altura;
-    }
-
-    public void setImc(int imc) {
-        this.imc = imc;
     }
 
     public void setGorduraCorporal(String gorduraCorporal) {
@@ -96,11 +81,23 @@ public class DadosFisicos {
         this.h2o = h2o;
     }
 
-    public void setMetabolismoBasal(String metabolismoBasal) {
-        this.metabolismoBasal = metabolismoBasal;
-    }
-
     public void setOsso(String osso) {
         this.osso = osso;
     }
+
+    public double calculateIMC()
+    {
+        return peso/(altura*altura);
+    }
+
+    public double calculateMetabolismoBasal(){
+
+        if(p.getSexo().equals("Masculino"))
+        {
+            return  66 + ((13.7 * peso) + ( 5 * altura) - (6.8 * p.getIdade()));
+        }
+        return 1;
+    }
+
+
 }
