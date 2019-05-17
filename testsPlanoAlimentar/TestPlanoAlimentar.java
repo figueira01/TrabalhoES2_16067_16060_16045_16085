@@ -29,7 +29,7 @@ class TestPlanoAlimentar {
     @Test
     void testContrutorDadosFisicos()
     {
-        DadosFisicos dF = new DadosFisicos(65,1.76,0.15,0.10,"35%","21","11");
+        DadosFisicos dF = new DadosFisicos(65,1.76,0.15,0.10,"35%","21");
     }
 
     @Test
