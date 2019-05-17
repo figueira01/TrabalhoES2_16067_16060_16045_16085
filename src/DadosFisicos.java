@@ -5,17 +5,15 @@ public class DadosFisicos {
     private double gorduraCorporal;
     private double gorduraVisceral;
     private String idadeMetabolica;
-    private String h2o;
     private String osso;
     private Pessoa p;
 
-    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral,String idadeMetabolica, String h2o, String osso) {
+    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral,String idadeMetabolica, String osso) {
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
         this.gorduraVisceral = gorduraVisceral;
         this.idadeMetabolica = idadeMetabolica;
-        this.h2o = h2o;
         this.osso = osso;
     }
 
@@ -37,9 +35,6 @@ public class DadosFisicos {
         return idadeMetabolica;
     }
 
-    public String getH2o() {
-        return h2o;
-    }
 
     public String getOsso() {
         return osso;
@@ -65,9 +60,6 @@ public class DadosFisicos {
         this.idadeMetabolica = idadeMetabolica;
     }
 
-    public void setH2o(String h2o) {
-        this.h2o = h2o;
-    }
 
     public void setOsso(String osso) {
         this.osso = osso;
