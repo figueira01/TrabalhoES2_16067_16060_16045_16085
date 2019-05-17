@@ -1,4 +1,4 @@
-public class DadosFisicos {
+public class DadosFisicos extends Object{
 
     private float peso;
     private int altura;
@@ -10,6 +10,7 @@ public class DadosFisicos {
     private String h2o;
     private String metabolismoBasal;
     private String osso;
+    private Pessoa p;
 
     public DadosFisicos(float peso, int altura, int imc, String gorduraCorporal, String gorduraVisceral, String musculo, String idadeMetabolica, String h2o, String metabolismoBasal, String osso) {
         this.peso = peso;
