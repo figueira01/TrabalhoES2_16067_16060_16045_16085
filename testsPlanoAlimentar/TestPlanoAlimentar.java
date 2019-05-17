@@ -19,4 +19,9 @@ class TestPlanoAlimentar {
     {
         Pessoa p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Informatica");
     }
+    @Test
+    void testContrutorDadosFisicos()
+    {
+        //DadosFisicos dF = new DadosFisicos(65,176,);
+    }
 }
