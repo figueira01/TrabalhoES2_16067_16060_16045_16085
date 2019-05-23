@@ -4,9 +4,9 @@ public class Questionario extends Object {
 
     public String atividadeFisica;
 
-    public Questionario()  {
+    public Questionario(String motivoConsulta,String Objectivo)  {
     }
-
+    
     public static class atividadeFisica
     {
         public String atividadeFisicaSedentaria(){
