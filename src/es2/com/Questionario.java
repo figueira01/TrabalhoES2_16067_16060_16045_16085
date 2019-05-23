@@ -4,21 +4,22 @@ public class Questionario extends Object {
 
     public String atividadeFisica;
 
-    public Questionario() {
+    public Questionario(String motivoConsulta,String Objectivo)  {
     }
-
-    public void setAtividadeFisica(String atividadeFisica){
-        if(atividadeFisica.equals("Sedentario")){
-            this.atividadeFisica.equals("Sedentario");
+    
+    public static class atividadeFisica
+    {
+        public String atividadeFisicaSedentaria(){
+            return "Sedentaria";
         }
-        if(atividadeFisica.equals("Moderadamente ativo")){
-            this.atividadeFisica.equals("Moderadamente ativo");
+        public String atividadeFisicaModeradamenteAtivo(){
+            return "Moderadamente Ativo";
         }
-        if(atividadeFisica.equals("Ativo")){
-            this.atividadeFisica.equals("Ativo");
+        public String atividadeFisicaAtivo(){
+            return "Ativo";
         }
-        if(atividadeFisica.equals("Muito ativo")){
-            this.atividadeFisica.equals("Muito ativo");
+        public String atividadeFisicaMuitoAtivo(){
+            return "Muito Ativo";
         }
     }
 
