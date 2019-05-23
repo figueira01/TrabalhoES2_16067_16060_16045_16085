@@ -1,3 +1,5 @@
+package es2.com;
+
 public class Pessoa extends Object {
 
     private String nome;

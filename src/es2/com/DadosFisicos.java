@@ -1,3 +1,5 @@
+package es2.com;
+
 public class DadosFisicos extends Object{
 
     private double peso;

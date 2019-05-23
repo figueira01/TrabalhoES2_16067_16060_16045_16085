@@ -1,10 +1,11 @@
+import es2.com.DadosFisicos;
+import es2.com.HabitosAlimentares;
+import es2.com.Pessoa;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TestPlanoAlimentar {
 

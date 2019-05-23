@@ -1,3 +1,5 @@
+package es2.com;
+
 import java.time.LocalDate;
 
 public class HabitosAlimentares extends Object {
