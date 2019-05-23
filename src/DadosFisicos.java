@@ -1,4 +1,4 @@
-public class DadosFisicos {
+public class DadosFisicos extends Object{
 
     private double peso;
     private double altura;
