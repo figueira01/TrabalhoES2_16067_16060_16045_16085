@@ -2,19 +2,19 @@ package es2.com;
 
 public class Questionario extends Object {
 
-    public String motivoConsulta;
-    public String objectivo;
-    public String patologia;
-    public String medicacao;
-    public String antecedentesFamiliares;
-    public String atividadeFisica;
-    public String funcaoIntestival;
-    public String consumoAgua;
-    public String colesterol;
-    public String glicemia;
-    public String urina;
-    public String creatina;
-    public String proteina;
+    private String motivoConsulta;
+    private String objectivo;
+    private String patologia;
+    private String medicacao;
+    private String antecedentesFamiliares;
+    private String atividadeFisica;
+    private String funcaoIntestival;
+    private String consumoAgua;
+    private String colesterol;
+    private String glicemia;
+    private String urina;
+    private String creatina;
+    private String proteina;
 
 
     public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, String colesterol, String glicemia, String urina, String creatina, String proteina) {
