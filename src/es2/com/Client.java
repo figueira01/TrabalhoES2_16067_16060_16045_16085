@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Client {
 
-    private static final String COMMA_DELIMITER = ";";
+    private static final String COMMA_DELIMITER = ",";
 
     public static void main(String [] args)
     {
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Livro1.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:/estgv/3º/ES2/livro2.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
