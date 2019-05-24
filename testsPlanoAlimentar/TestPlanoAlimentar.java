@@ -1,6 +1,7 @@
 import es2.com.DadosFisicos;
 import es2.com.HabitosAlimentares;
 import es2.com.Pessoa;
+import es2.com.Questionario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,12 +31,18 @@ class TestPlanoAlimentar {
     @Test
     void testContrutorDadosFisicos()
     {
-        DadosFisicos dF = new DadosFisicos(65,1.76,0.15,0.10,"35%","21");
+        DadosFisicos dF = new DadosFisicos(65,1.56,11,12,"hdfhd","osso",p,11,11,111,11);
     }
 
     @Test
     void testConstrutorHabitosAlimentares()
     {
         HabitosAlimentares habitosAlimentares = new HabitosAlimentares("Almoco","arroz, Carne",time,p);
+    }
+
+    @Test
+    void testConstrutorQuestionario()
+    {
+        Questionario questionario = new Questionario("ter melhor habito alimentar","ganho muscular","nenhuma","nenhuma","Cancer","Muito ativa","Normal","1,5L to 2L","11%","aa","amarelo","5","171g");
     }
 }
