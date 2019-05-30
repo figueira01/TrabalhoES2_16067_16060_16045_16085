@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Client {
 
-
+    private static String peso;
     private static final String COMMA_DELIMITER = ";";
 
     public static void main(String [] args)
@@ -24,11 +24,7 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-            System.out.println(records.get(0).get(1));
-
-
-
+        peso = records.get(0).get(1);
+        System.out.println(peso);
     }
 }
