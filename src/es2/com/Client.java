@@ -29,10 +29,13 @@ public class Client {
             e.printStackTrace();
         }
 
-        for(int i=0;i<records.size();i++)
+        System.out.println(records.get(0).get(2));
+
+
+        /*for(int i=0;i<records.size();i++)
         {
             System.out.println(records.get(i));
-        }
+        }*/
 
     }
 }
