@@ -45,6 +45,6 @@ class TestPlanoAlimentar {
     @Test
     void testContrutorProduto()
     {
-        Produto p = new Produto("IS021","Leite Vaca Esterilizado gordo",1111,111,111,111,111,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+        Produto p = new Produto("IS021","Leite Vaca Esterilizado gordo",1111,111,111,111,111,1,1,1,1,11,1,1,1,1,1,1,11,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 }
