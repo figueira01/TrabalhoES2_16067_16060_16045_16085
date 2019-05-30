@@ -1,7 +1,4 @@
-import es2.com.DadosFisicos;
-import es2.com.HabitosAlimentares;
-import es2.com.Pessoa;
-import es2.com.Questionario;
+import es2.com.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -44,5 +41,10 @@ class TestPlanoAlimentar {
     void testConstrutorQuestionario()
     {
         Questionario questionario = new Questionario("ter melhor habito alimentar","ganho muscular","nenhuma","nenhuma","Cancer","Muito ativa","Normal","1,5L to 2L","11%","aa","amarelo","5","171g");
+    }
+    @Test
+    void testContrutorProduto()
+    {
+        Produto p = new Produto("IS021","Leite Vaca Esterilizado gordo",1111,111,111,111,111,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 }
