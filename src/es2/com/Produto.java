@@ -21,6 +21,7 @@ public class Produto extends Object{
     private float acidosGordosMonoinsaturados;
     private float acidosGordosPolinsaturados;
     private float acidosGordosTrans;
+    private float retonol;
     private float acidoLinoleico;
     private int colesterol;
     private int vitATotal;
@@ -45,7 +46,7 @@ public class Produto extends Object{
     private float Fe;
     private float Zn;
 
-    public Produto(String codigo, String nome, int energiaKcal, int energiaKj, float agua, float proteina, float gorduraTotal, float totalHCDisponivel, float totalHCexpressoEmMonossacaridos, float monoPlusDissacaridos, float acidosOrganicos, float alcool, float amido, float oligossacaridos, float fibraAlimentar, float acidoGordosSaturados, float acidosGordosMonoinsaturados, float acidosGordosPolinsaturados, float acidosGordosTrans, float acidoLinoleico, int colesterol, int vitATotal, int caroteno, float vitD, float tocoferol, float tiamina, float riboflavina, float equivalentesDeNiacina, float niaciana, float triptofano60, float vitB6, float vitB12, float vitC, float folatos, float cinza, int na, int k, int ca, int p, int mg, float fe, float zn) {
+    public Produto(String codigo, String nome, int energiaKcal, int energiaKj, float agua, float proteina, float gorduraTotal, float totalHCDisponivel, float totalHCexpressoEmMonossacaridos, float monoPlusDissacaridos, float acidosOrganicos, float alcool, float amido, float oligossacaridos, float fibraAlimentar, float acidoGordosSaturados, float acidosGordosMonoinsaturados, float acidosGordosPolinsaturados, float acidosGordosTrans,float retonol, float acidoLinoleico, int colesterol, int vitATotal, int caroteno, float vitD, float tocoferol, float tiamina, float riboflavina, float equivalentesDeNiacina, float niaciana, float triptofano60, float vitB6, float vitB12, float vitC, float folatos, float cinza, int na, int k, int ca, int p, int mg, float fe, float zn) {
         this.codigo = codigo;
         this.nome = nome;
         this.energiaKcal = energiaKcal;
@@ -88,5 +89,6 @@ public class Produto extends Object{
         this.Mg = mg;
         this.Fe = fe;
         this.Zn = zn;
+        this.retonol = retonol;
     }
 }

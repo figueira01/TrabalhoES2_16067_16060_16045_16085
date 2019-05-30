@@ -28,7 +28,7 @@ class TestPlanoAlimentar {
     @Test
     void testContrutorDadosFisicos()
     {
-        DadosFisicos dF = new DadosFisicos(65,1.56,11,12,"hdfhd","osso",p,11,11,111,11);
+        DadosFisicos dF = new DadosFisicos(65,1.56,11,12,"hdfhd","osso",11,11,111,11);
     }
 
     @Test
@@ -45,6 +45,6 @@ class TestPlanoAlimentar {
     @Test
     void testContrutorProduto()
     {
-        Produto p = new Produto("IS021","Leite Vaca Esterilizado gordo",1111,111,111,111,111,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+        Produto p = new Produto("IS021","Leite Vaca Esterilizado gordo",1111,111,111,111,111,1,1,1,1,11,1,1,1,1,1,1,11,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 }
