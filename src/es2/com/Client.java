@@ -14,8 +14,9 @@ public class Client {
 
     public static void main(String [] args)
     {
+        String path = args[0];
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("C:/estgv/3º/ES2/DadosFisicos.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);

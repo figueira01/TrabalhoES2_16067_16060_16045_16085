@@ -6,14 +6,27 @@ public class Pessoa extends Object {
     private int idade;
     private String sexo;
     private String profissao;
+    private DadosFisicos dadosFisicos;
+    private HabitosAlimentares habitosAlimentares;
+    private Questionario questionario;
 
-    public Pessoa(String nome, int idade, String sexo, String profissao) {
+    public Pessoa(String nome, int idade, String sexo, String profissao,DadosFisicos dadosFisicos,HabitosAlimentares planoAtual,Questionario questionario) {
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
         this.profissao = profissao;
+        this.dadosFisicos = dadosFisicos;
+        this.habitosAlimentares = planoAtual;
+        this.questionario = questionario;
     }
 
+    public HabitosAlimentares getHabitosAlimentares() {
+        return this.habitosAlimentares;
+    }
+
+    public DadosFisicos getDadosFisicos(){
+        return this.dadosFisicos;
+    }
 
     public String getNome() {
         return nome;

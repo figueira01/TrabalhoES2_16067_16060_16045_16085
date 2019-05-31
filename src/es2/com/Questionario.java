@@ -32,4 +32,15 @@ public class Questionario extends Object {
         this.creatina = creatina;
         this.proteina = proteina;
     }
+
+    public void getQuestionario() {
+        String string = ("\nMotivo: " + this.motivoConsulta + "\nObjetivo: " + this.objectivo +
+                "\nPatologia: " + this.patologia + "\nMedicação: " + this.medicacao+
+                "\nAntecedentes Familiares: " + this.antecedentesFamiliares+ "\nAtividade Física: " + this.atividadeFisica+
+                "\nFunção Intestinal: " + this.funcaoIntestival + "\nConsumo de água: " + this.consumoAgua+
+                "\nColeesterol: " + this.colesterol+ "\nGlicemia: " + this.glicemia+
+                "\nUrina: " + this.urina+ "\nAtividade Física: " + this.urina+
+                "\nCreatina: " + this.creatina+"\nProteína: " + this.proteina);
+        System.out.println(string);
+    }
 }
