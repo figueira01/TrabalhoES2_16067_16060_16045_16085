@@ -31,11 +31,6 @@ class TestPlanoAlimentar {
         DadosFisicos dF = new DadosFisicos(65,1.56,11,12,"hdfhd","osso",11,11,111,11);
     }
 
-    @Test
-    void testConstrutorHabitosAlimentares()
-    {
-        HabitosAlimentares habitosAlimentares = new HabitosAlimentares("Almoco","arroz, Carne",time,p);
-    }
 
     @Test
     void testConstrutorQuestionario()
