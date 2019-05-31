@@ -1,18 +1,31 @@
-import es2.com.*;
+import es2.com.DadosFisicos;
+import es2.com.HabitosAlimentares;
+import es2.com.Pessoa;
+import es2.com.Questionario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 class TestPlanoAlimentar {
 
-    private LocalDate time;
+    private String time;
     private Pessoa p;
+
 
     @BeforeEach
     void setUp() {
-        p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programcao");
+        DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
+        HabitosAlimentares HA = new HabitosAlimentares();
+        Questionario questionario = new Questionario("Rotina","Perder peso","nenhuma","nenhuma","Alzheimer","Ativo","Normal","Mais de 2.0 L","10","10","10","10","10");
+        HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
+        HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
+        HA.addRefeicao("Almoço","Arroz com carne", "13:00");
+        HA.addRefeicao("Meio tarde","Sandes mista", "16:30");
+        HA.addRefeicao("Jantar","Peixe grelhado com vegetais", "19:30");
+        p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao",DF,HA,questionario);
     }
 
     @AfterEach
@@ -22,7 +35,16 @@ class TestPlanoAlimentar {
     @Test
     void testConstrutorPessoa()
     {
-        Pessoa p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao");
+        DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
+        HabitosAlimentares HA = new HabitosAlimentares();
+        Questionario questionario = new Questionario("Rotina","Perder peso","nenhuma","nenhuma","Alzheimer","Ativo","Normal","Mais de 2.0 L","10","10","10","10","10");
+        HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
+        HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
+        HA.addRefeicao("Almoço","Arroz com carne", "13:00");
+        HA.addRefeicao("Meio tarde","Sandes mista", "16:30");
+        HA.addRefeicao("Jantar","Peixe grelhado com vegetais", "19:30");
+        p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao",DF,HA,questionario);
+        Pessoa p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao" , DF,HA,questionario);
     }
 
     @Test
@@ -34,17 +56,21 @@ class TestPlanoAlimentar {
     @Test
     void testConstrutorHabitosAlimentares()
     {
-        HabitosAlimentares habitosAlimentares = new HabitosAlimentares("Almoco","arroz, Carne",time,p);
+        HabitosAlimentares habitosAlimentares = new HabitosAlimentares();
     }
 
+    @Test
+    void tesHabitosALimentaresAddRefeicao(){
+        HabitosAlimentares HA = new HabitosAlimentares();
+        HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
+        HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
+        HA.addRefeicao("Almoço","Arroz com carne", "13:00");
+        HA.addRefeicao("Meio tarde","Sandes mista", "16:30");
+        HA.addRefeicao("Jantar","Peixe grelhado com vegetais", "19:30");
+    }
     @Test
     void testConstrutorQuestionario()
     {
         Questionario questionario = new Questionario("ter melhor habito alimentar","ganho muscular","nenhuma","nenhuma","Cancer","Muito ativa","Normal","1,5L to 2L","11%","aa","amarelo","5","171g");
-    }
-    @Test
-    void testContrutorProduto()
-    {
-        Produto p = new Produto("IS021","Leite Vaca Esterilizado gordo",1111,111,111,111,111,1,1,1,1,11,1,1,1,1,1,1,11,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
     }
 }

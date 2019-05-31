@@ -1,50 +1,23 @@
 package es2.com;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.HashMap;
 
-public class HabitosAlimentares extends Object {
+public class HabitosAlimentares extends Object { 
 
-    private String refeicao;
-    private String comida;
-    private LocalDate time;
-    private Pessoa p;
+    private HashMap<HashMap<String,String>, String>  Refeicoes = new HashMap<>();
 
-    public HabitosAlimentares(String refeicao, String comida, LocalDate time, Pessoa p) {
-        this.refeicao = refeicao;
-        this.comida = comida;
-        this.time = time;
-        this.p = p;
+    public HabitosAlimentares() {
     }
 
-    public String getRefeicao() {
-        return refeicao;
+    public HashMap<HashMap<String,String>,String> getRefeicao() {
+        return this.Refeicoes;
     }
 
-    public String getComida() {
-        return comida;
-    }
-
-    public LocalDate getTime() {
-        return time;
-    }
-
-    public Pessoa getP() {
-        return p;
-    }
-
-    public void setRefeicao(String refeicao) {
-        this.refeicao = refeicao;
-    }
-
-    public void setComida(String comida) {
-        this.comida = comida;
-    }
-
-    public void setTime(LocalDate time) {
-        this.time = time;
-    }
-
-    public void setP(Pessoa p) {
-        this.p = p;
+    public void addRefeicao(String refeicao, String comida, String time) {
+        HashMap <String,String> ref = new HashMap<>();
+        ref.put(refeicao,comida);
+        Refeicoes.put(ref,time);
     }
 }

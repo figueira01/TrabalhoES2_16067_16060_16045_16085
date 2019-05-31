@@ -8,6 +8,7 @@ public class DadosFisicos extends Object{
     private double gorduraVisceral;
     private String idadeMetabolica;
     private String osso;
+    private Pessoa p;
     private double imc;
     private double musculo;
     private double metabolismoBasal;
@@ -74,7 +75,6 @@ public class DadosFisicos extends Object{
     public void setOsso(String osso) {
         this.osso = osso;
     }
-
 
     public double getImc() {
         return imc;
