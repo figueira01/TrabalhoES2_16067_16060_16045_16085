@@ -22,7 +22,7 @@ class TestPlanoAlimentar {
     @Test
     void testConstrutorPessoa()
     {
-        Pessoa p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programcao");
+        Pessoa p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao");
     }
 
     @Test

@@ -4,49 +4,49 @@ public class Produto extends Object{
 
     private String codigo;
     private String nome;
-    private int energiaKcal;
-    private int energiaKj;
-    private float agua;
-    private float proteina;
-    private float gorduraTotal;
-    private float totalHCDisponivel;
-    private float totalHCexpressoEmMonossacaridos;
-    private float monoPlusDissacaridos;
-    private float acidosOrganicos;
-    private float alcool;
-    private float amido;
-    private float oligossacaridos;
-    private float fibraAlimentar;
-    private float acidoGordosSaturados;
-    private float acidosGordosMonoinsaturados;
-    private float acidosGordosPolinsaturados;
-    private float acidosGordosTrans;
-    private float retonol;
-    private float acidoLinoleico;
-    private int colesterol;
-    private int vitATotal;
-    private int caroteno;
-    private float vitD;
-    private float tocoferol;
-    private float tiamina;
-    private float riboflavina;
-    private float equivalentesDeNiacina;
-    private float niaciana;
-    private float triptofano60;
-    private float vitB6;
-    private float vitB12;
-    private float vitC;
-    private float folatos;
-    private float cinza;
-    private int Na;
-    private int k;
-    private int Ca;
-    private int P;
-    private int Mg;
-    private float Fe;
-    private float Zn;
+    private double energiaKcal;
+    private double energiaKj;
+    private double agua;
+    private double proteina;
+    private double gorduraTotal;
+    private double totalHCDisponivel;
+    private double totalHCexpressoEmMonossacaridos;
+    private double monoPlusDissacaridos;
+    private double acidosOrganicos;
+    private double alcool;
+    private double amido;
+    private double oligossacaridos;
+    private double fibraAlimentar;
+    private double acidoGordosSaturados;
+    private double acidosGordosMonoinsaturados;
+    private double acidosGordosPolinsaturados;
+    private double acidosGordosTrans;
+    private double retonol;
+    private double acidoLinoleico;
+    private double colesterol;
+    private double vitATotal;
+    private double caroteno;
+    private double vitD;
+    private double tocoferol;
+    private double tiamina;
+    private double riboflavina;
+    private double equivalentesDeNiacina;
+    private double niaciana;
+    private double triptofano60;
+    private double vitB6;
+    private double vitB12;
+    private double vitC;
+    private double folatos;
+    private double cinza;
+    private double Na;
+    private double k;
+    private double Ca;
+    private double P;
+    private double Mg;
+    private double Fe;
+    private double Zn;
 
-    public Produto(String codigo, String nome, int energiaKcal, int energiaKj, float agua, float proteina, float gorduraTotal, float totalHCDisponivel, float totalHCexpressoEmMonossacaridos, float monoPlusDissacaridos, float acidosOrganicos, float alcool, float amido, float oligossacaridos, float fibraAlimentar, float acidoGordosSaturados, float acidosGordosMonoinsaturados, float acidosGordosPolinsaturados, float acidosGordosTrans,float retonol, float acidoLinoleico, int colesterol, int vitATotal, int caroteno, float vitD, float tocoferol, float tiamina, float riboflavina, float equivalentesDeNiacina, float niaciana, float triptofano60, float vitB6, float vitB12, float vitC, float folatos, float cinza, int na, int k, int ca, int p, int mg, float fe, float zn) {
+    public Produto(String codigo, String nome, double energiaKcal, double energiaKj, double agua, double proteina, double gorduraTotal, double totalHCDisponivel, double totalHCexpressoEmMonossacaridos, double monoPlusDissacaridos, double acidosOrganicos, double alcool, double amido, double oligossacaridos, double fibraAlimentar, double acidoGordosSaturados, double acidosGordosMonoinsaturados, double acidosGordosPolinsaturados, double acidosGordosTrans, double retonol, double acidoLinoleico, double colesterol, double vitATotal, double caroteno, double vitD, double tocoferol, double tiamina, double riboflavina, double equivalentesDeNiacina, double niaciana, double triptofano60, double vitB6, double vitB12, double vitC, double folatos, double cinza, double na, double k, double ca, double p, double mg, double fe, double zn) {
         this.codigo = codigo;
         this.nome = nome;
         this.energiaKcal = energiaKcal;
@@ -66,6 +66,7 @@ public class Produto extends Object{
         this.acidosGordosMonoinsaturados = acidosGordosMonoinsaturados;
         this.acidosGordosPolinsaturados = acidosGordosPolinsaturados;
         this.acidosGordosTrans = acidosGordosTrans;
+        this.retonol = retonol;
         this.acidoLinoleico = acidoLinoleico;
         this.colesterol = colesterol;
         this.vitATotal = vitATotal;
@@ -82,13 +83,184 @@ public class Produto extends Object{
         this.vitC = vitC;
         this.folatos = folatos;
         this.cinza = cinza;
-        this.Na = na;
+        Na = na;
         this.k = k;
-        this.Ca = ca;
-        this.P = p;
-        this.Mg = mg;
-        this.Fe = fe;
-        this.Zn = zn;
-        this.retonol = retonol;
+        Ca = ca;
+        P = p;
+        Mg = mg;
+        Fe = fe;
+        Zn = zn;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getEnergiaKcal() {
+        return energiaKcal;
+    }
+
+    public double getEnergiaKj() {
+        return energiaKj;
+    }
+
+    public double getAgua() {
+        return agua;
+    }
+
+    public double getProteina() {
+        return proteina;
+    }
+
+    public double getGorduraTotal() {
+        return gorduraTotal;
+    }
+
+    public double getTotalHCDisponivel() {
+        return totalHCDisponivel;
+    }
+
+    public double getTotalHCexpressoEmMonossacaridos() {
+        return totalHCexpressoEmMonossacaridos;
+    }
+
+    public double getMonoPlusDissacaridos() {
+        return monoPlusDissacaridos;
+    }
+
+    public double getAcidosOrganicos() {
+        return acidosOrganicos;
+    }
+
+    public double getAlcool() {
+        return alcool;
+    }
+
+    public double getAmido() {
+        return amido;
+    }
+
+    public double getOligossacaridos() {
+        return oligossacaridos;
+    }
+
+    public double getFibraAlimentar() {
+        return fibraAlimentar;
+    }
+
+    public double getAcidoGordosSaturados() {
+        return acidoGordosSaturados;
+    }
+
+    public double getAcidosGordosMonoinsaturados() {
+        return acidosGordosMonoinsaturados;
+    }
+
+    public double getAcidosGordosPolinsaturados() {
+        return acidosGordosPolinsaturados;
+    }
+
+    public double getAcidosGordosTrans() {
+        return acidosGordosTrans;
+    }
+
+    public double getRetonol() {
+        return retonol;
+    }
+
+    public double getAcidoLinoleico() {
+        return acidoLinoleico;
+    }
+
+    public double getColesterol() {
+        return colesterol;
+    }
+
+    public double getVitATotal() {
+        return vitATotal;
+    }
+
+    public double getCaroteno() {
+        return caroteno;
+    }
+
+    public double getVitD() {
+        return vitD;
+    }
+
+    public double getTocoferol() {
+        return tocoferol;
+    }
+
+    public double getTiamina() {
+        return tiamina;
+    }
+
+    public double getRiboflavina() {
+        return riboflavina;
+    }
+
+    public double getEquivalentesDeNiacina() {
+        return equivalentesDeNiacina;
+    }
+
+    public double getNiaciana() {
+        return niaciana;
+    }
+
+    public double getTriptofano60() {
+        return triptofano60;
+    }
+
+    public double getVitB6() {
+        return vitB6;
+    }
+
+    public double getVitB12() {
+        return vitB12;
+    }
+
+    public double getVitC() {
+        return vitC;
+    }
+
+    public double getFolatos() {
+        return folatos;
+    }
+
+    public double getCinza() {
+        return cinza;
+    }
+
+    public double getNa() {
+        return Na;
+    }
+
+    public double getK() {
+        return k;
+    }
+
+    public double getCa() {
+        return Ca;
+    }
+
+    public double getP() {
+        return P;
+    }
+
+    public double getMg() {
+        return Mg;
+    }
+
+    public double getFe() {
+        return Fe;
+    }
+
+    public double getZn() {
+        return Zn;
     }
 }
