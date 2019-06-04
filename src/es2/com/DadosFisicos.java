@@ -75,7 +75,6 @@ public class DadosFisicos extends Object{
         this.osso = osso;
     }
 
-
     public double getImc() {
         return imc;
     }
