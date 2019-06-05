@@ -116,6 +116,7 @@ public class Client {
         client.LerQuestionario();
         System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
         System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
+        
 
         /*
         for(int i=0;i<produtos.size();i++)
