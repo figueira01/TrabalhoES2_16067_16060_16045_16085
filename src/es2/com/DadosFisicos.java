@@ -6,8 +6,8 @@ public class DadosFisicos extends Object{
     private double altura;
     private double gorduraCorporal;
     private double gorduraVisceral;
-    private double idadeMetabolica;
-    private double osso;
+    private String idadeMetabolica;
+    private String osso;
     private Pessoa p;
     private double imc;
     private double musculo;
@@ -15,7 +15,7 @@ public class DadosFisicos extends Object{
     private double h20;
 
 
-    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double metabolismoBasal, double h20) {
+    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, String idadeMetabolica, String osso, double imc, double musculo, double metabolismoBasal, double h20) {
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
@@ -60,19 +60,19 @@ public class DadosFisicos extends Object{
         this.gorduraVisceral = gorduraVisceral;
     }
 
-    public double getIdadeMetabolica() {
+    public String getIdadeMetabolica() {
         return idadeMetabolica;
     }
 
-    public void setIdadeMetabolica(double idadeMetabolica) {
+    public void setIdadeMetabolica(String idadeMetabolica) {
         this.idadeMetabolica = idadeMetabolica;
     }
 
-    public double getOsso() {
+    public String getOsso() {
         return osso;
     }
 
-    public void setOsso(double osso) {
+    public void setOsso(String osso) {
         this.osso = osso;
     }
 
