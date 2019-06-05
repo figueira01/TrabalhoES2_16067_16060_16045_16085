@@ -33,7 +33,7 @@ public class TestDadosFisicos
     @Test
     void testepeso()
     {
-        System.out.println("aqui!");
+        System.out.println("aqui!!!");
         assertTrue( dadosFisicos.getPeso() >= 1 &&  dadosFisicos.getPeso() <= 300);
     }
 }
