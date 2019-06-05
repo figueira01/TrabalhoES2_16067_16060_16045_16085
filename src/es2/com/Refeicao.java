@@ -13,4 +13,12 @@ public class Refeicao {
         this.comida = comida;
     }
 
+
+    public String getHora() {
+        return hora;
+    }
+
+    public HashMap<String, Double> getComida() {
+        return comida;
+    }
 }

@@ -18,8 +18,8 @@ public class Client {
     private String fichaQuestionarios = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Questionarios.csv";
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
-    private static List<List<PlanoAlimentarAtual>> planoAtual = new ArrayList<>();
-    private static List<List<PlanoAlimentarPrescrito>> planoPrescrito = new ArrayList<>();
+    private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
+    private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
     public void LerDadosFisicos(String d){
@@ -63,33 +63,6 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentarAtual(String fichPlanoAtual){
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(COMMA_DELIMITER);
-                planoAtual.add(Arrays.asList(new PlanoAlimentarAtual(values[0],values[1],
-                        values[2],Double.parseDouble(values[3]))));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void LerPlanoAlimentarPrescrito(String fichPlanoPrescrito){
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPrescrito))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(COMMA_DELIMITER);
-                planoPrescrito.add(Arrays.asList(new PlanoAlimentarPrescrito(values[0],values[1],
-                        values[2],Double.parseDouble(values[3]))));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void LerQuestionario(String fichQuestionario){
 
