@@ -1,13 +1,10 @@
 import es2.com.DadosFisicos;
-import es2.com.HabitosAlimentares;
+import es2.com.PlanoAlimentarAtual;
 import es2.com.Pessoa;
 import es2.com.Questionario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 class TestPlanoAlimentar {
 
@@ -18,7 +15,7 @@ class TestPlanoAlimentar {
     @BeforeEach
     void setUp() {
         DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
-        HabitosAlimentares HA = new HabitosAlimentares();
+        PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
         Questionario questionario = new Questionario("Rotina","Perder peso","nenhuma","nenhuma","Alzheimer","Ativo","Normal","Mais de 2.0 L","10","10","10","10","10");
         HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
         HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
@@ -36,7 +33,7 @@ class TestPlanoAlimentar {
     void testConstrutorPessoa()
     {
         DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
-        HabitosAlimentares HA = new HabitosAlimentares();
+        PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
         Questionario questionario = new Questionario("Rotina","Perder peso","nenhuma","nenhuma","Alzheimer","Ativo","Normal","Mais de 2.0 L","10","10","10","10","10");
         HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
         HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
@@ -56,12 +53,12 @@ class TestPlanoAlimentar {
     @Test
     void testConstrutorHabitosAlimentares()
     {
-        HabitosAlimentares habitosAlimentares = new HabitosAlimentares();
+        PlanoAlimentarAtual habitosAlimentares = new PlanoAlimentarAtual();
     }
 
     @Test
     void tesHabitosALimentaresAddRefeicao(){
-        HabitosAlimentares HA = new HabitosAlimentares();
+        PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
         HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
         HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
         HA.addRefeicao("Almoço","Arroz com carne", "13:00");
