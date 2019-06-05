@@ -114,7 +114,8 @@ public class Client {
         client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
-        Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
+        //Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
+        //System.out.println(pessoa.CalcularTMB());
         //System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
         //System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
 

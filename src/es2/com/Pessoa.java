@@ -30,6 +30,10 @@ public class Pessoa extends Object {
         return this.dadosFisicos;
     }
 
+    public Questionario getQuestionario() {
+        return questionario;
+    }
+
     public double CalcularTMB()
     {
         if(sexo.equals("Femenino"))
