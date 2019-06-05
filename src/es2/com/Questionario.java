@@ -7,7 +7,7 @@ public class Questionario extends Object {
     private String patologia;
     private String medicacao;
     private String antecedentesFamiliares;
-    private double atividadeFisica;
+    private String atividadeFisica;
     private String funcaoIntestival;
     private String consumoAgua;
     private double colesterol;
@@ -17,7 +17,7 @@ public class Questionario extends Object {
     private double proteina;
 
 
-    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, double atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina) {
+    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina) {
         this.motivoConsulta = motivoConsulta;
         this.objectivo = objectivo;
         this.patologia = patologia;
@@ -73,11 +73,11 @@ public class Questionario extends Object {
         this.antecedentesFamiliares = antecedentesFamiliares;
     }
 
-    public double getAtividadeFisica() {
+    public String getAtividadeFisica() {
         return atividadeFisica;
     }
 
-    public void setAtividadeFisica(double atividadeFisica) {
+    public void setAtividadeFisica(String atividadeFisica) {
         this.atividadeFisica = atividadeFisica;
     }
 

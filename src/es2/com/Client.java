@@ -11,8 +11,8 @@ import java.util.List;
 public class Client {
 
     private static final String COMMA_DELIMITER = ";";
-    private String fichDadosFisicos = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/DadosFisicos.csv";
-    private String fichProdutos = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Tabela.csv";
+    private String fichDadosFisicos = "CSV/DadosFisicos.csv";
+    private String fichProdutos = "CSV/Produtos.csv";
     private String fichPlanoAtual = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarAtual.csv";
     private String fichPlanoPrescrito = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarPrescrito.csv";
     private String fichaQuestionarios = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Questionarios.csv";
@@ -22,7 +22,7 @@ public class Client {
     private static List<List<PlanoAlimentarPrescrito>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
-    public void LerDadosFisicos(String d){
+    public void LerDadosFisicos(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichDadosFisicos))) {
             String line;
@@ -37,7 +37,7 @@ public class Client {
         }
     }
 
-    public void LerDadosProdutos(String fichProdutos){
+    public void LerDadosProdutos(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichProdutos))) {
             String line;
@@ -63,7 +63,7 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentarAtual(String fichPlanoAtual){
+    public void LerPlanoAlimentarAtual(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
             String line;
@@ -77,7 +77,7 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentarPrescrito(String fichPlanoPrescrito){
+    public void LerPlanoAlimentarPrescrito(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPrescrito))) {
             String line;
@@ -91,9 +91,9 @@ public class Client {
         }
     }
 
-    public void LerQuestionario(String fichQuestionario){
+    public void LerQuestionario(){
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fichQuestionario))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fichaQuestionarios))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
@@ -110,12 +110,16 @@ public class Client {
     public static void main(String [] args)
     {
 
-        System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
+        Client client = new Client();
+        client.LerDadosFisicos();
+        client.LerDadosProdutos();
 
+        System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
+        /*
         for(int i=0;i<produtos.size();i++)
         {
             System.out.println(produtos.get(i));
-        }
+        }*/
 
     }
 }
