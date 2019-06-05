@@ -7,7 +7,7 @@ public class Questionario extends Object {
     private String patologia;
     private String medicacao;
     private String antecedentesFamiliares;
-    private double atividadeFisica;
+    private String atividadeFisica;
     private String funcaoIntestival;
     private String consumoAgua;
     private double colesterol;
@@ -15,9 +15,11 @@ public class Questionario extends Object {
     private double urina;
     private double creatina;
     private double proteina;
+    private String lesao;
+    private int termico;
 
 
-    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, double atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina) {
+    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico) {
         this.motivoConsulta = motivoConsulta;
         this.objectivo = objectivo;
         this.patologia = patologia;
@@ -31,6 +33,8 @@ public class Questionario extends Object {
         this.urina = urina;
         this.creatina = creatina;
         this.proteina = proteina;
+        this.lesao = lesao;
+        this.termico = termico;
     }
 
     public String getMotivoConsulta() {
@@ -73,11 +77,11 @@ public class Questionario extends Object {
         this.antecedentesFamiliares = antecedentesFamiliares;
     }
 
-    public double getAtividadeFisica() {
+    public String getAtividadeFisica() {
         return atividadeFisica;
     }
 
-    public void setAtividadeFisica(double atividadeFisica) {
+    public void setAtividadeFisica(String atividadeFisica) {
         this.atividadeFisica = atividadeFisica;
     }
 
@@ -135,5 +139,21 @@ public class Questionario extends Object {
 
     public void setProteina(double proteina) {
         this.proteina = proteina;
+    }
+
+    public String getLesao() {
+        return lesao;
+    }
+
+    public int getTermico() {
+        return termico;
+    }
+
+    public void setLesao(String lesao) {
+        this.lesao = lesao;
+    }
+
+    public void setTermico(int termico) {
+        this.termico = termico;
     }
 }
