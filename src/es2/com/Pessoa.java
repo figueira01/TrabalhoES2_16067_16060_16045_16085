@@ -63,10 +63,6 @@ public class Pessoa extends Object {
         {
             return metabolismoBasalFa = metabolismoBasal * 1.25;
         }
-        if(questionario.getAtividadeFisica().equals("Acamado + movel"))
-        {
-            return metabolismoBasalFa = metabolismoBasal * 1.25;
-        }
         if(questionario.getAtividadeFisica().equals("Deambulando"))
         {
             return metabolismoBasalFa = metabolismoBasal * 1.3;
@@ -74,10 +70,7 @@ public class Pessoa extends Object {
         return 0;
     }
 
-    public double getMetabolismoBasal()
-    {
-        return metabolismoBasal;
-    }
+
 
     public String getNome() {
         return nome;

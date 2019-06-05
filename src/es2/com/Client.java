@@ -15,7 +15,7 @@ public class Client {
     private String fichProdutos = "CSV/Produtos.csv";
     private String fichPlanoAtual = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarAtual.csv";
     private String fichPlanoPrescrito = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarPrescrito.csv";
-    private String fichaQuestionarios = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Questionarios.csv";
+    private String fichaQuestionarios = "CSV/Questionario.csv";
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
     private static List<List<PlanoAlimentarAtual>> planoAtual = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Client {
                 String[] values = line.split(COMMA_DELIMITER);
                 dadosFisicos.add(Arrays.asList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
                         Double.parseDouble(values[2]),Double.parseDouble(values[3]),values[4],values[5],Double.parseDouble(values[6]),
-                        Double.parseDouble(values[7]),Double.parseDouble(values[8]),Double.parseDouble(values[9]))));
+                        Double.parseDouble(values[7]),Double.parseDouble(values[8]))));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,9 +98,9 @@ public class Client {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
                 questionarios.add(Arrays.asList(new Questionario(values[0],values[1],
-                        values[2],values[3],values[4],Double.parseDouble(values[5]),values[6],values[7],Double.parseDouble(values[8])
+                        values[2],values[3],values[4],values[5],values[6],values[7],Double.parseDouble(values[8])
                         ,Double.parseDouble(values[9]),Double.parseDouble(values[10]),Double.parseDouble(values[11]),
-                        Double.parseDouble(values[12]))));
+                        Double.parseDouble(values[12]),values[13],Integer.parseInt(values[14]))));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,8 +113,10 @@ public class Client {
         Client client = new Client();
         client.LerDadosFisicos();
         client.LerDadosProdutos();
-
+        client.LerQuestionario();
         System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
+        System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
+
         /*
         for(int i=0;i<produtos.size();i++)
         {
