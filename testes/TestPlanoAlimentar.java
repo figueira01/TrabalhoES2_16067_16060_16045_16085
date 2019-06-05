@@ -1,10 +1,4 @@
-import es2.com.DadosFisicos;
-import es2.com.PlanoAlimentarAtual;
 import es2.com.Pessoa;
-import es2.com.Questionario;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 class TestPlanoAlimentar {
 
