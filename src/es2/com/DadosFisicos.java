@@ -8,7 +8,6 @@ public class DadosFisicos extends Object{
     private double gorduraVisceral;
     private String idadeMetabolica;
     private String osso;
-    private Pessoa p;
     private double imc;
     private double musculo;
     private double metabolismoBasal;
