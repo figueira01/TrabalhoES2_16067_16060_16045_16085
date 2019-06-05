@@ -22,7 +22,7 @@ public class Client {
     private static List<List<PlanoAlimentarPrescrito>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
-    public void LerDadosFisicos(){
+    /*public void LerDadosFisicos(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichDadosFisicos))) {
             String line;
@@ -35,7 +35,7 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void LerDadosProdutos(){
 
@@ -111,7 +111,7 @@ public class Client {
     {
 
         Client client = new Client();
-        client.LerDadosFisicos();
+        //client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
         System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
