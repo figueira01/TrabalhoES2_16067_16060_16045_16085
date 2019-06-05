@@ -12,7 +12,7 @@ class TestPlanoAlimentar {
     private Pessoa p;
 
 
-    @BeforeEach
+   /* @BeforeEach
     void setUp() {
         DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
         PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
@@ -69,5 +69,5 @@ class TestPlanoAlimentar {
     void testConstrutorQuestionario()
     {
         Questionario questionario = new Questionario("ter melhor habito alimentar","ganho muscular","nenhuma","nenhuma","Cancer","Muito ativa","Normal","1,5L to 2L","11%","aa","amarelo","5","171g");
-    }
+    }*/
 }
