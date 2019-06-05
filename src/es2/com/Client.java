@@ -18,8 +18,7 @@ public class Client {
     private String fichaQuestionarios = "CSV/Questionario.csv";
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
-    private static List<List<PlanoAlimentarAtual>> planoAtual = new ArrayList<>();
-    private static List<List<PlanoAlimentarPrescrito>> planoPrescrito = new ArrayList<>();
+    private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
     /*public void LerDadosFisicos(){
@@ -63,13 +62,13 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentarAtual(){
+    /*public void LerPlanoAlimentarAtual(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                planoAtual.add(Arrays.asList(new PlanoAlimentarAtual(values[0],values[1],
+                planoAtual.add(Arrays.asList(new PlanoAlimentar(values[0],values[1],
                         values[2],Double.parseDouble(values[3]))));
             }
         } catch (IOException e) {
@@ -89,7 +88,7 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void LerQuestionario(){
 
@@ -116,7 +115,7 @@ public class Client {
         client.LerQuestionario();
         System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
         System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
-        
+
 
         /*
         for(int i=0;i<produtos.size();i++)
