@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestDadosFisicos
 {
-    private DadosFisicos  dadosFisicos;
+    private DadosFisicos dadosFisicos;
 
 
     @BeforeEach
     void setUp()
     {
-        DadosFisicos dadosFisicos = new DadosFisicos(70,178,5,30,23,3,
+        dadosFisicos = new DadosFisicos(70,178,5,30,23,3,
                 22,60,6500,65);
     }
 
@@ -33,7 +33,6 @@ public class TestDadosFisicos
     @Test
     void testepeso()
     {
-        System.out.println("aqui!!");
         assertTrue( dadosFisicos.getPeso() >= 1 &&  dadosFisicos.getPeso() <= 300);
     }
 }

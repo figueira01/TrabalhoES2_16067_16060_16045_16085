@@ -22,20 +22,20 @@ public class Client {
     private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
-    /*public void LerDadosFisicos(){
+    public void LerDadosFisicos(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichDadosFisicos))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
                 dadosFisicos.add(Arrays.asList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
-                        Double.parseDouble(values[2]),Double.parseDouble(values[3]),values[4],values[5],Double.parseDouble(values[6]),
-                        Double.parseDouble(values[7]),Double.parseDouble(values[8]))));
+                        Double.parseDouble(values[2]),Double.parseDouble(values[3]),Double.parseDouble(values[4]),Double.parseDouble(values[5]),Double.parseDouble(values[6]),
+                        Double.parseDouble(values[7]),Double.parseDouble(values[8]),Double.parseDouble(values[9]))));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     public void LerDadosProdutos(){
 
@@ -111,12 +111,12 @@ public class Client {
     {
 
         Client client = new Client();
-        //client.LerDadosFisicos();
+        client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
         Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
-        System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
-        System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
+        //System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
+        //System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
 
 
         /*
