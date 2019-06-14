@@ -34,15 +34,16 @@ public class Pessoa extends Object {
         return questionario;
     }
 
-    public double CalcularTMB()
-    {
+    public double CalcularTMB() throws Exception {
         if(sexo.equals("Femenino"))
         {
           return metabolismoBasal = (66.5 + (13.8 * dadosFisicos.getPeso()) + (5 * dadosFisicos.getAltura()) - (6.8 * idade));
         }
-        else {
+        if(sexo.equals("Masculino"))
+        {
            return metabolismoBasal = (655.1 + (9.5 * dadosFisicos.getPeso()) + (1.8 * dadosFisicos.getAltura()) - (4.7 * idade));
         }
+        throw new Exception();
     }
 
     public double CalcularTMBComFa()

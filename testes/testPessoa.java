@@ -14,15 +14,19 @@ public class testPessoa {
     private DadosFisicos dadosFisicos;
     private PlanoAlimentar planoAlimentar;
     private Questionario questionario;
-    private Pessoa pessoa;
+    private Pessoa pessoaMasculina;
+    private Pessoa pessoaFemenina;
+    private Pessoa pessoaNoGenre;
     private double TMB = 0;
 
     @BeforeEach
     void setUp()
     {
+        //questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario");
         dadosFisicos = new DadosFisicos(70,178,5,30,23,3, 22,60,6500,65);
-        pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
-
+        pessoaMasculina = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        pessoaFemenina = new Pessoa("Bruno miguel",21,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        pessoaNoGenre = new Pessoa("Bruno miguel",21,"","Estudante",dadosFisicos,planoAlimentar,questionario);
     }
 
     @AfterEach
@@ -40,56 +44,71 @@ public class testPessoa {
     @Test
     void testStringNome()
     {
-        assertEquals("Bruno miguel",pessoa.getNome(),"Errado");
+        assertEquals("Bruno miguel",pessoaMasculina.getNome(),"Errado");
     }
 
     @Test
     void testIdadeBetween0To90()
     {
-        assertTrue(pessoa.getIdade() >= 0 && pessoa.getIdade() <= 90);
+        assertTrue(pessoaMasculina.getIdade() >= 0 && pessoaMasculina.getIdade() <= 90);
     }
 
     @Test
     void testIdadeBeLow0OrHigh90()
     {
-        assertFalse(pessoa.getIdade() < 0 || pessoa.getIdade() > 90);
+        assertFalse(pessoaMasculina.getIdade() < 0 || pessoaMasculina.getIdade() > 90);
     }
 
     @Test
     void testStringSexo()
     {
-        assertEquals("Masculino",pessoa.getSexo(),"Errado");
+        assertEquals("Masculino",pessoaMasculina.getSexo(),"Errado");
     }
 
     @Test
     void testStringProfissao()
     {
-        assertEquals("Estudante",pessoa.getProfissao(),"Errado");
+        assertEquals("Estudante",pessoaMasculina.getProfissao(),"Errado");
     }
 
     @Test
     void testObjectDadosFisicos()
     {
-        assertSame(dadosFisicos,pessoa.getDadosFisicos());
+        assertSame(dadosFisicos,pessoaMasculina.getDadosFisicos());
     }
 
     @Test
     void testObjectPlanoAlimentar()
     {
-        assertSame(planoAlimentar,pessoa.getHabitosAlimentares());
+        assertSame(planoAlimentar,pessoaMasculina.getHabitosAlimentares());
     }
 
     @Test
     void testObjectQuestionario()
     {
-        assertSame(questionario,pessoa.getQuestionario());
+        assertSame(questionario,pessoaMasculina.getQuestionario());
     }
 
     @Test
-    void testCalculoTMB()
-    {
-       TMB = pessoa.CalcularTMB();
+    void testCalculoTMBMen() throws Exception {
+       TMB = pessoaMasculina.CalcularTMB();
        assertTrue(TMB >= 1541.6 && TMB <= 1542);
+    }
+    @Test
+    void testCalculoTMBWomen() throws Exception {
+        TMB = pessoaFemenina.CalcularTMB();
+        assertTrue(TMB >= 1779.7 && TMB <= 1780);
+    }
+
+    @Test
+    void testCalculoTMBThrow() throws Exception {
+        assertThrows(Exception.class,() -> {pessoaNoGenre.CalcularTMB();});
+    }
+
+    @Test
+    void testCalculoTMBWithFA()
+    {
+
     }
 
 }
