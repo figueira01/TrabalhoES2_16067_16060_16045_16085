@@ -349,4 +349,98 @@ public class testPessoa {
         assertEquals(5612.151999999999,TMBGET);
     }
 
+    @Test
+    void testCalculoSchofieldEquationBeLow0()
+    {
+        pessoaMasculina = new Pessoa("Bruno miguel",-1,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertThrows(Exception.class,() -> {pessoaMasculina.CalcularSchofieldEquation();});
+    }
+
+    @Test
+    void testCalculoSchofieldEquationNoGenro()
+    {
+        assertThrows(Exception.class,() -> {pessoaNoGenre.CalcularSchofieldEquation();});
+    }
+
+    @Test
+    void testCalculoSchofieldEquationUnder3AndMen() throws Exception {
+        pessoaMasculina = new Pessoa("Bruno miguel",1,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(4135.4400000000005,pessoaMasculina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationUnder3AndWomen() throws Exception {
+        pessoaFemenina = new Pessoa("Bruno miguel",2,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(4051.09,pessoaFemenina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween3And10AndMen() throws Exception
+    {
+        pessoaMasculina = new Pessoa("Bruno miguel",4,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(2093.7200000000003,pessoaMasculina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween3And10AndWomen() throws Exception
+    {
+        pessoaFemenina = new Pessoa("Bruno miguel",4,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1907.9500000000003,pessoaFemenina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween10And18AndWomen() throws Exception
+    {
+        pessoaFemenina = new Pessoa("Bruno miguel",12,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1629.48,pessoaFemenina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween10And18AndMen() throws Exception
+    {
+        pessoaMasculina = new Pessoa("Bruno miguel",12,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1896.22,pessoaMasculina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween18And30AndMen() throws Exception
+    {
+        pessoaMasculina = new Pessoa("Bruno miguel",23,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1746.19,pessoaMasculina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween18And30AndWomen() throws Exception
+    {
+        pessoaFemenina = new Pessoa("Bruno miguel",23,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1523.8600000000001,pessoaFemenina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween30And60AndMen() throws Exception
+    {
+        pessoaMasculina = new Pessoa("Bruno miguel",45,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1676.1399999999999,pessoaMasculina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationBetween30And60AndWomen() throws Exception
+    {
+        pessoaFemenina = new Pessoa("Bruno miguel",34,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1414.42,pessoaFemenina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationUp60AndMen() throws Exception
+    {
+        pessoaMasculina = new Pessoa("Bruno miguel",81,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1407.47,pessoaMasculina.CalcularSchofieldEquation());
+    }
+
+    @Test
+    void testCalculoSchofieldEquationUp60Women() throws Exception
+    {
+        pessoaFemenina = new Pessoa("Bruno miguel",71,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        assertEquals(1294.24,pessoaFemenina.CalcularSchofieldEquation());
+    }
 }

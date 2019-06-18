@@ -13,6 +13,7 @@ public class Pessoa extends Object {
     private double metabolismoBasalFa = 0;
     private double metabolismoBasalFT = 0;
     private double metabolismoBasalGET = 0;
+    private double BMR = 0;
 
     public Pessoa(String nome, int idade, String sexo, String profissao, DadosFisicos dadosFisicos, PlanoAlimentar planoAtual, Questionario questionario) {
         this.nome = nome;
@@ -123,6 +124,82 @@ public class Pessoa extends Object {
         }
         if(questionario.getLesao().equals("Queimadura 70 a 90")){
             return metabolismoBasalGET = metabolismoBasalFT * 2;
+        }
+        throw new Exception();
+    }
+
+    public double CalcularSchofieldEquation() throws Exception {
+        if(idade >= 0 && idade < 3)
+        {
+            if(sexo.equals("Masculino"))
+            {
+                return BMR = 59.512 * dadosFisicos.getPeso() - 30.4;
+            }
+            if(sexo.equals("Femenino"))
+            {
+                return BMR =  58.317 * dadosFisicos.getPeso() - 31.1;
+            }
+            throw new Exception();
+        }
+        if(idade >= 3 && idade < 10)
+        {
+            if(sexo.equals("Masculino"))
+            {
+                return BMR = 22.706 * dadosFisicos.getPeso() + 504.3;
+            }
+            if(sexo.equals("Femenino"))
+            {
+                return BMR =  20.315 * dadosFisicos.getPeso() +  485.9;
+            }
+            throw new Exception();
+        }
+        if(idade >= 10 && idade < 18)
+        {
+            if(sexo.equals("Masculino"))
+            {
+                return BMR = 17.686 * dadosFisicos.getPeso() +  658.2;
+            }
+            if(sexo.equals("Femenino"))
+            {
+                return BMR = 13.384 * dadosFisicos.getPeso() + 692.6;
+            }
+            throw new Exception();
+        }
+        if(idade >= 18 && idade < 30)
+        {
+            if(sexo.equals("Masculino"))
+            {
+                return BMR = 15.057 * dadosFisicos.getPeso() + 692.2;
+            }
+            if(sexo.equals("Femenino"))
+            {
+                return BMR =  14.818 * dadosFisicos.getPeso() + 486.6;
+            }
+            throw new Exception();
+        }
+        if(idade >= 30 && idade <= 60)
+        {
+            if(sexo.equals("Masculino"))
+            {
+                return BMR = 11.472 * dadosFisicos.getPeso() + 873.1;
+            }
+            if(sexo.equals("Femenino"))
+            {
+                return BMR =  8.126 * dadosFisicos.getPeso() + 845.6;
+            }
+            throw new Exception();
+        }
+        if(idade > 60)
+        {
+            if(sexo.equals("Masculino"))
+            {
+                return BMR = 11.711 * dadosFisicos.getPeso() + 587.7;
+            }
+            if(sexo.equals("Femenino"))
+            {
+                return BMR =  9.082 * dadosFisicos.getPeso() + 658.5;
+            }
+            throw new Exception();
         }
         throw new Exception();
     }
