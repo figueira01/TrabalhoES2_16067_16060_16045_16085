@@ -9,8 +9,10 @@ public class Pessoa extends Object {
     private DadosFisicos dadosFisicos;
     private PlanoAlimentar habitosAlimentares;
     private Questionario questionario;
-    private double metabolismoBasal;
-    private double metabolismoBasalFa;
+    private double metabolismoBasal = 0;
+    private double metabolismoBasalFa = 0;
+    private double metabolismoBasalFT = 0;
+    private double metabolismoBasalGET = 0;
 
     public Pessoa(String nome, int idade, String sexo, String profissao, DadosFisicos dadosFisicos, PlanoAlimentar planoAtual, Questionario questionario) {
         this.nome = nome;
@@ -46,8 +48,7 @@ public class Pessoa extends Object {
         throw new Exception();
     }
 
-    public double CalcularTMBComFa()
-    {
+    public double CalcularTMBComFa() throws Exception {
         if(questionario.getAtividadeFisica().equals("Sedentario"))
         {
             return metabolismoBasalFa = metabolismoBasal * 1.52;
@@ -72,9 +73,59 @@ public class Pessoa extends Object {
         {
             return metabolismoBasalFa = metabolismoBasal * 1.3;
         }
-        return 0;
+        throw new Exception();
     }
 
+    public double CalcularTMBComFT() throws Exception {
+
+        if(questionario.getTermico() == 38){
+            return metabolismoBasalFT = metabolismoBasalFa * 1.1;
+        }
+        if(questionario.getTermico() == 39){
+            return metabolismoBasalFT = metabolismoBasalFa * 1.2;
+        }
+        if(questionario.getTermico() == 40){
+            return metabolismoBasalFT = metabolismoBasalFa * 1.3;
+        }
+        if(questionario.getTermico() == 41){
+            return metabolismoBasalFT = metabolismoBasalFa * 1.4;
+        }
+        throw new Exception();
+    }
+
+    public double CalcularGET() throws Exception {
+        if(questionario.getLesao().equals("Paciente não complicado")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1;
+        }
+        if(questionario.getLesao().equals("Pós operatório oncológico")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.1;
+        }
+        if(questionario.getLesao().equals("Fratura ossos longos")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.2;
+        }
+        if(questionario.getLesao().equals("Sepse moderada")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.3;
+        }
+        if(questionario.getLesao().equals("Peritonite")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.4;
+        }
+        if(questionario.getLesao().equals("Politrauma em reabilitação")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.5;
+        }
+        if(questionario.getLesao().equals("Politrauma + Sepse")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.6;
+        }
+        if(questionario.getLesao().equals("Queimadura 30 a 50")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.7;
+        }
+        if(questionario.getLesao().equals("Queimadura 50 a 70")){
+            return metabolismoBasalGET = metabolismoBasalFT * 1.8;
+        }
+        if(questionario.getLesao().equals("Queimadura 70 a 90")){
+            return metabolismoBasalGET = metabolismoBasalFT * 2;
+        }
+        throw new Exception();
+    }
 
 
     public String getNome() {
