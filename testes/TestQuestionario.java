@@ -1,4 +1,3 @@
-import es2.com.PlanoAlimentar;
 import es2.com.Questionario;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,9 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestQuestionario {
-    //BlackBox Partições
 
     private Questionario questionario;
+
     @BeforeEach
     void setUp(){
         questionario = new Questionario("","","","","","","","",1,1,1, 1,1,"", 1);

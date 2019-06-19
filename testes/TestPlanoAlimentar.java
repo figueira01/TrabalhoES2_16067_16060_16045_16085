@@ -1,22 +1,23 @@
-import es2.com.Pessoa;
+import es2.com.PlanoAlimentar;
+import es2.com.Refeicao;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestPlanoAlimentar {
 
-    private String time;
-    private Pessoa p;
+    private HashMap<String,Double> hashrefeicao;
+    private PlanoAlimentar planoAlimentar;
 
-
-    /*@BeforeEach
-    void setUp() {
-        DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
-        PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
-        Questionario questionario = new Questionario("Rotina","Perder peso","nenhuma","nenhuma","Alzheimer","Ativo","Normal","Mais de 2.0 L","10","10","10","10","10");
-        HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
-        HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
-        HA.addRefeicao("Almoço","Arroz com carne", "13:00");
-        HA.addRefeicao("Meio tarde","Sandes mista", "16:30");
-        HA.addRefeicao("Jantar","Peixe grelhado com vegetais", "19:30");
-        p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao",DF,HA,questionario);
+    @BeforeEach
+    void setUp(){
+        hashrefeicao = new HashMap<>();
+        planoAlimentar = new PlanoAlimentar();
     }
 
     @AfterEach
@@ -24,44 +25,9 @@ class TestPlanoAlimentar {
     }
 
     @Test
-    void testConstrutorPessoa()
+    void testaddRefeicao()
     {
-        DadosFisicos DF = new DadosFisicos(65,175,15, 14,"20", "20", 22.53,60,1744,2.0);
-        PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
-        Questionario questionario = new Questionario("Rotina","Perder peso","nenhuma","nenhuma","Alzheimer","Ativo","Normal","Mais de 2.0 L","10","10","10","10","10");
-        HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
-        HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
-        HA.addRefeicao("Almoço","Arroz com carne", "13:00");
-        HA.addRefeicao("Meio tarde","Sandes mista", "16:30");
-        HA.addRefeicao("Jantar","Peixe grelhado com vegetais", "19:30");
-        p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao",DF,HA,questionario);
-        Pessoa p = new Pessoa("Bruno Miguel",20,"Masculino","Mestre da Programacao" , DF,HA,questionario);
+        planoAlimentar.addRefeicao("Pequeno-almoco", LocalDate.now(),hashrefeicao);
+        //assertEquals(planoAlimentar.addRefeicao("Pequeno-almoco", LocalDate.now(),hashrefeicao),planoAlimentar.getRefeicao("Pequeno-almoco"));
     }
-
-    @Test
-    void testContrutorDadosFisicos()
-    {
-        DadosFisicos dF = new DadosFisicos(65,1.56,11,12,"hdfhd","osso",11,11,111,11);
-    }
-
-    @Test
-    void testConstrutorHabitosAlimentares()
-    {
-        PlanoAlimentarAtual habitosAlimentares = new PlanoAlimentarAtual();
-    }
-
-    @Test
-    void tesHabitosALimentaresAddRefeicao(){
-        PlanoAlimentarAtual HA = new PlanoAlimentarAtual();
-        HA.addRefeicao("Pequeno-almoço","Bacon e ovos", "08:30");
-        HA.addRefeicao("Meio-manhã","Sandes mista", "10:30");
-        HA.addRefeicao("Almoço","Arroz com carne", "13:00");
-        HA.addRefeicao("Meio tarde","Sandes mista", "16:30");
-        HA.addRefeicao("Jantar","Peixe grelhado com vegetais", "19:30");
-    }
-    @Test
-    void testConstrutorQuestionario()
-    {
-        Questionario questionario = new Questionario("ter melhor habito alimentar","ganho muscular","nenhuma","nenhuma","Cancer","Muito ativa","Normal","1,5L to 2L","11%","aa","amarelo","5","171g");
-    }*/
 }

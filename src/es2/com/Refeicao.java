@@ -1,20 +1,21 @@
 package es2.com;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Refeicao {
 
-    private String hora;
+    private LocalDate hora;
     private HashMap<String,Double>comida;
 
-    public Refeicao( String hora, HashMap<String,Double> comida) {
+    public Refeicao(LocalDate hora, HashMap<String,Double> comida) {
 
         this.hora = hora;
         this.comida = comida;
     }
 
 
-    public String getHora() {
+    public LocalDate getHora() {
         return hora;
     }
 
