@@ -1,7 +1,7 @@
 import es2.com.PlanoAlimentar;
 import es2.com.Questionario;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,105 +27,119 @@ public class TestQuestionario {
     @Test
     void TestMotivoConsulta() {
         questionario.setMotivoConsulta("Perder peso");
-        Assertions.assertEquals("Perder peso",questionario.getMotivoConsulta());
+        assertEquals("Perder peso",questionario.getMotivoConsulta());
     }
 
     @Test
     void TestObjectivo() {
         questionario.setObjectivo("Perder peso");
-        Assertions.assertEquals("Perder peso",questionario.getObjectivo());
+        assertEquals("Perder peso",questionario.getObjectivo());
     }
 
     @Test
     void TestPatologia() {
         questionario.setPatologia("Autismo");
-        Assertions.assertEquals("Autismo",questionario.getPatologia());
+        assertEquals("Autismo",questionario.getPatologia());
     }
 
     @Test
     void TestMedicacao() {
         questionario.setMedicacao("Brufen");
-        Assertions.assertEquals("Brufen",questionario.getMedicacao());
+        assertEquals("Brufen",questionario.getMedicacao());
     }
 
     @Test
     void TestAntecedentesFamiliares() {
         questionario.setAntecedentesFamiliares("Alzheimer");
-        Assertions.assertEquals("Alzheimer",questionario.getAntecedentesFamiliares());
+        assertEquals("Alzheimer",questionario.getAntecedentesFamiliares());
     }
 
     @Test
     void TestAtividadeFisica() {
         questionario.setAtividadeFisica("Moderado");
-        Assertions.assertEquals("Moderado",questionario.getAtividadeFisica());
+        assertEquals("Moderado",questionario.getAtividadeFisica());
     }
 
     @Test
     void TestFuncaoIntestival() {
         questionario.setFuncaoIntestival("Normal");
-        Assertions.assertEquals("Normal",questionario.getFuncaoIntestival());
+        assertEquals("Normal",questionario.getFuncaoIntestival());
     }
 
     @Test
     void TestConsumoAgua() {
         questionario.setConsumoAgua("1.5 a 2.0 L");
-        Assertions.assertEquals("1.5 a 2.0 L",questionario.getConsumoAgua());
+        assertEquals("1.5 a 2.0 L",questionario.getConsumoAgua());
     }
 
     @Test
     void TestLesao() {
         questionario.setLesao("Queimadura");
-        Assertions.assertEquals("Queimadura",questionario.getLesao());
+        assertEquals("Queimadura",questionario.getLesao());
     }
 
     @Test
     void TestTermico() {
         questionario.setTermico(11);
-        Assertions.assertEquals(11,questionario.getTermico());
+        assertEquals(11,questionario.getTermico());
     }
 
     @Test
-    void TestTermicoBelowZeroOrHigherTwenty() {
+    void TestTermicoBelowZero() {
+        questionario.setTermico(-1);
+        assertFalse(questionario.getTermico() > 0);
+    }
+
+    @Test
+    void TestTermicoUpTwenty() {
         questionario.setTermico(21);
-        Assertions.assertTrue(questionario.getTermico() < 0 || questionario.getTermico() > 20);
+        assertFalse(questionario.getTermico() < 20);
     }
 
     @Test
-    void TestTermicoBetweenZeroAndTwenty() {
-        questionario.setTermico(11);
-        Assertions.assertTrue(questionario.getTermico() > 0 && questionario.getTermico() < 20);
+    void TestColesterolUp240() {
+        //
+        questionario.setColesterol(0.241);
+        assertFalse(questionario.getColesterol() < 0.24);
     }
 
+    @Test
+    void TestColesterolBeLow150() {
+        //
+        questionario.setColesterol(0.149);
+        assertFalse(questionario.getColesterol() > 0.150);
+    }
 
     @Test
-    void TestColesterol() {
-        questionario.setColesterol(11);
-        Assertions.assertEquals(11,questionario.getColesterol());
+    void TestColesterolBetween150To240() {
+        //
+        questionario.setColesterol(0.20);
+        assertTrue(questionario.getColesterol() > 0.15 && questionario.getColesterol() < 0.24);
     }
 
     @Test
     void TestGlicemia() {
         questionario.setGlicemia(11);
-        Assertions.assertEquals(11,questionario.getGlicemia());
+        assertEquals(11,questionario.getGlicemia());
     }
 
     @Test
     void TestUrina() {
 
         questionario.setUrina(11);
-        Assertions.assertEquals(11,questionario.getUrina());
+        assertEquals(11,questionario.getUrina());
     }
 
     @Test
     void TestCreatina() {
         questionario.setCreatina(11);
-        Assertions.assertEquals(11,questionario.getCreatina());
+        assertEquals(11,questionario.getCreatina());
     }
 
     @Test
     void TestProteina() {
         questionario.setProteina(11);
-        Assertions.assertEquals(11,questionario.getProteina());
+        assertEquals(11,questionario.getProteina());
     }
 
 }
