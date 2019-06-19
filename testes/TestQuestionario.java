@@ -118,9 +118,21 @@ public class TestQuestionario {
     }
 
     @Test
-    void TestGlicemia() {
-        questionario.setGlicemia(11);
-        assertEquals(11,questionario.getGlicemia());
+    void TestGlicemiaBeLow70() {
+        questionario.setGlicemia(0.07);
+        assertFalse(questionario.getGlicemia() > 0.07);
+    }
+
+    @Test
+    void TestGlicemiaBetween70To200() {
+        questionario.setGlicemia(0.10);
+        assertTrue(questionario.getGlicemia() > 0.07 && questionario.getGlicemia() < 0.2);
+    }
+
+    @Test
+    void TestGlicemiaAbove200() {
+        questionario.setGlicemia(0.21);
+        assertFalse( questionario.getGlicemia() < 0.2);
     }
 
     @Test
@@ -131,9 +143,21 @@ public class TestQuestionario {
     }
 
     @Test
+    void TestCreatinaBeLow70() {
+        questionario.setCreatina(0.6);
+        assertFalse(questionario.getCreatina() > 0.7);
+    }
+
+    @Test
+    void TestCreatinaAbove130() {
+        questionario.setCreatina(1.4);
+        assertFalse(questionario.getCreatina() < 1.3);
+    }
+
+    @Test
     void TestCreatina() {
-        questionario.setCreatina(11);
-        assertEquals(11,questionario.getCreatina());
+        questionario.setCreatina(0.8);
+        assertTrue(questionario.getCreatina() > 0.7 && questionario.getCreatina() < 1.3);
     }
 
     @Test
