@@ -13,11 +13,13 @@ class TestPlanoAlimentar {
 
     private HashMap<String,Double> hashrefeicao;
     private PlanoAlimentar planoAlimentar;
+    HashMap<String, Refeicao> Plano;
 
     @BeforeEach
     void setUp(){
         hashrefeicao = new HashMap<>();
         planoAlimentar = new PlanoAlimentar();
+        Plano = new HashMap<>();
     }
 
     @AfterEach
@@ -28,6 +30,5 @@ class TestPlanoAlimentar {
     void testaddRefeicao()
     {
         planoAlimentar.addRefeicao("Pequeno-almoco", LocalDate.now(),hashrefeicao);
-        //assertEquals(planoAlimentar.addRefeicao("Pequeno-almoco", LocalDate.now(),hashrefeicao),planoAlimentar.getRefeicao("Pequeno-almoco"));
     }
 }

@@ -14,7 +14,6 @@ public class Refeicao {
         this.comida = comida;
     }
 
-
     public LocalDate getHora() {
         return hora;
     }
