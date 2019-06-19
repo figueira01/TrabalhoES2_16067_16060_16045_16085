@@ -8,14 +8,12 @@ public class DadosFisicos extends Object{
     private double gorduraVisceral;
     private double idadeMetabolica;
     private double osso;
-    private Pessoa p;
     private double imc;
     private double musculo;
-    private double metabolismoBasal;
     private double h20;
 
 
-    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double metabolismoBasal, double h20) {
+    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double h20) {
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
@@ -24,7 +22,6 @@ public class DadosFisicos extends Object{
         this.osso = osso;
         this.imc = imc;
         this.musculo = musculo;
-        this.metabolismoBasal = metabolismoBasal;
         this.h20 = h20;
     }
 
@@ -90,14 +87,6 @@ public class DadosFisicos extends Object{
 
     public void setMusculo(double musculo) {
         this.musculo = musculo;
-    }
-
-    public double getMetabolismoBasal() {
-        return metabolismoBasal;
-    }
-
-    public void setMetabolismoBasal(double metabolismoBasal) {
-        this.metabolismoBasal = metabolismoBasal;
     }
 
     public double getH20() {

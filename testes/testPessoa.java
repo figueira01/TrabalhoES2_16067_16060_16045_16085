@@ -26,7 +26,7 @@ public class testPessoa {
     void setUp()
     {
         questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
-        dadosFisicos = new DadosFisicos(70,178,5,30,23,3, 22,60,6500,65);
+        dadosFisicos = new DadosFisicos(70,178,5,30,23,3, 22,60,65);
         pessoaMasculina = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
         pessoaFemenina = new Pessoa("Bruno miguel",21,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
         pessoaNoGenre = new Pessoa("Bruno miguel",21,"","Estudante",dadosFisicos,planoAlimentar,questionario);
