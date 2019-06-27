@@ -3,24 +3,24 @@ package es2.com;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Client {
 
     private static final String COMMA_DELIMITER = ";";
-    private String fichDadosFisicos = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/DadosFisicos.csv";
-    private String fichProdutos = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Tabela.csv";
+    private String fichDadosFisicos = "CSV/DadosFisicos.csv";
+    private String fichProdutos = "CSV/Produtos.csv";
     private String fichPlanoAtual = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarAtual.csv";
     private String fichPlanoPrescrito = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarPrescrito.csv";
-    private String fichQuestionario = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/Questionarios.csv";
+    private String fichaQuestionarios = "CSV/Questionario.csv";
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
-    private static List<List<PlanoAlimentarAtual>> planoAtual = new ArrayList<>();
-    private static List<List<PlanoAlimentarPrescrito>> planoPrescrito = new ArrayList<>();
+    private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
+    private static List<List<PlanoAlimentar>> planoPrescrito= new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
     public void LerDadosFisicos(){
@@ -31,7 +31,7 @@ public class Client {
                 String[] values = line.split(COMMA_DELIMITER);
                 dadosFisicos.add(Arrays.asList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
                         Double.parseDouble(values[2]),Double.parseDouble(values[3]),values[4],values[5],Double.parseDouble(values[6]),
-                        Double.parseDouble(values[7]),Double.parseDouble(values[8]),Double.parseDouble(values[9]))));
+                        Double.parseDouble(values[7]),Double.parseDouble(values[8]))));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,17 +68,24 @@ public class Client {
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
             String line;
+            PlanoAlimentar pa = new PlanoAlimentar();
+            HashMap<String, Double> plano = new HashMap<>();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                planoAtual.add(Arrays.asList(new PlanoAlimentarAtual(values[0],values[1],
-                        values[2],Double.parseDouble(values[3]))));
+                System.out.println(values[0]);
+                plano.put(values[2],Double.parseDouble(values[3]));
+                System.out.println("plano =" + plano.get("Almoco"));
+               // plano.put(values[4],Double.parseDouble(values[5]));
+                pa.addRefeicao(values[0],values[1],plano);
+                System.out.println("pa =" + pa.getRefeicao("Almoco"));
+                planoAtual.add(Arrays.asList(pa));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void LerPlanoAlimentarPrescrito(){
+   /* public void LerPlanoAlimentarPrescrito(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPrescrito))) {
             String line;
@@ -90,19 +97,18 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void LerQuestionario(){
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fichQuestionario))) {
-
+        try (BufferedReader br = new BufferedReader(new FileReader(fichaQuestionarios))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
                 questionarios.add(Arrays.asList(new Questionario(values[0],values[1],
-                        values[2],values[3],values[4],Double.parseDouble(values[5]),values[6],values[7],Double.parseDouble(values[8])
+                        values[2],values[3],values[4],values[5],values[6],values[7],Double.parseDouble(values[8])
                         ,Double.parseDouble(values[9]),Double.parseDouble(values[10]),Double.parseDouble(values[11]),
-                        Double.parseDouble(values[12]))));
+                        Double.parseDouble(values[12]),values[13],Integer.parseInt(values[14]))));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,24 +118,30 @@ public class Client {
     public static void main(String [] args)
     {
 
-        Client c = new Client();
-        c.LerDadosFisicos();
-        c.LerDadosProdutos();
-        c.LerPlanoAlimentarAtual();
-
+        Client client = new Client();
+        client.LerDadosFisicos();
+        client.LerDadosProdutos();
+        client.LerQuestionario();
+        client.LerPlanoAlimentarAtual();
         for(int i=0;i<planoAtual.size();i++)
         {
-            System.out.println(planoAtual.get(i).get(0).getRefeicao() + "  " +
-            planoAtual.get(i).get(0).getComida() + " " + planoAtual.get(i).get(0).getQuantidade());
-        }
-        /*for(int i=0;i<produtos.size();i++)
-        {
-            System.out.println(produtos.get(i).get(0).getNome());
+            System.out.println("Pequeno Almoço = " + planoAtual.get(i).get(0).getRefeicao("Pequeno Almoco").getComida());
+            System.out.println("Meio da Manha 1 = " + planoAtual.get(i).get(0).getRefeicao("Meio da Manha 1").getComida());
+            System.out.println("Meio da Manha 2 = " + planoAtual.get(i).get(0).getRefeicao("Meio da Manha 2").getComida());
+            System.out.println("Almoco = " + planoAtual.get(i).get(0).getRefeicao("Almoco").getComida());
         }
 
-        for(int i=0;i<dadosFisicos.size();i++)
+
+
+        //System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
+
+
+
+
+        /*
+        for(int i=0;i<produtos.size();i++)
         {
-            System.out.println(dadosFisicos.get(i).get(0).getAltura());
+            System.out.println(produtos.get(i));
         }*/
 
     }

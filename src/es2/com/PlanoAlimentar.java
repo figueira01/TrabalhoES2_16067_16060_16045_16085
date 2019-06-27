@@ -4,7 +4,11 @@ import java.util.HashMap;
 
 public class PlanoAlimentar extends Object {
 
-   HashMap<String, Refeicao> Plano = new HashMap<>();
+   private HashMap<String, Refeicao> Plano = new HashMap<>();
+
+    public PlanoAlimentar() {
+
+    }
 
     public void addRefeicao (String refeicao, String hora, HashMap<String, Double> comida) {
         Plano.put(refeicao , new Refeicao(hora,comida));
