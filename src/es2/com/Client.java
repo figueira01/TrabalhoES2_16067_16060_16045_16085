@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class Client {
@@ -20,7 +19,7 @@ public class Client {
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
     private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
-    private static List<List<PlanoAlimentar>> planoPrescrito= new ArrayList<>();
+    private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
     public void LerDadosFisicos(){
@@ -30,7 +29,7 @@ public class Client {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
                 dadosFisicos.add(Arrays.asList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
-                        Double.parseDouble(values[2]),Double.parseDouble(values[3]),values[4],values[5],Double.parseDouble(values[6]),
+                        Double.parseDouble(values[2]),Double.parseDouble(values[3]),Double.parseDouble(values[4]),Double.parseDouble(values[5]),Double.parseDouble(values[6]),
                         Double.parseDouble(values[7]),Double.parseDouble(values[8]))));
             }
         } catch (IOException e) {
@@ -64,40 +63,33 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentarAtual(){
+    /*public void LerPlanoAlimentarPrescrito(){
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
-            String line;
-            PlanoAlimentar pa = new PlanoAlimentar();
-            HashMap<String, Double> plano = new HashMap<>();
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(COMMA_DELIMITER);
-                System.out.println(values[0]);
-                plano.put(values[2],Double.parseDouble(values[3]));
-                System.out.println("plano =" + plano.get("Almoco"));
-               // plano.put(values[4],Double.parseDouble(values[5]));
-                pa.addRefeicao(values[0],values[1],plano);
-                System.out.println("pa =" + pa.getRefeicao("Almoco"));
-                planoAtual.add(Arrays.asList(pa));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-   /* public void LerPlanoAlimentarPrescrito(){
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPrescrito))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPescrito))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                planoPrescrito.add(Arrays.asList(new PlanoAlimentarPrescrito(values[0],values[1],
+                planoPescrito.add(Arrays.asList(new PlanoAlimentar(values[0],values[1],
                         values[2],Double.parseDouble(values[3]))));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
+*/
+    public void LerPlanoAlimentarAtual(){
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                planoAtual.add(Arrays.asList(new PlanoAlimentar(values[0],values[1],
+                        values[2],Double.parseDouble(values[3]))));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void LerQuestionario(){
 
@@ -123,26 +115,32 @@ public class Client {
         client.LerDadosProdutos();
         client.LerQuestionario();
         client.LerPlanoAlimentarAtual();
+
+
+
+        //Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
+        //System.out.println(pessoa.CalcularTMB());
+        //System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
+        //System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
+
+        double x=0;
+
         for(int i=0;i<planoAtual.size();i++)
         {
-            System.out.println("Pequeno Almoço = " + planoAtual.get(i).get(0).getRefeicao("Pequeno Almoco").getComida());
-            System.out.println("Meio da Manha 1 = " + planoAtual.get(i).get(0).getRefeicao("Meio da Manha 1").getComida());
-            System.out.println("Meio da Manha 2 = " + planoAtual.get(i).get(0).getRefeicao("Meio da Manha 2").getComida());
-            System.out.println("Almoco = " + planoAtual.get(i).get(0).getRefeicao("Almoco").getComida());
+            for(int j=0;j<produtos.size();j++)
+            {
+
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()))
+                {
+                     x = (planoAtual.get(i).get(0).getQuantidade()*produtos.get(j).get(0).getAcidoGordosSaturados())/100;
+                    System.out.println(x);
+                }
+
+            }
+            //System.out.println("ze = "+planoAtual.get(i).get(0).getRefeicao());
+            //System.out.println(planoAtual.get(i).get(0).getRefeicao());
         }
-
-
-
-        //System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
-
-
-
-
-        /*
-        for(int i=0;i<produtos.size();i++)
-        {
-            System.out.println(produtos.get(i));
-        }*/
-
+        System.out.println("acidos = "+ x);
     }
+
 }
