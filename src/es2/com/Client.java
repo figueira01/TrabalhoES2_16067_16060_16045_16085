@@ -10,8 +10,8 @@ public class Client {
     private static final String COMMA_DELIMITER = ";";
     private String fichDadosFisicos = "CSV/DadosFisicos.csv";
     private String fichProdutos = "CSV/Produtos.csv";
-    private String fichPlanoAtual = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarAtual.csv";
-    private String fichPlanoPrescrito = "C:/Users/leina/OneDrive/Ambiente de Trabalho/Faculdade/ES2/Trabalho ES2/PlanoAlimentarPrescrito.csv";
+    private String fichPlanoAtual = "CSV/PlanoAlimentarAtual.csv";
+    private String fichPlanoPrescrito = "CSV/PlanoAlimentarPrescrito.csv";
     private String fichaQuestionarios = "CSV/Questionario.csv";
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
@@ -119,8 +119,6 @@ public class Client {
         csvWriter.append(",");
         csvWriter.append("Hora");
         csvWriter.append(",");
-        csvWriter.append("Comida");
-        csvWriter.append(",");
         csvWriter.append("Energia (kcal)");
         csvWriter.append(",");
         csvWriter.append("Energia (kj)");
@@ -213,7 +211,7 @@ public class Client {
 
         Client client = new Client();
         client.WriteToCsv();
-        /*client.LerDadosFisicos();
+        client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
         client.LerPlanoAlimentarAtual();
@@ -242,7 +240,7 @@ public class Client {
             //System.out.println("ze = "+planoAtual.get(i).get(0).getRefeicao());
             //System.out.println(planoAtual.get(i).get(0).getRefeicao());
         }
-        System.out.println("acidos = "+ x);*/
+        System.out.println("acidos = "+ x);
 
     }
 
