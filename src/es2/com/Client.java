@@ -19,6 +19,7 @@ public class Client {
     private static List<List<String>> planoAtualS = new ArrayList<>();
     private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
+    private double AcidoGordosSaturadosPequenoAlmoco = 0;
 
     public void LerDadosFisicos(){
 
@@ -121,6 +122,19 @@ public class Client {
     public void CalculationFood(List<List<PlanoAlimentar>> planoAtual)
     {
 
+        String refeicao = planoAtual.get(0).get(0).getRefeicao();
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    AcidoGordosSaturadosPequenoAlmoco = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoGordosSaturados()) / 100;
+                }
+            }
+        }
+
     }
 
     public void WriteToCsv(List<List<String>> planoAtual) throws IOException {
@@ -135,7 +149,7 @@ public class Client {
         csvWriter.append("\n");
 
         for(List<String> rowData : planoAtual){
-            if(refeicao.equals(rowData.get(0)) || refeicao.equals(""))
+            if(refeicao.equals(rowData.get(0)))
             {
                 csvWriter.append(String.join(",", rowData));
                 csvWriter.append("\n");
@@ -243,6 +257,7 @@ public class Client {
         client.LerPlanoAlimentarAtual();
         client.LerPlanoAlimentarAtualS();
         client.WriteToCsv(planoAtualS);
+        client.CalculationFood(planoAtual);
 
 
         //Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
@@ -250,7 +265,7 @@ public class Client {
         //System.out.println("Altura = " + dadosFisicos.get(1).get(0).getAltura());
         //System.out.println("Altura = " + questionarios.get(0).get(0).getAtividadeFisica());
 
-        double x=0;
+        /*double x=0;
 
         for(int i=0;i<planoAtual.size();i++)
         {
@@ -265,11 +280,11 @@ public class Client {
                 }
 
             }
-            //System.out.println("ze = "+planoAtual.get(i).get(0).getRefeicao());
-            //System.out.println(planoAtual.get(i).get(0).getRefeicao());
+            System.out.println("ze = "+planoAtual.get(i).get(0).getRefeicao());
+            System.out.println(planoAtual.get(i).get(0).getRefeicao());
         }
         System.out.println("acidos = "+ x);
-
+*/
     }
 
 }
