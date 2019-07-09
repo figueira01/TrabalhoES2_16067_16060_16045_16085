@@ -119,6 +119,8 @@ public class Client {
         csvWriter.append(",");
         csvWriter.append("Hora");
         csvWriter.append(",");
+        csvWriter.append("Comida");
+        csvWriter.append(",");
         csvWriter.append("Energia (kcal)");
         csvWriter.append(",");
         csvWriter.append("Energia (kj)");
