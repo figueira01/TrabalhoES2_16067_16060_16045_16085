@@ -788,12 +788,14 @@ public class Client {
         csvWriter.append("\n");
 
         for(List<String> rowData : planoAtual){
+
             if(refeicao.equals(rowData.get(0)))
             {
                 csvWriter.append(String.join(",", rowData));
                 csvWriter.append("\n");
-            }if(!refeicao.equals(rowData.get(0)))
+            }else
             {
+                System.out.println(rowData.get(2));
                 csvWriter.append("Por Refeicao");
                 csvWriter.append(",");
                 csvWriter.append(",");
@@ -959,8 +961,6 @@ public class Client {
                 csvWriter.append("\n");
                 refeicao = rowData.get(0);
             }
-
-
         }
 
         csvWriter.flush();
