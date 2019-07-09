@@ -1,8 +1,5 @@
 package es2.com;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-
 public class PlanoAlimentar extends Object {
 
     private String refeicao;

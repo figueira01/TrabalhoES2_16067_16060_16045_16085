@@ -17,7 +17,7 @@ public class TestRefeicao {
     @BeforeEach
     void setUp(){
         hashrefeicao = new HashMap<>();
-        refeicao = new Refeicao(LocalDate.now(),hashrefeicao);
+        refeicao = new Refeicao("10:20",hashrefeicao);
     }
 
     @AfterEach
@@ -28,13 +28,13 @@ public class TestRefeicao {
     void testRefeicao()
     {
         HashMap<String,Double> hashrefeicao = new HashMap<>();
-        Refeicao refeicao = new Refeicao(LocalDate.now(),hashrefeicao);
+        Refeicao refeicao = new Refeicao("10:20",hashrefeicao);
     }
 
     @Test
     void testHora()
     {
-        assertEquals(LocalDate.now(),refeicao.getHora());
+        assertEquals("10:20",refeicao.getHora());
     }
 
     @Test

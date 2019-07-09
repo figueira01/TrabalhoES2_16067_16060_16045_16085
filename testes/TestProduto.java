@@ -41,11 +41,6 @@ public class TestProduto
         assertEquals("IS958",produto.getCodigo());
     }
 
-    /*@Test
-    void testeCodigoFalse()
-    {
-        assertFalse( dadosFisicos.getPeso() < 1 ||  dadosFisicos.getPeso() > 300);
-    }*/
 
     @Test
     void testeNome()
@@ -53,11 +48,6 @@ public class TestProduto
         assertEquals("Arroz de frango",produto.getNome());
     }
 
-    /*@Test
-    void testeNomeFalse()
-    {
-        assertFalse( dadosFisicos.getPeso() < 1 ||  dadosFisicos.getPeso() > 300);
-    }*/
 
     @Test
     void testeKcal()
