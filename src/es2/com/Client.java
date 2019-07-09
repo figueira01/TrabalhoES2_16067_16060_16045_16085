@@ -16,6 +16,7 @@ public class Client {
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
     private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
+    private static List<List<String>> planoAtualS = new ArrayList<>();
     private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
 
@@ -88,6 +89,19 @@ public class Client {
         }
     }
 
+    public void LerPlanoAlimentarAtualS(){
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                planoAtualS.add(Arrays.asList(values[0],values[1],values[2],values[3]));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void LerQuestionario(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichaQuestionarios))) {
@@ -104,13 +118,8 @@ public class Client {
         }
     }
 
-    public void WriteToCsv() throws IOException {
-
-        /*List<List<String>> rows = Arrays.asList(
-                Arrays.asList("Jean", "author", "Java"),
-                Arrays.asList("David", "editor", "Python"),
-                Arrays.asList("Scott", "editor", "Node.js")
-        );*/
+    public void WriteToCsv(List<List<String>> planoAtual) throws IOException {
+        String refeicao = planoAtual.get(0).get(0);
 
         FileWriter csvWriter = new FileWriter("new.csv");
         csvWriter.append("Plano Alimentar Atual");
@@ -118,90 +127,104 @@ public class Client {
         csvWriter.append("Refeicao");
         csvWriter.append(",");
         csvWriter.append("Hora");
-        csvWriter.append(",");
-        csvWriter.append("Energia (kcal)");
-        csvWriter.append(",");
-        csvWriter.append("Energia (kj)");
-        csvWriter.append(",");
-        csvWriter.append("Agua");
-        csvWriter.append(",");
-        csvWriter.append("Proteina");
-        csvWriter.append(",");
-        csvWriter.append("Gordura total");
-        csvWriter.append(",");
-        csvWriter.append("Total HC disponíveis");
-        csvWriter.append(",");
-        csvWriter.append("Mono + dissacáridos");
-        csvWriter.append(",");
-        csvWriter.append("Ácidos orgânicos");
-        csvWriter.append(",");
-        csvWriter.append("Álcool");
-        csvWriter.append(",");
-        csvWriter.append("Amido");
-        csvWriter.append(",");
-        csvWriter.append("Oligossacáridos");
-        csvWriter.append(",");
-        csvWriter.append("Fibra alimentar");
-        csvWriter.append(",");
-        csvWriter.append("Ácidos gordos saturados");
-        csvWriter.append(",");
-        csvWriter.append("Ácidos gordos monoinsaturados");
-        csvWriter.append(",");
-        csvWriter.append("Ácidos gordos polinsaturados");
-        csvWriter.append(",");
-        csvWriter.append("Ácidos gordos trans");
-        csvWriter.append(",");
-        csvWriter.append("Ácido linoleico");
-        csvWriter.append(",");
-        csvWriter.append("Colesterol");
-        csvWriter.append(",");
-        csvWriter.append("Vit A total");
-        csvWriter.append(",");
-        csvWriter.append("Caroteno");
-        csvWriter.append(",");
-        csvWriter.append("vit. D");
-        csvWriter.append(",");
-        csvWriter.append("a-tocoferol");
-        csvWriter.append(",");
-        csvWriter.append("Tiamina");
-        csvWriter.append(",");
-        csvWriter.append("Riboflavina");
-        csvWriter.append(",");
-        csvWriter.append("Equivalentes de niacina");
-        csvWriter.append(",");
-        csvWriter.append("Niacina");
-        csvWriter.append(",");
-        csvWriter.append("Triptofano/60");
-        csvWriter.append(",");
-        csvWriter.append("vit B6");
-        csvWriter.append(",");
-        csvWriter.append("Vit. B12");
-        csvWriter.append(",");
-        csvWriter.append("vit. C");
-        csvWriter.append(",");
-        csvWriter.append("Folatos");
-        csvWriter.append(",");
-        csvWriter.append("Cinza");
-        csvWriter.append(",");
-        csvWriter.append("Na");
-        csvWriter.append(",");
-        csvWriter.append("K");
-        csvWriter.append(",");
-        csvWriter.append("Ca");
-        csvWriter.append(",");
-        csvWriter.append("P");
-        csvWriter.append(",");
-        csvWriter.append("Mg");
-        csvWriter.append(",");
-        csvWriter.append("Fe");
-        csvWriter.append(",");
-        csvWriter.append("Ze");
         csvWriter.append("\n");
 
-        /*for (List<String> rowData : rows) {
-            csvWriter.append(String.join(",", rowData));
-            csvWriter.append("\n");
-        }*/
+        for(List<String> rowData : planoAtual){
+            System.out.println("valor: " + rowData.get(0));
+            if(refeicao.equals(rowData.get(0)) || refeicao.equals(""))
+            {
+                csvWriter.append(String.join(",", rowData));
+                csvWriter.append("\n");
+            }else
+            {
+                csvWriter.append("Por Refeicao");
+                csvWriter.append(",");
+                csvWriter.append(",");
+                csvWriter.append("Energia (kcal)");
+                csvWriter.append(",");
+                csvWriter.append("Energia (kj)");
+                csvWriter.append(",");
+                csvWriter.append("Agua");
+                csvWriter.append(",");
+                csvWriter.append("Proteina");
+                csvWriter.append(",");
+                csvWriter.append("Gordura total");
+                csvWriter.append(",");
+                csvWriter.append("Total HC disponíveis");
+                csvWriter.append(",");
+                csvWriter.append("Mono + dissacáridos");
+                csvWriter.append(",");
+                csvWriter.append("Ácidos orgânicos");
+                csvWriter.append(",");
+                csvWriter.append("Álcool");
+                csvWriter.append(",");
+                csvWriter.append("Amido");
+                csvWriter.append(",");
+                csvWriter.append("Oligossacáridos");
+                csvWriter.append(",");
+                csvWriter.append("Fibra alimentar");
+                csvWriter.append(",");
+                csvWriter.append("Ácidos gordos saturados");
+                csvWriter.append(",");
+                csvWriter.append("Ácidos gordos monoinsaturados");
+                csvWriter.append(",");
+                csvWriter.append("Ácidos gordos polinsaturados");
+                csvWriter.append(",");
+                csvWriter.append("Ácidos gordos trans");
+                csvWriter.append(",");
+                csvWriter.append("Ácido linoleico");
+                csvWriter.append(",");
+                csvWriter.append("Colesterol");
+                csvWriter.append(",");
+                csvWriter.append("Vit A total");
+                csvWriter.append(",");
+                csvWriter.append("Caroteno");
+                csvWriter.append(",");
+                csvWriter.append("vit. D");
+                csvWriter.append(",");
+                csvWriter.append("a-tocoferol");
+                csvWriter.append(",");
+                csvWriter.append("Tiamina");
+                csvWriter.append(",");
+                csvWriter.append("Riboflavina");
+                csvWriter.append(",");
+                csvWriter.append("Equivalentes de niacina");
+                csvWriter.append(",");
+                csvWriter.append("Niacina");
+                csvWriter.append(",");
+                csvWriter.append("Triptofano/60");
+                csvWriter.append(",");
+                csvWriter.append("vit B6");
+                csvWriter.append(",");
+                csvWriter.append("Vit. B12");
+                csvWriter.append(",");
+                csvWriter.append("vit. C");
+                csvWriter.append(",");
+                csvWriter.append("Folatos");
+                csvWriter.append(",");
+                csvWriter.append("Cinza");
+                csvWriter.append(",");
+                csvWriter.append("Na");
+                csvWriter.append(",");
+                csvWriter.append("K");
+                csvWriter.append(",");
+                csvWriter.append("Ca");
+                csvWriter.append(",");
+                csvWriter.append("P");
+                csvWriter.append(",");
+                csvWriter.append("Mg");
+                csvWriter.append(",");
+                csvWriter.append("Fe");
+                csvWriter.append(",");
+                csvWriter.append("Ze");
+                csvWriter.append("\n");
+                csvWriter.append(String.join(",", rowData));
+                csvWriter.append("\n");
+                refeicao = rowData.get(0);
+            }
+
+
+        }
 
         csvWriter.flush();
         csvWriter.close();
@@ -210,12 +233,12 @@ public class Client {
     public static void main(String [] args) throws IOException {
 
         Client client = new Client();
-        client.WriteToCsv();
         client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
         client.LerPlanoAlimentarAtual();
-
+        client.LerPlanoAlimentarAtualS();
+        client.WriteToCsv(planoAtualS);
 
 
         //Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
