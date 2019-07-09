@@ -1,9 +1,6 @@
 package es2.com;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -107,11 +104,114 @@ public class Client {
         }
     }
 
-    public static void main(String [] args)
-    {
+    public void WriteToCsv() throws IOException {
+
+        /*List<List<String>> rows = Arrays.asList(
+                Arrays.asList("Jean", "author", "Java"),
+                Arrays.asList("David", "editor", "Python"),
+                Arrays.asList("Scott", "editor", "Node.js")
+        );*/
+
+        FileWriter csvWriter = new FileWriter("new.csv");
+        csvWriter.append("Plano Alimentar Atual");
+        csvWriter.append("\n");
+        csvWriter.append("Refeicao");
+        csvWriter.append(",");
+        csvWriter.append("Hora");
+        csvWriter.append(",");
+        csvWriter.append("Energia (kcal)");
+        csvWriter.append(",");
+        csvWriter.append("Energia (kj)");
+        csvWriter.append(",");
+        csvWriter.append("Agua");
+        csvWriter.append(",");
+        csvWriter.append("Proteina");
+        csvWriter.append(",");
+        csvWriter.append("Gordura total");
+        csvWriter.append(",");
+        csvWriter.append("Total HC disponíveis");
+        csvWriter.append(",");
+        csvWriter.append("Mono + dissacáridos");
+        csvWriter.append(",");
+        csvWriter.append("Ácidos orgânicos");
+        csvWriter.append(",");
+        csvWriter.append("Álcool");
+        csvWriter.append(",");
+        csvWriter.append("Amido");
+        csvWriter.append(",");
+        csvWriter.append("Oligossacáridos");
+        csvWriter.append(",");
+        csvWriter.append("Fibra alimentar");
+        csvWriter.append(",");
+        csvWriter.append("Ácidos gordos saturados");
+        csvWriter.append(",");
+        csvWriter.append("Ácidos gordos monoinsaturados");
+        csvWriter.append(",");
+        csvWriter.append("Ácidos gordos polinsaturados");
+        csvWriter.append(",");
+        csvWriter.append("Ácidos gordos trans");
+        csvWriter.append(",");
+        csvWriter.append("Ácido linoleico");
+        csvWriter.append(",");
+        csvWriter.append("Colesterol");
+        csvWriter.append(",");
+        csvWriter.append("Vit A total");
+        csvWriter.append(",");
+        csvWriter.append("Caroteno");
+        csvWriter.append(",");
+        csvWriter.append("vit. D");
+        csvWriter.append(",");
+        csvWriter.append("a-tocoferol");
+        csvWriter.append(",");
+        csvWriter.append("Tiamina");
+        csvWriter.append(",");
+        csvWriter.append("Riboflavina");
+        csvWriter.append(",");
+        csvWriter.append("Equivalentes de niacina");
+        csvWriter.append(",");
+        csvWriter.append("Niacina");
+        csvWriter.append(",");
+        csvWriter.append("Triptofano/60");
+        csvWriter.append(",");
+        csvWriter.append("vit B6");
+        csvWriter.append(",");
+        csvWriter.append("Vit. B12");
+        csvWriter.append(",");
+        csvWriter.append("vit. C");
+        csvWriter.append(",");
+        csvWriter.append("Folatos");
+        csvWriter.append(",");
+        csvWriter.append("Cinza");
+        csvWriter.append(",");
+        csvWriter.append("Na");
+        csvWriter.append(",");
+        csvWriter.append("K");
+        csvWriter.append(",");
+        csvWriter.append("Ca");
+        csvWriter.append(",");
+        csvWriter.append("P");
+        csvWriter.append(",");
+        csvWriter.append("Mg");
+        csvWriter.append(",");
+        csvWriter.append("Fe");
+        csvWriter.append(",");
+        csvWriter.append("Ze");
+        csvWriter.append("\n");
+
+        /*for (List<String> rowData : rows) {
+            csvWriter.append(String.join(",", rowData));
+            csvWriter.append("\n");
+        }*/
+
+        csvWriter.flush();
+        csvWriter.close();
+    }
+
+    public static void main(String [] args) throws IOException {
 
         Client client = new Client();
-        client.LerDadosFisicos();
+        client.WriteToCsv();
+        /*client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
         client.LerPlanoAlimentarAtual();
@@ -140,7 +240,8 @@ public class Client {
             //System.out.println("ze = "+planoAtual.get(i).get(0).getRefeicao());
             //System.out.println(planoAtual.get(i).get(0).getRefeicao());
         }
-        System.out.println("acidos = "+ x);
+        System.out.println("acidos = "+ x);*/
+
     }
 
 }
