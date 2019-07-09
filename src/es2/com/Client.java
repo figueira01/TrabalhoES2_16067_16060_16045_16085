@@ -118,6 +118,11 @@ public class Client {
         }
     }
 
+    public void CalculationFood(List<List<PlanoAlimentar>> planoAtual)
+    {
+
+    }
+
     public void WriteToCsv(List<List<String>> planoAtual) throws IOException {
         String refeicao = planoAtual.get(0).get(0);
 
@@ -130,7 +135,6 @@ public class Client {
         csvWriter.append("\n");
 
         for(List<String> rowData : planoAtual){
-            System.out.println("valor: " + rowData.get(0));
             if(refeicao.equals(rowData.get(0)) || refeicao.equals(""))
             {
                 csvWriter.append(String.join(",", rowData));
@@ -257,6 +261,7 @@ public class Client {
                 {
                      x = (planoAtual.get(i).get(0).getQuantidade()*produtos.get(j).get(0).getAcidoGordosSaturados())/100;
                     System.out.println(x);
+
                 }
 
             }
