@@ -19,7 +19,6 @@ public class Client {
     private static List<List<String>> planoAtualS = new ArrayList<>();
     private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
     private static List<List<Questionario>> questionarios = new ArrayList<>();
-    private double AcidoGordosSaturadosPequenoAlmoco = 0;
 
     public void LerDadosFisicos(){
 
@@ -119,10 +118,9 @@ public class Client {
         }
     }
 
-    public void CalculationFood(List<List<PlanoAlimentar>> planoAtual)
+    public double CalculationgetAcidoGordosSaturados(List<List<PlanoAlimentar>> planoAtual,String refeicao)
     {
-
-        String refeicao = planoAtual.get(0).get(0).getRefeicao();
+        double AcidoGordosSaturados = 0;
 
         for(int i=0;i<planoAtual.size();i++)
         {
@@ -130,14 +128,654 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    AcidoGordosSaturadosPequenoAlmoco = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoGordosSaturados()) / 100;
+                    AcidoGordosSaturados = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoGordosSaturados()) / 100;
                 }
             }
         }
-
+        return AcidoGordosSaturados;
     }
 
-    public void WriteToCsv(List<List<String>> planoAtual) throws IOException {
+    public double CalculationEnergia(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double Energia = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    Energia = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKcal()) / 100;
+                }
+            }
+        }
+        return Energia;
+    }
+
+    public double CalculationEnergiaKj(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKj()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAgua(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAgua()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationProteina(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getProteina()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationGorduraTotal(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getGorduraTotal()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationHC(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTotalHCDisponivel()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationMono(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMonoPlusDissacaridos()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAcidoOrganico(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosOrganicos()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAlcool(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAlcool()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAmido(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAmido()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationOligossacarido(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getOligossacaridos()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationFibraAlimentar(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFibraAlimentar()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAcidoMonoinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosMonoinsaturados()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAcidoGordoPolinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosPolinsaturados()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAcidoGordoTrans(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosTrans()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAcidoLinoleico(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoLinoleico()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationAcidoColesterol(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getColesterol()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationVitA(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitATotal()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationCaroteno(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCaroteno()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationVitD(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitD()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationaTocofecol(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTocoferol()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationTiamina(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTiamina()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationRiboflavina(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getRiboflavina()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationEquivalenteNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEquivalentesDeNiacina()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNiaciana()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationTriptofano(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTriptofano60()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationVitB(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB6()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationVitB12(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB12()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationVitC(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitC()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationFolatos(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFolatos()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationCinza(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCinza()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public double CalculationNa(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNa()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+    public double CalculationK(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getK()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+    public double CalculationCa(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCa()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+    public double CalculationP(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getP()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+    public double CalculationMg(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMg()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+    public double CalculationFe(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFe()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+    public double CalculationZe(List<List<PlanoAlimentar>> planoAtual,String refeicao)
+    {
+        double EnergiaKj = 0;
+
+        for(int i=0;i<planoAtual.size();i++)
+        {
+            for(int j=0;j<produtos.size();j++)
+            {
+                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                {
+                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getZn()) / 100;
+                }
+            }
+        }
+        return EnergiaKj;
+    }
+
+    public void WriteToCsv(List<List<String>> planoAtual,List<List<PlanoAlimentar>> planoAtualP) throws IOException {
         String refeicao = planoAtual.get(0).get(0);
 
         FileWriter csvWriter = new FileWriter("new.csv");
@@ -236,6 +874,86 @@ public class Client {
                 csvWriter.append(",");
                 csvWriter.append("Ze");
                 csvWriter.append("\n");
+                csvWriter.append(",");
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationEnergia(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationEnergiaKj(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAgua(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationProteina(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationGorduraTotal(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationHC(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationMono(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAcidoOrganico(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAlcool(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAmido(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationOligossacarido(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationFibraAlimentar(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationgetAcidoGordosSaturados(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAcidoMonoinsaturado(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAcidoGordoPolinsaturado(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAcidoGordoTrans(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAcidoLinoleico(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationAcidoColesterol(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationVitA(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationCaroteno(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationVitD(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationaTocofecol(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationTiamina(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationRiboflavina(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationEquivalenteNiacina(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationNiacina(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationTriptofano(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationVitB(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationVitB12(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationVitC(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationFolatos(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationCinza(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationNa(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationK(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationCa(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationP(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationMg(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationFe(planoAtualP,refeicao)));
+                csvWriter.append(",");
+                csvWriter.append(Double.toString(CalculationZe(planoAtualP,refeicao)));
+                csvWriter.append("\n");
                 csvWriter.append(String.join(",", rowData));
                 csvWriter.append("\n");
                 refeicao = rowData.get(0);
@@ -256,8 +974,7 @@ public class Client {
         client.LerQuestionario();
         client.LerPlanoAlimentarAtual();
         client.LerPlanoAlimentarAtualS();
-        client.WriteToCsv(planoAtualS);
-        client.CalculationFood(planoAtual);
+        client.WriteToCsv(planoAtualS,planoAtual);
 
 
         //Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
