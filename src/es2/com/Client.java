@@ -128,7 +128,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    AcidoGordosSaturados = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoGordosSaturados()) / 100;
+                    AcidoGordosSaturados += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoGordosSaturados()) / 100;
                 }
             }
         }
@@ -145,7 +145,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    Energia = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKcal()) / 100;
+                    Energia += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKcal()) / 100;
                 }
             }
         }
@@ -162,7 +162,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKj()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKj()) / 100;
                 }
             }
         }
@@ -179,7 +179,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAgua()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAgua()) / 100;
                 }
             }
         }
@@ -196,7 +196,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getProteina()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getProteina()) / 100;
                 }
             }
         }
@@ -213,7 +213,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getGorduraTotal()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getGorduraTotal()) / 100;
                 }
             }
         }
@@ -230,7 +230,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTotalHCDisponivel()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTotalHCDisponivel()) / 100;
                 }
             }
         }
@@ -247,7 +247,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMonoPlusDissacaridos()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMonoPlusDissacaridos()) / 100;
                 }
             }
         }
@@ -264,7 +264,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosOrganicos()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosOrganicos()) / 100;
                 }
             }
         }
@@ -281,7 +281,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAlcool()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAlcool()) / 100;
                 }
             }
         }
@@ -298,7 +298,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAmido()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAmido()) / 100;
                 }
             }
         }
@@ -315,7 +315,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getOligossacaridos()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getOligossacaridos()) / 100;
                 }
             }
         }
@@ -332,7 +332,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFibraAlimentar()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFibraAlimentar()) / 100;
                 }
             }
         }
@@ -349,7 +349,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosMonoinsaturados()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosMonoinsaturados()) / 100;
                 }
             }
         }
@@ -366,7 +366,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosPolinsaturados()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosPolinsaturados()) / 100;
                 }
             }
         }
@@ -383,7 +383,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosTrans()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosTrans()) / 100;
                 }
             }
         }
@@ -400,7 +400,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoLinoleico()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoLinoleico()) / 100;
                 }
             }
         }
@@ -417,7 +417,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getColesterol()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getColesterol()) / 100;
                 }
             }
         }
@@ -434,7 +434,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitATotal()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitATotal()) / 100;
                 }
             }
         }
@@ -451,7 +451,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCaroteno()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCaroteno()) / 100;
                 }
             }
         }
@@ -468,7 +468,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitD()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitD()) / 100;
                 }
             }
         }
@@ -485,7 +485,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTocoferol()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTocoferol()) / 100;
                 }
             }
         }
@@ -502,7 +502,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTiamina()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTiamina()) / 100;
                 }
             }
         }
@@ -519,7 +519,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getRiboflavina()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getRiboflavina()) / 100;
                 }
             }
         }
@@ -536,7 +536,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEquivalentesDeNiacina()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEquivalentesDeNiacina()) / 100;
                 }
             }
         }
@@ -553,7 +553,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNiaciana()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNiaciana()) / 100;
                 }
             }
         }
@@ -570,7 +570,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTriptofano60()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTriptofano60()) / 100;
                 }
             }
         }
@@ -587,7 +587,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB6()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB6()) / 100;
                 }
             }
         }
@@ -604,7 +604,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB12()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB12()) / 100;
                 }
             }
         }
@@ -621,7 +621,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitC()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitC()) / 100;
                 }
             }
         }
@@ -638,7 +638,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFolatos()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFolatos()) / 100;
                 }
             }
         }
@@ -655,7 +655,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCinza()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCinza()) / 100;
                 }
             }
         }
@@ -672,7 +672,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNa()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNa()) / 100;
                 }
             }
         }
@@ -688,7 +688,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getK()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getK()) / 100;
                 }
             }
         }
@@ -704,7 +704,8 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCa()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCa()) / 100;
+
                 }
             }
         }
@@ -720,7 +721,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getP()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getP()) / 100;
                 }
             }
         }
@@ -736,7 +737,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMg()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMg()) / 100;
                 }
             }
         }
@@ -752,7 +753,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFe()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFe()) / 100;
                 }
             }
         }
@@ -768,7 +769,7 @@ public class Client {
             {
                 if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj = (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getZn()) / 100;
+                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getZn()) / 100;
                 }
             }
         }
@@ -791,7 +792,7 @@ public class Client {
             {
                 csvWriter.append(String.join(",", rowData));
                 csvWriter.append("\n");
-            }else
+            }if(!refeicao.equals(rowData.get(0)))
             {
                 csvWriter.append("Por Refeicao");
                 csvWriter.append(",");
