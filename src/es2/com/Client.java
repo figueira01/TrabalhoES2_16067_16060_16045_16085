@@ -57,7 +57,7 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentar(String fichPlano,List<List<PlanoAlimentar>> plano){
+    private void LerPlanoAlimentar(String fichPlano,List<List<PlanoAlimentar>> plano){
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlano))) {
             String line;
             while ((line = br.readLine()) != null) {
