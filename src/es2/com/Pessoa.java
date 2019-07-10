@@ -91,6 +91,9 @@ public class Pessoa extends Object {
         if(questionario.getTermico() == 41){
             return metabolismoBasalFT = metabolismoBasalFa * 1.4;
         }
+        if(questionario.getTermico() == 0){
+            return metabolismoBasalFT = metabolismoBasalFa;
+        }
         throw new Exception();
     }
 
@@ -124,6 +127,9 @@ public class Pessoa extends Object {
         }
         if(questionario.getLesao().equals("Queimadura 70 a 90")){
             return metabolismoBasalGET = metabolismoBasalFT * 2;
+        }
+        if(questionario.getLesao().equals("Nenhuma")){
+            return metabolismoBasalGET = metabolismoBasalFT;
         }
         throw new Exception();
     }
