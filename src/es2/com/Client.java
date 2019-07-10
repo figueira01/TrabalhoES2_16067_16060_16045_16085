@@ -1,9 +1,7 @@
 package es2.com;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Client {
 
@@ -26,7 +24,7 @@ public class Client {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                dadosFisicos.add(Arrays.asList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
+                dadosFisicos.add(Collections.singletonList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
                         Double.parseDouble(values[2]),Double.parseDouble(values[3]),Double.parseDouble(values[4]),Double.parseDouble(values[5]),Double.parseDouble(values[6]),
                         Double.parseDouble(values[7]),Double.parseDouble(values[8]))));
             }
@@ -41,7 +39,7 @@ public class Client {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                produtos.add(Arrays.asList(new Produto(values[0],values[1],Double.parseDouble(values[2]),Double.parseDouble(values[3]),
+                produtos.add(Collections.singletonList(new Produto(values[0],values[1],Double.parseDouble(values[2]),Double.parseDouble(values[3]),
                         Double.parseDouble(values[4]),Double.parseDouble(values[5]),Double.parseDouble(values[6]),
                         Double.parseDouble(values[7]),Double.parseDouble(values[8]),Double.parseDouble(values[9]),
                         Double.parseDouble(values[10]),Double.parseDouble(values[11]),Double.parseDouble(values[12]),
@@ -81,7 +79,7 @@ public class Client {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                planoAtual.add(Arrays.asList(new PlanoAlimentar(values[0],values[1],
+                planoAtual.add(Collections.singletonList(new PlanoAlimentar(values[0],values[1],
                         values[2],Double.parseDouble(values[3]))));
             }
         } catch (IOException e) {
@@ -108,7 +106,7 @@ public class Client {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                questionarios.add(Arrays.asList(new Questionario(values[0],values[1],
+                questionarios.add(Collections.singletonList(new Questionario(values[0],values[1],
                         values[2],values[3],values[4],values[5],values[6],values[7],Double.parseDouble(values[8])
                         ,Double.parseDouble(values[9]),Double.parseDouble(values[10]),Double.parseDouble(values[11]),
                         Double.parseDouble(values[12]),values[13],Integer.parseInt(values[14]))));
