@@ -6,8 +6,8 @@ import java.util.*;
 public class Client {
 
     private static final String COMMA_DELIMITER = ";";
-    private String fichPlanoAtual = "CSV/PlanoAlimentarAtual.csv";
-    private String fichPlanoPrescrito = "CSV/PlanoAlimentarPrescrito.csv";
+    private static String fichPlanoAtual = "CSV/PlanoAlimentarAtual.csv";
+    private static String fichPlanoPrescrito = "CSV/PlanoAlimentarPrescrito.csv";
     private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
     private static List<List<Produto>> produtos = new ArrayList<>();
     private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
@@ -57,12 +57,12 @@ public class Client {
         }
     }
 
-    public void LerPlanoAlimentarPrescrito(){
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPrescrito))) {
+    public void LerPlanoAlimentar(String fichPlano,List<List<PlanoAlimentar>> plano){
+        try (BufferedReader br = new BufferedReader(new FileReader(fichPlano))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                planoPrescrito.add(Collections.singletonList(new PlanoAlimentar(values[0],values[1],
+                plano.add(Collections.singletonList(new PlanoAlimentar(values[0],values[1],
                         values[2],Double.parseDouble(values[3]))));
             }
         } catch (IOException e) {
@@ -70,39 +70,13 @@ public class Client {
         }
     }
 
-    private void LerPlanoAlimentarAtual(){
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
+    private void LerPlanoAlimentarS(String fichPlano,List<List<String>> plano){
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fichPlano))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                planoAtual.add(Collections.singletonList(new PlanoAlimentar(values[0],values[1],
-                        values[2],Double.parseDouble(values[3]))));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void LerPlanoAlimentarAtualS(){
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoAtual))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(COMMA_DELIMITER);
-                planoAtualS.add(Arrays.asList(values[0],values[1],values[2],values[3]));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void LerPlanoAlimentarPrescritoS(){
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fichPlanoPrescrito))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(COMMA_DELIMITER);
-                planoPrescritoS.add(Arrays.asList(values[0],values[1],values[2],values[3]));
+                plano.add(Arrays.asList(values[0],values[1],values[2],values[3]));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -1195,10 +1169,10 @@ public class Client {
         client.LerDadosFisicos();
         client.LerDadosProdutos();
         client.LerQuestionario();
-        client.LerPlanoAlimentarAtual();
-        client.LerPlanoAlimentarAtualS();
-        client.LerPlanoAlimentarPrescrito();
-        client.LerPlanoAlimentarPrescritoS();
+        client.LerPlanoAlimentar(fichPlanoAtual,planoAtual);
+        client.LerPlanoAlimentar(fichPlanoPrescrito,planoPrescrito);
+        client.LerPlanoAlimentarS(fichPlanoAtual,planoAtualS);
+        client.LerPlanoAlimentarS(fichPlanoPrescrito,planoPrescritoS);
         Pessoa pessoa = new Pessoa("Eu",22,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
         client.WriteToCsv(planoAtualS,planoAtual);
         client.WriteToCsvPrescrito(planoPrescritoS,planoPrescrito,pessoa);
