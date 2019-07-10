@@ -120,49 +120,49 @@ public class Client {
 
     public double CalculationgetAcidoGordosSaturados(List<List<PlanoAlimentar>> planoAtual,String refeicao)
     {
-        double AcidoGordosSaturados = 0;
+        double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    AcidoGordosSaturados += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoGordosSaturados()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAcidoGordosSaturados())/100;
                 }
             }
         }
-        return AcidoGordosSaturados;
+        return EnergiaKj;
     }
 
     public double CalculationEnergia(List<List<PlanoAlimentar>> planoAtual,String refeicao)
     {
-        double Energia = 0;
+        double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    Energia += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKcal()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getEnergiaKcal())/100;
                 }
             }
         }
-        return Energia;
+        return EnergiaKj;
     }
 
     public double CalculationEnergiaKj(List<List<PlanoAlimentar>> planoAtual,String refeicao)
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEnergiaKj()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getEnergiaKj())/100;
                 }
             }
         }
@@ -173,13 +173,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAgua()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAgua())/100;
                 }
             }
         }
@@ -190,13 +190,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getProteina()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getProteina())/100;
                 }
             }
         }
@@ -207,13 +207,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getGorduraTotal()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getGorduraTotal())/100;
                 }
             }
         }
@@ -224,13 +224,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTotalHCDisponivel()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getTotalHCDisponivel())/100;
                 }
             }
         }
@@ -241,13 +241,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMonoPlusDissacaridos()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getMonoPlusDissacaridos())/100;
                 }
             }
         }
@@ -258,13 +258,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosOrganicos()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAcidosOrganicos())/100;
                 }
             }
         }
@@ -275,13 +275,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAlcool()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAlcool())/100;
                 }
             }
         }
@@ -292,13 +292,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAmido()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAmido())/100;
                 }
             }
         }
@@ -309,13 +309,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getOligossacaridos()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getOligossacaridos())/100;
                 }
             }
         }
@@ -326,13 +326,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFibraAlimentar()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getFibraAlimentar())/100;
                 }
             }
         }
@@ -343,13 +343,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosMonoinsaturados()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAcidosGordosMonoinsaturados())/100;
                 }
             }
         }
@@ -360,13 +360,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosPolinsaturados()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAcidosGordosPolinsaturados())/100;
                 }
             }
         }
@@ -377,13 +377,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidosGordosTrans()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAcidosGordosTrans())/100;
                 }
             }
         }
@@ -394,13 +394,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getAcidoLinoleico()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getAcidoLinoleico())/100;
                 }
             }
         }
@@ -411,13 +411,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getColesterol()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getColesterol())/100;
                 }
             }
         }
@@ -428,13 +428,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitATotal()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getVitATotal())/100;
                 }
             }
         }
@@ -445,13 +445,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCaroteno()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getCaroteno())/100;
                 }
             }
         }
@@ -462,13 +462,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitD()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getVitD())/100;
                 }
             }
         }
@@ -479,13 +479,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTocoferol()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getTocoferol())/100;
                 }
             }
         }
@@ -496,13 +496,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTiamina()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getTiamina())/100;
                 }
             }
         }
@@ -513,13 +513,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome()) && (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getRiboflavina()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getRiboflavina())/100;
                 }
             }
         }
@@ -530,13 +530,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getEquivalentesDeNiacina()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getEquivalentesDeNiacina())/100;
                 }
             }
         }
@@ -547,13 +547,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNiaciana()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getNiaciana())/100;
                 }
             }
         }
@@ -564,13 +564,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getTriptofano60()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getTriptofano60())/100;
                 }
             }
         }
@@ -581,13 +581,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB6()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getVitB6())/100;
                 }
             }
         }
@@ -598,13 +598,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitB12()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getVitB12())/100;
                 }
             }
         }
@@ -615,13 +615,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getVitC()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getVitC())/100;
                 }
             }
         }
@@ -632,13 +632,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFolatos()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getFolatos())/100;
                 }
             }
         }
@@ -649,13 +649,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCinza()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getCinza())/100;
                 }
             }
         }
@@ -666,13 +666,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getNa()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getNa())/100;
                 }
             }
         }
@@ -682,13 +682,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getK()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getK())/100;
                 }
             }
         }
@@ -698,14 +698,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getCa()) / 100;
-
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getCa())/100;
                 }
             }
         }
@@ -715,13 +714,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getP()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getP())/100;
                 }
             }
         }
@@ -731,13 +730,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getMg()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getMg())/100;
                 }
             }
         }
@@ -747,13 +746,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getFe()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getFe())/100;
                 }
             }
         }
@@ -763,13 +762,13 @@ public class Client {
     {
         double EnergiaKj = 0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()) && (planoAtual.get(i).get(0).getRefeicao().equals(refeicao)))
+                if(i.get(0).getComida().equals(a.get(0).getNome())&& (i.get(0).getRefeicao().equals(refeicao)))
                 {
-                    EnergiaKj += (planoAtual.get(i).get(0).getQuantidade() * produtos.get(j).get(0).getZn()) / 100;
+                    EnergiaKj += (i.get(0).getQuantidade()*a.get(0).getZn())/100;
                 }
             }
         }
@@ -788,7 +787,6 @@ public class Client {
         csvWriter.append("\n");
 
         for(List<String> rowData : planoAtual){
-
             if(refeicao.equals(rowData.get(0)))
             {
                 csvWriter.append(String.join(",", rowData));
@@ -984,22 +982,18 @@ public class Client {
 
         /*double x=0;
 
-        for(int i=0;i<planoAtual.size();i++)
+        for(List<PlanoAlimentar> i : planoAtual)
         {
-            for(int j=0;j<produtos.size();j++)
+            for(List<Produto> a : produtos)
             {
-
-                if(planoAtual.get(i).get(0).getComida().equals(produtos.get(j).get(0).getNome()))
+                if(i.get(0).getComida().equals(a.get(0).getNome()))
                 {
-                     x = (planoAtual.get(i).get(0).getQuantidade()*produtos.get(j).get(0).getAcidoGordosSaturados())/100;
+                    x = (i.get(0).getQuantidade()*a.get(0).getAcidoGordosSaturados())/100;
                     System.out.println(x);
 
                 }
 
             }
-            System.out.println("ze = "+planoAtual.get(i).get(0).getRefeicao());
-            System.out.println(planoAtual.get(i).get(0).getRefeicao());
-        }
         System.out.println("acidos = "+ x);
 */
     }
