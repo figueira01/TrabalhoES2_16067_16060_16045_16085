@@ -219,9 +219,20 @@ public class testPessoa {
     }
 
     @Test
-    void testCalculoTMBWithFTEmpty() throws Exception {
+    void testCalculoTMBWithFT0() throws Exception {
 
         Questionario questionarioFT = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",0);
+        Pessoa pessoaMasculinaFT = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFT);
+        pessoaMasculinaFT.CalcularTMB();
+        pessoaMasculinaFT.CalcularTMBComFa();
+        TMBFT = pessoaMasculinaFT.CalcularTMBComFT();
+        assertEquals(2004.34,TMBFT);
+    }
+
+    @Test
+    void testCalculoTMBWithFTEmpty() throws Exception {
+
+        Questionario questionarioFT = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",-1);
         Pessoa pessoaMasculinaFT = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFT);
         pessoaMasculinaFT.CalcularTMB();
         pessoaMasculinaFT.CalcularTMBComFa();
@@ -347,6 +358,17 @@ public class testPessoa {
         pessoaMasculinaGET.CalcularTMBComFT();
         TMBGET = pessoaMasculinaGET.CalcularGET();
         assertEquals(5612.151999999999,TMBGET);
+    }
+
+    @Test
+    void testCalculoNehumaLesao() throws Exception {
+        Questionario questionarioGET = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"Nenhuma",41);
+        Pessoa pessoaMasculinaGET = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioGET);
+        pessoaMasculinaGET.CalcularTMB();
+        pessoaMasculinaGET.CalcularTMBComFa();
+        pessoaMasculinaGET.CalcularTMBComFT();
+        TMBGET = pessoaMasculinaGET.CalcularGET();
+        assertEquals(2806.0759999999996,TMBGET);
     }
 
     @Test
