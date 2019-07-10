@@ -988,11 +988,11 @@ public class Client {
         csvWriter.append(",");
         csvWriter.append(Double.toString(pessoa.CalcularGET()));
         csvWriter.append(",");
-        csvWriter.append(Double.toString(1000));
+        csvWriter.append(Double.toString(pessoa.getDadosFisicos().getPeso()*2));
         csvWriter.append(",");
-        csvWriter.append(Double.toString(1000));
+        csvWriter.append(Double.toString(pessoa.getDadosFisicos().getPeso()*1.1));
         csvWriter.append(",");
-        csvWriter.append(Double.toString(1000));
+        csvWriter.append(Double.toString((pessoa.CalcularTMB()-((pessoa.getDadosFisicos().getPeso()*2)*4)-((pessoa.getDadosFisicos().getPeso()*1.1)*4))/4));
         csvWriter.append(",");
         csvWriter.append(Double.toString(pessoa.CalcularSchofieldEquation()));
 
