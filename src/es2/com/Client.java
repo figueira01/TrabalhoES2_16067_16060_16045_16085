@@ -779,7 +779,7 @@ public class Client {
     public void WriteToCsv(List<List<String>> planoAtual,List<List<PlanoAlimentar>> planoAtualP) throws IOException {
         String refeicao = planoAtual.get(0).get(0);
 
-        FileWriter csvWriter = new FileWriter("new.csv");
+        FileWriter csvWriter = new FileWriter("PlanoAlimentarAtual.csv");
         csvWriter.append("Plano Alimentar Atual");
         csvWriter.append("\n");
         csvWriter.append("Refeicao");
@@ -795,7 +795,6 @@ public class Client {
                 csvWriter.append("\n");
             }else
             {
-                System.out.println(rowData.get(2));
                 csvWriter.append("Por Refeicao");
                 csvWriter.append(",");
                 csvWriter.append(",");
