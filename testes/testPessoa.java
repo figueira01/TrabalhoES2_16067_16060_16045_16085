@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class testPessoa {
+ class testPessoa {
 
     private DadosFisicos dadosFisicos;
     private PlanoAlimentar planoAlimentar;
@@ -23,9 +23,8 @@ public class testPessoa {
     private double TMBGET = 0;
 
     @BeforeEach
-    void setUp()
-    {
-        questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+    void setUp() throws Exception {
+        questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         dadosFisicos = new DadosFisicos(70,178,5,30,23,3, 22,60,65);
         pessoaMasculina = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
         pessoaFemenina = new Pessoa("Bruno miguel",21,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
@@ -104,8 +103,8 @@ public class testPessoa {
     }
 
     @Test
-    void testCalculoTMBThrow() throws Exception {
-        assertThrows(Exception.class,() -> {pessoaNoGenre.CalcularTMB();});
+    void testCalculoTMBThrow()  {
+        assertThrows(Exception.class,() -> pessoaNoGenre.CalcularTMB());
     }
 
     @Test
@@ -118,7 +117,7 @@ public class testPessoa {
     @Test
     void testCalculoTMBWithFAModeradamenteAtivo() throws Exception {
 
-        Questionario questionarioFAModeradamenteAtivo = new Questionario("aaaa","aaa","aaa","aa","aaa","Moderadamente Ativo","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+        Questionario questionarioFAModeradamenteAtivo = new Questionario("aaaa","aaa","aaa","aa","aaa","Moderadamente Ativo","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFAModeradamenteAtivo = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFAModeradamenteAtivo);
         pessoaMasculinaFAModeradamenteAtivo.CalcularTMB();
         TMBFA = pessoaMasculinaFAModeradamenteAtivo.CalcularTMBComFa();
@@ -128,16 +127,16 @@ public class testPessoa {
     @Test
     void testCalculoTMBWithFAEmpty() throws Exception {
 
-        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFA = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFA);
         pessoaMasculinaFA.CalcularTMB();
-        assertThrows(Exception.class,() -> {pessoaMasculinaFA.CalcularTMBComFa();});
+        assertThrows(Exception.class, pessoaMasculinaFA::CalcularTMBComFa);
     }
 
     @Test
     void testCalculoTMBWithFAMuitoAtivo() throws Exception {
 
-        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Muito Ativo","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Muito Ativo","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFA = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFA);
         pessoaMasculinaFA.CalcularTMB();
         TMBFA = pessoaMasculinaFA.CalcularTMBComFa();
@@ -147,7 +146,7 @@ public class testPessoa {
     @Test
     void testCalculoTMBWithFAAcamado() throws Exception {
 
-        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Acamado","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Acamado","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFA = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFA);
         pessoaMasculinaFA.CalcularTMB();
         TMBFA = pessoaMasculinaFA.CalcularTMBComFa();
@@ -157,7 +156,7 @@ public class testPessoa {
     @Test
     void testCalculoTMBWithFAAcamadomovel() throws Exception {
 
-        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Acamado + movel","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Acamado + movel","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFA = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFA);
         pessoaMasculinaFA.CalcularTMB();
         TMBFA = pessoaMasculinaFA.CalcularTMBComFa();
@@ -167,7 +166,7 @@ public class testPessoa {
     @Test
     void testCalculoTMBWithFADeambulando() throws Exception {
 
-        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",11);
+        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFA = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFA);
         pessoaMasculinaFA.CalcularTMB();
         TMBFA = pessoaMasculinaFA.CalcularTMBComFa();
@@ -230,16 +229,6 @@ public class testPessoa {
     }
 
     @Test
-    void testCalculoTMBWithFTEmpty() throws Exception {
-
-        Questionario questionarioFT = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",-1);
-        Pessoa pessoaMasculinaFT = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFT);
-        pessoaMasculinaFT.CalcularTMB();
-        pessoaMasculinaFT.CalcularTMBComFa();
-        assertThrows(Exception.class,() -> {pessoaMasculinaFT.CalcularTMBComFT();});
-    }
-
-    @Test
     void testCalculoTMBGETEmpty() throws Exception {
 
         Questionario questionarioGET = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"",41);
@@ -247,7 +236,7 @@ public class testPessoa {
         pessoaMasculinaGET.CalcularTMB();
         pessoaMasculinaGET.CalcularTMBComFa();
         pessoaMasculinaGET.CalcularTMBComFT();
-        assertThrows(Exception.class,() -> {pessoaMasculinaGET.CalcularGET();});
+        assertThrows(Exception.class, pessoaMasculinaGET::CalcularGET);
     }
 
     @Test
@@ -375,13 +364,13 @@ public class testPessoa {
     void testCalculoSchofieldEquationBeLow0()
     {
         pessoaMasculina = new Pessoa("Bruno miguel",-1,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
-        assertThrows(Exception.class,() -> {pessoaMasculina.CalcularSchofieldEquation();});
+        assertThrows(Exception.class,() -> pessoaMasculina.CalcularSchofieldEquation());
     }
 
     @Test
     void testCalculoSchofieldEquationNoGenro()
     {
-        assertThrows(Exception.class,() -> {pessoaNoGenre.CalcularSchofieldEquation();});
+        assertThrows(Exception.class,() -> pessoaNoGenre.CalcularSchofieldEquation());
     }
 
     @Test

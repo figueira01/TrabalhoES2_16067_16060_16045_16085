@@ -65,8 +65,6 @@ public class Client {
                 plano.add(Collections.singletonList(new PlanoAlimentar(values[0],values[1],
                         values[2],Double.parseDouble(values[3]))));
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,9 +94,10 @@ public class Client {
                         ,Double.parseDouble(values[9]),Double.parseDouble(values[10]),Double.parseDouble(values[11]),
                         Double.parseDouble(values[12]),values[13],Integer.parseInt(values[14]))));
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public double CalculationgetAcidoGordosSaturados(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)

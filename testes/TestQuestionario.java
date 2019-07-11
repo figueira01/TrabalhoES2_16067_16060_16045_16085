@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestQuestionario {
+class TestQuestionario {
 
     private Questionario questionario;
 
     @BeforeEach
-    void setUp(){
-        questionario = new Questionario("","","","","","","","",1,1,1, 1,1,"", 1);
+    void setUp() throws Exception {
+        questionario = new Questionario("","","","","","","","",1,1,1, 1,1,"", 0);
     }
 
     @AfterEach
@@ -18,9 +18,8 @@ public class TestQuestionario {
     }
 
     @Test
-    void testConstrutorQuestionario()
-    {
-        Questionario questionario = new Questionario("","","","","","","","",1,1,1, 1,1,"", 1);
+    void testConstrutorQuestionario() throws Exception {
+        Questionario questionario = new Questionario("","","","","","","","",1,1,1, 1,1,"", 0);
     }
 
     @Test
@@ -78,21 +77,19 @@ public class TestQuestionario {
     }
 
     @Test
-    void TestTermico() {
-        questionario.setTermico(11);
-        assertEquals(11,questionario.getTermico());
+    void TestTermico() throws Exception {
+        questionario.setTermico(39);
+        assertEquals(39,questionario.getTermico());
     }
 
     @Test
-    void TestTermicoBelowZero() {
-        questionario.setTermico(-1);
-        assertFalse(questionario.getTermico() > 0);
+    void TestTermicoBelow38() {
+        assertThrows(Exception.class,() -> questionario.setTermico(-1));
     }
 
     @Test
-    void TestTermicoUpTwenty() {
-        questionario.setTermico(21);
-        assertFalse(questionario.getTermico() < 20);
+    void TestTermicoUp41() {
+        assertThrows(Exception.class,() -> questionario.setTermico(42));
     }
 
     @Test

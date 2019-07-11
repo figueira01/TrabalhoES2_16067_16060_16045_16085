@@ -1,6 +1,6 @@
 package es2.com;
 
-public class Questionario extends Object {
+public class Questionario {
 
     private String motivoConsulta;
     private String objectivo;
@@ -19,7 +19,7 @@ public class Questionario extends Object {
     private int termico;
 
 
-    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico) {
+    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico) throws Exception {
         this.motivoConsulta = motivoConsulta;
         this.objectivo = objectivo;
         this.patologia = patologia;
@@ -34,7 +34,10 @@ public class Questionario extends Object {
         this.creatina = creatina;
         this.proteina = proteina;
         this.lesao = lesao;
-        this.termico = termico;
+        if ((termico >= 38 && termico <= 41) || (termico == 0))
+            this.termico = termico;
+        else
+            throw new Exception();
     }
 
     public String getMotivoConsulta() {
@@ -153,7 +156,10 @@ public class Questionario extends Object {
         this.lesao = lesao;
     }
 
-    public void setTermico(int termico) {
-        this.termico = termico;
+    public void setTermico(int termico) throws Exception {
+        if ((termico >= 38 && termico <= 41) || (termico == 0))
+            this.termico = termico;
+        else
+            throw new Exception();
     }
 }

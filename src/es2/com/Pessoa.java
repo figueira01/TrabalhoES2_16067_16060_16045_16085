@@ -1,6 +1,6 @@
 package es2.com;
 
-public class Pessoa extends Object {
+public class Pessoa {
 
     private String nome;
     private int idade;
@@ -77,7 +77,7 @@ public class Pessoa extends Object {
         throw new Exception();
     }
 
-    public double CalcularTMBComFT() throws Exception {
+    public double CalcularTMBComFT() {
 
         if(questionario.getTermico() == 38){
             return metabolismoBasalFT = metabolismoBasalFa * 1.1;
@@ -91,10 +91,7 @@ public class Pessoa extends Object {
         if(questionario.getTermico() == 41){
             return metabolismoBasalFT = metabolismoBasalFa * 1.4;
         }
-        if(questionario.getTermico() == 0){
             return metabolismoBasalFT = metabolismoBasalFa;
-        }
-        throw new Exception();
     }
 
     public double CalcularGET() throws Exception {
