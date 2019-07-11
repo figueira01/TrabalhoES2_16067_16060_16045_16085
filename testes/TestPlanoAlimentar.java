@@ -1,5 +1,4 @@
 import es2.com.PlanoAlimentar;
-import es2.com.Refeicao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ class TestPlanoAlimentar {
     private PlanoAlimentar planoAlimentar;
 
     @BeforeEach
-    void setUp(){
+    void setUp() throws Exception {
         planoAlimentar = new PlanoAlimentar("Pequeno-almoco","","leite",200);
     }
 
@@ -21,8 +20,7 @@ class TestPlanoAlimentar {
     }
 
     @Test
-    void testPlanoAlimentar()
-    {
+    void testPlanoAlimentar() throws Exception {
         PlanoAlimentar planoAlimentar = new PlanoAlimentar("Pequeno-almoco","","leite",200);
     }
 
@@ -51,15 +49,14 @@ class TestPlanoAlimentar {
     }
 
     @Test
-    void testQuantidadeBeLow0()
-    {
-        assertFalse(planoAlimentar.getQuantidade() < 0.00);
+    void testQuantidadeBeLow0() {
+        assertThrows(Exception.class,() -> {planoAlimentar.setQuantidade(-1);});
     }
 
     @Test
     void testQuantidadeAbove500()
     {
-        assertFalse(planoAlimentar.getQuantidade() > 500);
+        assertThrows(Exception.class,() -> {planoAlimentar.setQuantidade(500.1);});
     }
 
 }

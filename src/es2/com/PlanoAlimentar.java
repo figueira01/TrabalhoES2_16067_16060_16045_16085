@@ -7,11 +7,15 @@ public class PlanoAlimentar extends Object {
     private String comida;
     private double quantidade;
 
-    public PlanoAlimentar(String refeicao, String hora, String comida, double quantidade) {
+    public PlanoAlimentar(String refeicao, String hora, String comida, double quantidade) throws Exception {
         this.refeicao = refeicao;
         this.hora = hora;
         this.comida = comida;
-        this.quantidade = quantidade;
+        if(quantidade <= 500 && quantidade > 0)
+        {
+            this.quantidade = quantidade;
+        }else
+            throw new Exception();
     }
 
 
@@ -43,7 +47,11 @@ public class PlanoAlimentar extends Object {
         return quantidade;
     }
 
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidade(double quantidade) throws Exception {
+        if(quantidade <= 500 && quantidade > 0)
+        {
+            this.quantidade = quantidade;
+        }else
+            throw new Exception();
     }
 }
