@@ -1,11 +1,10 @@
-import es2.com.Client;
-import es2.com.Funcoes;
-import es2.com.PlanoAlimentar;
-import es2.com.Produto;
+import es2.com.*;
+import es2.com.Exceptions.InvalidException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -36,6 +35,57 @@ public class testFuncoes {
     void tearDown()
     {
 
+    }
+
+    @Test
+    public void testLerDadosFisicosNull()   {
+        assertThrows(NullPointerException.class,() -> funcoes.LerDadosFisicos(null));
+    }
+
+    @Test
+    public void testLerDadosFisicos() throws InvalidException {
+        List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
+        funcoes.LerDadosFisicos(dadosFisicos);
+    }
+
+    @Test
+    public void LerDadosProdutosNull()   {
+        assertThrows(NullPointerException.class,() -> funcoes.LerDadosProdutos(null));
+    }
+
+    @Test
+    public void LerDadosProdutos()  {
+        List<List<Produto>> dadosProduto = new ArrayList<>();
+        funcoes.LerDadosProdutos(dadosProduto);
+    }
+
+    @Test
+    public void LerQuestionarioNull()   {
+         assertThrows(NullPointerException.class, () -> funcoes.LerQuestionario(null));
+    }
+
+    @Test
+    public void LerPlanoAlimentar()
+    {
+        funcoes.LerPlanoAlimentar(url,planoAtual);
+    }
+
+    @Test
+    public void LerPlanoAlimentarUrlWrong()
+    {
+        assertThrows(FileNotFoundException.class,() -> funcoes.LerPlanoAlimentar("aaaa",planoAtual));
+    }
+
+    @Test
+    public void LerPlanoAlimentarArrayWrong()
+    {
+        assertThrows(NullPointerException.class,() -> funcoes.LerPlanoAlimentar(url,null));
+    }
+
+    @Test
+    public void LerQuestionario()  {
+        List<List<Questionario>> questionario = new ArrayList<>();
+        funcoes.LerQuestionario(questionario);
     }
 
     @Test
