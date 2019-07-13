@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class testClient {
+public class testFuncoes {
 
     private List<List<PlanoAlimentar>> planoAtual;
     private String refeicao;
@@ -23,7 +23,7 @@ public class testClient {
         refeicao = "pequeno almoco";
         bool = true;
         client = new Client();
-        client.LerPlanoAlimentar("CSV/PlanoAlimentarPrescrito.csv",planoAtual);
+        //client.LerPlanoAlimentar("CSV/PlanoAlimentarPrescrito.csv",planoAtual);
     }
 
     @AfterEach
@@ -36,8 +36,8 @@ public class testClient {
     public void CalculationgetAcidoGordosSaturadosV()
     {
 
-        double a = client.CalculationAcidoColesterol(planoAtual,refeicao,false);
-        System.out.println(a);
+        //double a = client.CalculationAcidoColesterol(planoAtual,refeicao,false);
+        //System.out.println(a);
         //assertEquals(12.999,client.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool));
     }
 }
