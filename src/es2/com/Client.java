@@ -1,7 +1,5 @@
 package es2.com;
-
-import java.io.*;
-import java.util.*;
+        import java.util.*;
 
 public class Client {
 
