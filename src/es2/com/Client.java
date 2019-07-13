@@ -1,5 +1,5 @@
 package es2.com;
-        import java.util.*;
+import java.util.*;
 
 public class Client {
 
@@ -31,4 +31,3 @@ public class Client {
     }
 
 }
-
