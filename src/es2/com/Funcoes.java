@@ -121,7 +121,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationEnergia(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationEnergia(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -142,7 +142,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationEnergiaKj(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationEnergiaKj(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -163,7 +163,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAgua(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAgua(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -184,7 +184,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationProteina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationProteina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -205,7 +205,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationGorduraTotal(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationGorduraTotal(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -226,7 +226,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationHC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationHC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -247,7 +247,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationMono(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationMono(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -268,7 +268,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoOrganico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAcidoOrganico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -289,7 +289,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAlcool(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAlcool(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -310,7 +310,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAmido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAmido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -331,7 +331,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationOligossacarido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationOligossacarido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -352,7 +352,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationFibraAlimentar(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationFibraAlimentar(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -373,7 +373,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoMonoinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAcidoMonoinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -394,7 +394,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoGordoPolinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAcidoGordoPolinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -415,7 +415,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoGordoTrans(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAcidoGordoTrans(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -436,7 +436,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoLinoleico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAcidoLinoleico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -457,7 +457,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoColesterol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationAcidoColesterol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -478,7 +478,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitA(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationVitA(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -499,7 +499,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationCaroteno(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationCaroteno(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -520,7 +520,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitD(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationVitD(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -541,7 +541,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationaTocofecol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationaTocofecol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -562,7 +562,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationTiamina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationTiamina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -583,7 +583,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationRiboflavina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationRiboflavina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -604,7 +604,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationEquivalenteNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationEquivalenteNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -625,7 +625,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -646,7 +646,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationTriptofano(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationTriptofano(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -667,7 +667,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitB(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationVitB(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -709,7 +709,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationVitC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -730,7 +730,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationFolatos(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationFolatos(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -751,7 +751,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationCinza(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationCinza(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -772,7 +772,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationNa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationNa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -792,7 +792,7 @@ public class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationK(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationK(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -812,7 +812,7 @@ public class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationCa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationCa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -832,7 +832,7 @@ public class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationP(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationP(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -852,7 +852,7 @@ public class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationMg(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationMg(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -872,7 +872,7 @@ public class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationFe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationFe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -892,7 +892,7 @@ public class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationZe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationZe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
