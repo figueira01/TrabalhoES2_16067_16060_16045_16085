@@ -1,6 +1,4 @@
 package es2.com;
-
-import java.io.*;
 import java.util.*;
 
 public class Client {
@@ -20,16 +18,16 @@ public class Client {
     public static void main(String [] args) throws Exception {
 
         Funcoes funcoes = new Funcoes();
-        dadosFisicos =  funcoes.LerDadosFisicos();
-        produtos = funcoes.LerDadosProdutos();
-        questionarios = funcoes.LerQuestionario();
-        planoAtual = funcoes.LerPlanoAlimentar(fichPlanoAtual,planoAtual);
-        planoPrescrito = funcoes.LerPlanoAlimentar(fichPlanoPrescrito,planoPrescrito);
-        planoAtualS = funcoes.LerPlanoAlimentarS(fichPlanoAtual,planoAtualS);
-        planoPrescritoS = funcoes.LerPlanoAlimentarS(fichPlanoPrescrito,planoPrescritoS);
+        funcoes.LerDadosFisicos(dadosFisicos);
+        funcoes.LerDadosProdutos(produtos);
+        funcoes.LerQuestionario(questionarios);
+        funcoes.LerPlanoAlimentar(fichPlanoAtual,planoAtual);
+        funcoes.LerPlanoAlimentar(fichPlanoPrescrito,planoPrescrito);
+        funcoes.LerPlanoAlimentarS(fichPlanoAtual,planoAtualS);
+        funcoes.LerPlanoAlimentarS(fichPlanoPrescrito,planoPrescritoS);
         Pessoa pessoa = new Pessoa("Eu",22,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
-        funcoes.WriteToCsv(planoAtualS,planoAtual);
-        funcoes.WriteToCsvPrescrito(planoPrescritoS,planoPrescrito,pessoa);
+        funcoes.WriteToCsv(planoAtualS,planoAtual,produtos);
+        funcoes.WriteToCsvPrescrito(planoPrescritoS,planoPrescrito,pessoa,produtos);
     }
 
 }

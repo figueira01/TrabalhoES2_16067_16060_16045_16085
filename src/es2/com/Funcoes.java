@@ -4,25 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class Funcoes {
+public class Funcoes {
 
     private static final String COMMA_DELIMITER = ";";
-    private static String fichPlanoAtual = "CSV/PlanoAlimentarAtual.csv";
-    private static String fichPlanoPrescrito = "CSV/PlanoAlimentarPrescrito.csv";
-    private static List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
-    private static List<List<Produto>> produtos = new ArrayList<>();
-    private static List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
-    private static List<List<String>> planoAtualS = new ArrayList<>();
-    private static List<List<String>> planoPrescritoS = new ArrayList<>();
-    private static List<List<PlanoAlimentar>> planoPrescrito = new ArrayList<>();
-    private static List<List<Questionario>> questionarios = new ArrayList<>();
+    String d=";";
 
-    public List<List<DadosFisicos>> LerDadosFisicos(){
+    public void  LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos){
 
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/DadosFisicos.csv"))) {
             String line;
@@ -35,10 +26,9 @@ class Funcoes {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return dadosFisicos;
     }
 
-     public List<List<Produto>> LerDadosProdutos(){
+    public void LerDadosProdutos(List<List<Produto>> produtos){
 
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/Produtos.csv"))) {
             String line;
@@ -62,10 +52,9 @@ class Funcoes {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return produtos;
     }
 
-    public List<List<PlanoAlimentar>> LerPlanoAlimentar(String fichPlano,List<List<PlanoAlimentar>> plano){
+    public void  LerPlanoAlimentar(String fichPlano,List<List<PlanoAlimentar>> plano){
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlano))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -76,10 +65,9 @@ class Funcoes {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return plano;
     }
 
-    public List<List<String>> LerPlanoAlimentarS(String fichPlano,List<List<String>> plano){
+    public void LerPlanoAlimentarS(String fichPlano,List<List<String>> plano){
 
         try (BufferedReader br = new BufferedReader(new FileReader(fichPlano))) {
             String line;
@@ -90,10 +78,10 @@ class Funcoes {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return plano;
+
     }
 
-    public List<List<Questionario>> LerQuestionario(){
+    public void LerQuestionario(List<List<Questionario>> questionarios){
 
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/Questionario.csv"))) {
             String line;
@@ -107,10 +95,9 @@ class Funcoes {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return questionarios;
     }
 
-     private double CalculationgetAcidoGordosSaturados(List<List<PlanoAlimentar>> planoAtual, String refeicao, boolean prescrito)
+    public double CalculationgetAcidoGordosSaturados(List<List<PlanoAlimentar>> planoAtual, String refeicao, boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -131,7 +118,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationEnergia(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationEnergia(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -152,7 +139,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationEnergiaKj(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationEnergiaKj(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -173,7 +160,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAgua(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAgua(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -194,7 +181,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationProteina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationProteina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -215,7 +202,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationGorduraTotal(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationGorduraTotal(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -236,7 +223,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationHC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationHC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -257,7 +244,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationMono(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationMono(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -278,7 +265,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoOrganico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAcidoOrganico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -299,7 +286,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAlcool(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAlcool(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -320,7 +307,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAmido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAmido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -341,7 +328,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationOligossacarido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationOligossacarido(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -362,7 +349,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationFibraAlimentar(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationFibraAlimentar(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -383,7 +370,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoMonoinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAcidoMonoinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -404,7 +391,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoGordoPolinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAcidoGordoPolinsaturado(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -425,7 +412,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoGordoTrans(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAcidoGordoTrans(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -446,7 +433,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoLinoleico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAcidoLinoleico(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -467,7 +454,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationAcidoColesterol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationAcidoColesterol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -488,7 +475,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitA(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationVitA(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -509,7 +496,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationCaroteno(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationCaroteno(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -530,7 +517,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitD(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationVitD(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -551,7 +538,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationaTocofecol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationaTocofecol(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -572,7 +559,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationTiamina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationTiamina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -593,7 +580,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationRiboflavina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationRiboflavina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -614,7 +601,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationEquivalenteNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationEquivalenteNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -635,7 +622,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationNiacina(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -656,7 +643,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationTriptofano(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationTriptofano(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -677,7 +664,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitB(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationVitB(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -698,7 +685,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitB12(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationVitB12(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -719,7 +706,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationVitC(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -740,7 +727,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationFolatos(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationFolatos(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -761,7 +748,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationCinza(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationCinza(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -782,7 +769,7 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationNa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationNa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -802,7 +789,7 @@ class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationK(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationK(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -822,7 +809,7 @@ class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationCa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationCa(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -842,7 +829,7 @@ class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationP(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationP(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -862,7 +849,7 @@ class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationMg(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationMg(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -882,7 +869,7 @@ class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationFe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationFe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -902,7 +889,7 @@ class Funcoes {
         }
         return EnergiaKj;
     }
-    private double CalculationZe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito)
+    private double CalculationZe(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
@@ -923,27 +910,26 @@ class Funcoes {
         return EnergiaKj;
     }
 
-    public void WriteToCsv(List<List<String>> planoAtual,List<List<PlanoAlimentar>> planoAtualP) throws IOException {
 
+    public void WriteToCsv(List<List<String>> planoAtual,List<List<PlanoAlimentar>> planoAtualP,List<List<Produto>> produtos) throws IOException {
         String refeicao = planoAtual.get(0).get(0);
+
         FileWriter csvWriter = new FileWriter("PlanoAlimentarAtual.csv");
-        csvWriter.append("Plano Alimentar Atual");
-        csvWriter.append("\n");
         csvWriter.append("Refeicao");
-        csvWriter.append(",");
+        csvWriter.append(d);
         csvWriter.append("Hora");
         csvWriter.append("\n");
 
         for(List<String> rowData : planoAtual){
             if(refeicao.equals(rowData.get(0)))
             {
-                csvWriter.append(String.join(",", rowData));
+                csvWriter.append(String.join(d, rowData));
                 csvWriter.append("\n");
             }else
             {
                 csvWriter.append("Por Refeicao");
-                csvWriterAppend(csvWriter,refeicao,planoAtualP,false);
-                csvWriter.append(String.join(",", rowData));
+                csvWriterAppend(csvWriter,refeicao,planoAtualP,false, produtos);
+                csvWriter.append(String.join(d, rowData));
                 csvWriter.append("\n");
                 refeicao = rowData.get(0);
             }
@@ -953,13 +939,12 @@ class Funcoes {
         csvWriter.close();
     }
 
-
-    public void WriteToCsvPrescrito(List<List<String>> planoPrescritoS,List<List<PlanoAlimentar>> planoPrescrito,Pessoa pessoa) throws Exception {
+    public void WriteToCsvPrescrito(List<List<String>> planoPrescritoS,List<List<PlanoAlimentar>> planoPrescrito,Pessoa pessoa,List<List<Produto>> produtos) throws Exception {
         String refeicao = planoPrescritoS.get(0).get(0);
-        String d=";";
+
         FileWriter csvWriter = new FileWriter("PlanoAlimentarPrescrito.csv");
         csvWriter.append("Plano Alimentar Prescrito");
-        csvWriter.append("\n");
+        csvWriter.append("\n \n");
         csvWriter.append("Refeicao");
         csvWriter.append(d);
         csvWriter.append("Hora");
@@ -970,7 +955,7 @@ class Funcoes {
             csvWriter.append("\n");
         }
         csvWriter.append("Total");
-        csvWriterAppend(csvWriter,refeicao,planoPrescrito,true);
+        csvWriterAppend(csvWriter,refeicao,planoPrescrito,true, produtos);
         csvWriter.append("Energia");
         csvWriter.append(d);
         csvWriter.append(d);
@@ -1012,8 +997,7 @@ class Funcoes {
         csvWriter.close();
     }
 
-    public void csvWriterAppend(FileWriter csvWriter,String refeicao,List<List<PlanoAlimentar>> planoPrescrito,boolean atual) throws IOException {
-        String d = ";";
+    public void csvWriterAppend(FileWriter csvWriter,String refeicao,List<List<PlanoAlimentar>> planoPrescrito,boolean atual,List<List<Produto>> produtos) throws IOException {
         csvWriter.append(d);
         csvWriter.append(d);
         csvWriter.append("Energia (kcal)");
@@ -1036,7 +1020,7 @@ class Funcoes {
         csvWriter.append(d);
         csvWriter.append("Amido");
         csvWriter.append(d);
-        csvWriter.append("Oligossacáridos");
+        csvWriter.append("Oligossacaridos");
         csvWriter.append(d);
         csvWriter.append("Fibra alimentar");
         csvWriter.append(d);
@@ -1096,83 +1080,83 @@ class Funcoes {
         csvWriter.append("\n");
         csvWriter.append(d);
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationEnergia(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationEnergia(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationEnergiaKj(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationEnergiaKj(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAgua(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAgua(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationProteina(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationProteina(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationGorduraTotal(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationGorduraTotal(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationHC(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationHC(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationMono(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationMono(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAcidoOrganico(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAcidoOrganico(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAlcool(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAlcool(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAmido(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAmido(planoPrescrito,refeicao,atual, produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationOligossacarido(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationOligossacarido(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationFibraAlimentar(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationFibraAlimentar(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationgetAcidoGordosSaturados(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationgetAcidoGordosSaturados(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAcidoMonoinsaturado(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAcidoMonoinsaturado(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAcidoGordoPolinsaturado(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAcidoGordoPolinsaturado(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAcidoGordoTrans(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAcidoGordoTrans(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAcidoLinoleico(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAcidoLinoleico(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationAcidoColesterol(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationAcidoColesterol(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationVitA(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationVitA(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationCaroteno(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationCaroteno(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationVitD(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationVitD(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationaTocofecol(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationaTocofecol(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationTiamina(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationTiamina(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationRiboflavina(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationRiboflavina(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationEquivalenteNiacina(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationEquivalenteNiacina(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationNiacina(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationNiacina(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationTriptofano(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationTriptofano(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationVitB(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationVitB(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationVitB12(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationVitB12(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationVitC(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationVitC(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationFolatos(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationFolatos(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationCinza(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationCinza(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationNa(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationNa(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationK(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationK(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationCa(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationCa(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationP(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationP(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationMg(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationMg(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationFe(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationFe(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append(d);
-        csvWriter.append(Double.toString(CalculationZe(planoPrescrito,refeicao,atual)));
+        csvWriter.append(Double.toString(CalculationZe(planoPrescrito,refeicao,atual,produtos)));
         csvWriter.append("\n");
     }
 }
