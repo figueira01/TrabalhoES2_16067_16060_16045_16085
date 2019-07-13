@@ -1,5 +1,7 @@
 package es2.com;
 
+import es2.com.Exceptions.InvalidException;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -13,13 +15,14 @@ public class Funcoes {
     private static final String COMMA_DELIMITER = ";";
     String d=";";
 
-    public void  LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos){
+    public void  LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos) throws InvalidException {
 
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/DadosFisicos.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
                 dadosFisicos.add(Collections.singletonList(new DadosFisicos(Double.parseDouble(values[0]),Double.parseDouble(values[1]),
+
                         Double.parseDouble(values[2]),Double.parseDouble(values[3]),Double.parseDouble(values[4]),Double.parseDouble(values[5]),Double.parseDouble(values[6]),
                         Double.parseDouble(values[7]),Double.parseDouble(values[8]))));
             }

@@ -1,5 +1,7 @@
 package es2.com;
 
+import es2.com.Exceptions.InvalidException;
+
 public class DadosFisicos extends Object{
 
     private double peso;
@@ -13,7 +15,7 @@ public class DadosFisicos extends Object{
     private double h20;
 
 
-    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double h20) {
+    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double h20) throws InvalidException {
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
@@ -23,6 +25,11 @@ public class DadosFisicos extends Object{
         this.imc = imc;
         this.musculo = musculo;
         this.h20 = h20;
+
+        if(getPeso()<=0 || getPeso() >300)
+        {
+            throw new InvalidException();
+        }
     }
 
     public double getPeso() {

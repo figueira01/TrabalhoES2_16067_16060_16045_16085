@@ -1,4 +1,5 @@
 import es2.com.DadosFisicos;
+import es2.com.Exceptions.InvalidException;
 import es2.com.Pessoa;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +13,7 @@ public class TestDadosFisicos
 
 
     @BeforeEach
-    void setUp()
-    {
+    void setUp() throws InvalidException {
         dadosFisicos = new DadosFisicos(70,178,5,30,23,5,
                 22,40,76);
     }
@@ -25,8 +25,8 @@ public class TestDadosFisicos
     }
 
     @Test
-    void testeDadosFisicos()
-    {
+    void testeDadosFisicos() throws InvalidException {
+
         DadosFisicos dadosFisicos = new DadosFisicos(70,178,5,30,23,3,
                 22,60,65);
     }
@@ -34,7 +34,14 @@ public class TestDadosFisicos
     @Test
     void testepeso()
     {
-        assertTrue( dadosFisicos.getPeso() >= 1 &&  dadosFisicos.getPeso() <= 300);
+
+        assertEquals(70,dadosFisicos.getPeso());
+
+        dadosFisicos.setPeso(-20);
+        assertThrows(InvalidException.class,() -> {dadosFisicos.getPeso();});
+
+        dadosFisicos.setPeso(350);
+        assertThrows(InvalidException.class,() -> {dadosFisicos.getPeso();});
     }
 
     @Test
