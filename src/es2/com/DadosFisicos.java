@@ -16,6 +16,14 @@ public class DadosFisicos extends Object{
 
 
     public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double h20) throws InvalidException {
+
+        if(this.peso<=0 || this.peso >300 || this.altura<1 || this.altura >2.5 || this.gorduraCorporal <3 || this.gorduraCorporal >70 || this.gorduraVisceral <0 ||
+                this.gorduraVisceral>50 || this.idadeMetabolica<0 || this.idadeMetabolica>50 || this.osso <0 || this.osso>5 || this.imc <0 ||this.imc>50 || this.musculo <0
+                ||this.musculo>100 || this.h20<0|| this.h20>100)
+        {
+            throw new InvalidException();
+        }
+
         this.peso = peso;
         this.altura = altura;
         this.gorduraCorporal = gorduraCorporal;
@@ -26,10 +34,6 @@ public class DadosFisicos extends Object{
         this.musculo = musculo;
         this.h20 = h20;
 
-        if(getPeso()<=0 || getPeso() >300)
-        {
-            throw new InvalidException();
-        }
     }
 
     public double getPeso() {

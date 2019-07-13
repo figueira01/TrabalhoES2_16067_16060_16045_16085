@@ -14,7 +14,7 @@ public class TestDadosFisicos
 
     @BeforeEach
     void setUp() throws InvalidException {
-        dadosFisicos = new DadosFisicos(70,178,5,30,23,5,
+        dadosFisicos = new DadosFisicos(1000,178,5,30,23,5,
                 22,40,76);
     }
 
@@ -32,16 +32,30 @@ public class TestDadosFisicos
     }
 
     @Test
-    void testepeso()
-    {
+    void testeConstrutorDadosFisicos() throws InvalidException {
+
+        DadosFisicos df = new DadosFisicos(70,178,5,30,23,3,
+                22,60,65);
 
         assertEquals(70,dadosFisicos.getPeso());
+        assertEquals(178,dadosFisicos.getAltura());
+        assertEquals(5,dadosFisicos.getGorduraCorporal());
+        assertEquals(30,dadosFisicos.getGorduraVisceral());
+        assertEquals(23,dadosFisicos.getIdadeMetabolica());
+        assertEquals(30,dadosFisicos.getOsso());
+        assertEquals(30,dadosFisicos.getImc());
+        assertEquals(30,dadosFisicos.getMusculo());
+        assertEquals(30,dadosFisicos.getH20());
 
-        dadosFisicos.setPeso(-20);
-        assertThrows(InvalidException.class,() -> {dadosFisicos.getPeso();});
 
-        dadosFisicos.setPeso(350);
-        assertThrows(InvalidException.class,() -> {dadosFisicos.getPeso();});
+        assertThrows(InvalidException.class,() -> {
+            new DadosFisicos(-1,178,5,30,23,3,
+                    22,60,65);;});
+
+        //dadosFisicos.setPeso(350);
+        assertThrows(InvalidException.class,() -> {
+            new DadosFisicos(400,178,5,30,23,3,
+                    22,60,65);;});
     }
 
     @Test

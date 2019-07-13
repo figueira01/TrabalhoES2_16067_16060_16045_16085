@@ -688,7 +688,7 @@ public class Funcoes {
         return EnergiaKj;
     }
 
-    private double CalculationVitB12(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
+    public double CalculationVitB12(List<List<PlanoAlimentar>> planoAtual,String refeicao,boolean prescrito,List<List<Produto>> produtos)
     {
         double EnergiaKj = 0;
 
