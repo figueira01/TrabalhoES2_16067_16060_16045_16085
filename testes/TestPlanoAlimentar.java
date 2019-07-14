@@ -62,6 +62,13 @@ class TestPlanoAlimentar {
             new PlanoAlimentar("Pequeno-almoco","10:00","leiteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",200);
         });
 
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","leite",-1);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","leite",4001);
+        });
+
 
     }
 

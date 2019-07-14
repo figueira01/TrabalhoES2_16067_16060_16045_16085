@@ -14,6 +14,7 @@ public class PlanoAlimentar extends Object {
         assert hora!=null && !hora.equals("") : "Hora nao pode ser null";
         assert hora.length()==5 : "O tamnho da Hora nao pode ser diferente de 5";
         assert comida!=null &&!comida.equals("") : "Comida nao pode ser null";
+        assert comida.length()>2 && comida.length()<100 : "O tamanho Comida nao pode ser menor que 2 ou maior de 100";
         assert quantidade >=0 && quantidade < 4000 : "Quantidade não pode ser menor que 0 e maior que 4000";
 
         this.refeicao = refeicao;

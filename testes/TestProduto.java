@@ -76,7 +76,7 @@ public class TestProduto {
     }
 
     @Test
-    void testeSetCodigo() {
+    void testeCodigo() {
 
         assertThrows(AssertionError.class, () -> {//CODIGO EMPTY
             produto.setCodigo("");
@@ -95,11 +95,12 @@ public class TestProduto {
             produto.setCodigo("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         });
 
-        produto.setCodigo("IS900");
+        produto.setCodigo("IS20");
+        assertEquals("IS20", produto.getCodigo());
     }
 
     @Test
-    void testeSetNome() {
+    void testeNome() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setNome("");
@@ -118,11 +119,12 @@ public class TestProduto {
             produto.setNome("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         });
 
-        produto.setNome("Jose");
+        produto.setNome("Joao");
+        assertEquals("Joao", produto.getNome());
     }
 
     @Test
-    void testeSetEnergiaKcal() {
+    void testeEnergiaKcal() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setEnergiaKcal(-1);
@@ -133,11 +135,12 @@ public class TestProduto {
             produto.setEnergiaKcal(4000);
         });
 
-        produto.setEnergiaKcal(100);
+        produto.setEnergiaKcal(300);
+        assertEquals(300, produto.getEnergiaKcal());
     }
 
     @Test
-    void testeSetEnergiaKj() {
+    void testeEnergiaKj() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setEnergiaKj(-1);
@@ -149,10 +152,11 @@ public class TestProduto {
         });
 
         produto.setEnergiaKj(1000);
+        assertEquals(1000, produto.getEnergiaKj());
     }
 
     @Test
-    void testeSetAgua() {
+    void testeAgua() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAgua(-1);
@@ -163,11 +167,12 @@ public class TestProduto {
             produto.setAgua(101);
         });
 
-        produto.setAgua(70);
+        produto.setAgua(80);
+        assertEquals(80, produto.getAgua());
     }
 
     @Test
-    void testeSetProteina() {
+    void testeProteina() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setProteina(-1);
@@ -178,11 +183,19 @@ public class TestProduto {
             produto.setProteina(501);
         });
 
-        produto.setProteina(70);
+        produto.setProteina(80);
+        assertEquals(80, produto.getProteina());
     }
 
     @Test
-    void testeSetGorduraTotal() {
+    void testeGetZn() {
+
+        produto.setZn(80);
+        assertEquals(80, produto.getZn());
+
+    }
+    @Test
+    void testeGorduraTotal() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setGorduraTotal(-1);
@@ -193,11 +206,12 @@ public class TestProduto {
             produto.setGorduraTotal(501);
         });
 
-        produto.setGorduraTotal(70);
+        produto.setGorduraTotal(80);
+        assertEquals(80, produto.getGorduraTotal());
     }
 
     @Test
-    void testeSetTotalHCDisponivel() {
+    void testeTotalHCDisponivel() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setTotalHCDisponivel(-1);
@@ -208,11 +222,12 @@ public class TestProduto {
             produto.setTotalHCDisponivel(501);
         });
 
-        produto.setTotalHCDisponivel(70);
+        produto.setTotalHCDisponivel(80);
+        assertEquals(80, produto.getTotalHCDisponivel());
     }
 
     @Test
-    void testeSetTotalHCexpressoEmMonossacaridos() {
+    void testeTotalHCexpressoEmMonossacaridos() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setTotalHCexpressoEmMonossacaridos(-1);
@@ -223,11 +238,12 @@ public class TestProduto {
             produto.setTotalHCexpressoEmMonossacaridos(501);
         });
 
-        produto.setTotalHCexpressoEmMonossacaridos(70);
+        produto.setTotalHCexpressoEmMonossacaridos(80);
+        assertEquals(80, produto.getTotalHCexpressoEmMonossacaridos());
     }
 
     @Test
-    void testeSetMonoPlusDissacaridos() {
+    void testeMonoPlusDissacaridos() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setMonoPlusDissacaridos(-1);
@@ -238,11 +254,12 @@ public class TestProduto {
             produto.setMonoPlusDissacaridos(501);
         });
 
-        produto.setMonoPlusDissacaridos(70);
+        produto.setMonoPlusDissacaridos(80);
+        assertEquals(80, produto.getMonoPlusDissacaridos());
     }
 
     @Test
-    void testeSetAcidosOrganicos() {
+    void testeAcidosOrganicos() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAcidosOrganicos(-1);
@@ -253,11 +270,12 @@ public class TestProduto {
             produto.setAcidosOrganicos(501);
         });
 
-        produto.setAcidosOrganicos(70);
+        produto.setAcidosOrganicos(80);
+        assertEquals(80, produto.getAcidosOrganicos());
     }
 
     @Test
-    void testeSetAlcool() {
+    void testeAlcool() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAlcool(-1);
@@ -269,10 +287,11 @@ public class TestProduto {
         });
 
         produto.setAlcool(70);
+        assertEquals(70, produto.getAlcool());
     }
 
     @Test
-    void testeSetAmido() {
+    void testeAmido() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAmido(-1);
@@ -284,10 +303,11 @@ public class TestProduto {
         });
 
         produto.setAmido(70);
+        assertEquals(70, produto.getAmido());
     }
 
     @Test
-    void testeSetOligossacaridos() {
+    void testeOligossacaridos() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setOligossacaridos(-1);
@@ -299,10 +319,11 @@ public class TestProduto {
         });
 
         produto.setOligossacaridos(70);
+        assertEquals(70, produto.getOligossacaridos());
     }
 
     @Test
-    void testeSetFibraAlimentar() {
+    void testeFibraAlimentar() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setFibraAlimentar(-1);
@@ -314,10 +335,11 @@ public class TestProduto {
         });
 
         produto.setFibraAlimentar(70);
+        assertEquals(70, produto.getFibraAlimentar());
     }
 
     @Test
-    void testeSetAcidoGordosSaturados() {
+    void testeAcidoGordosSaturados() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAcidoGordosSaturados(-1);
@@ -329,10 +351,11 @@ public class TestProduto {
         });
 
         produto.setAcidoGordosSaturados(70);
+        assertEquals(70, produto.getAcidoGordosSaturados());
     }
 
     @Test
-    void testeSetAcidosGordosMonoinsaturados() {
+    void testeAcidosGordosMonoinsaturados() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAcidosGordosMonoinsaturados(-1);
@@ -344,10 +367,11 @@ public class TestProduto {
         });
 
         produto.setAcidosGordosMonoinsaturados(70);
+        assertEquals(70, produto.getAcidosGordosMonoinsaturados());
     }
 
     @Test
-    void testeSetAcidosGordosPolinsaturados() {
+    void testeAcidosGordosPolinsaturados() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAcidosGordosPolinsaturados(-1);
@@ -359,10 +383,11 @@ public class TestProduto {
         });
 
         produto.setAcidosGordosPolinsaturados(70);
+        assertEquals(70, produto.getAcidosGordosPolinsaturados());
     }
 
     @Test
-    void testeSetAcidosGordosTrans() {
+    void testeAcidosGordosTrans() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAcidosGordosTrans(-1);
@@ -374,10 +399,11 @@ public class TestProduto {
         });
 
         produto.setAcidosGordosTrans(70);
+        assertEquals(70, produto.getAcidosGordosTrans());
     }
 
     @Test
-    void testeSetRetonol() {
+    void testeRetonol() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setRetonol(-1);
@@ -389,10 +415,11 @@ public class TestProduto {
         });
 
         produto.setRetonol(70);
+        assertEquals(70, produto.getRetonol());
     }
 
     @Test
-    void testeSetAcidoLinoleico() {
+    void testeAcidoLinoleico() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setAcidoLinoleico(-1);
@@ -404,10 +431,11 @@ public class TestProduto {
         });
 
         produto.setAcidoLinoleico(70);
+        assertEquals(70, produto.getAcidoLinoleico());
     }
 
     @Test
-    void testeSetColesterol() {
+    void testeColesterol() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setColesterol(-1);
@@ -419,10 +447,11 @@ public class TestProduto {
         });
 
         produto.setColesterol(100);
+        assertEquals(100, produto.getColesterol());
     }
 
     @Test
-    void testeSetVitATotal() {
+    void testeVitATotal() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setVitATotal(-1);
@@ -434,10 +463,11 @@ public class TestProduto {
         });
 
         produto.setVitATotal(1000);
+        assertEquals(1000, produto.getVitATotal());
     }
 
     @Test
-    void testeSetCaroteno() {
+    void testeCaroteno() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setCaroteno(-1);
@@ -449,10 +479,11 @@ public class TestProduto {
         });
 
         produto.setCaroteno(1000);
+        assertEquals(1000, produto.getCaroteno());
     }
 
     @Test
-    void testeSetVitD() {
+    void testeVitD() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setVitD(-1);
@@ -464,10 +495,11 @@ public class TestProduto {
         });
 
         produto.setVitD(100);
+        assertEquals(100, produto.getVitD());
     }
 
     @Test
-    void testeSetTocoferol() {
+    void testeTocoferol() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setTocoferol(-1);
@@ -479,10 +511,11 @@ public class TestProduto {
         });
 
         produto.setTocoferol(100);
+        assertEquals(100, produto.getTocoferol());
     }
 
     @Test
-    void testeSetTiamina() {
+    void testeTiamina() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setTiamina(-1);
@@ -494,10 +527,11 @@ public class TestProduto {
         });
 
         produto.setTiamina(100);
+        assertEquals(100, produto.getTiamina());
     }
 
     @Test
-    void testeSetRiboflavina() {
+    void testeRiboflavina() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setRiboflavina(-1);
@@ -509,10 +543,11 @@ public class TestProduto {
         });
 
         produto.setRiboflavina(100);
+        assertEquals(100, produto.getRiboflavina());
     }
 
     @Test
-    void testeSetEquivalentesDeNiacina() {
+    void testeEquivalentesDeNiacina() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setEquivalentesDeNiacina(-1);
@@ -524,10 +559,11 @@ public class TestProduto {
         });
 
         produto.setEquivalentesDeNiacina(100);
+        assertEquals(100, produto.getEquivalentesDeNiacina());
     }
 
     @Test
-    void testeSetNiaciana() {
+    void testeNiaciana() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setNiaciana(-1);
@@ -539,10 +575,11 @@ public class TestProduto {
         });
 
         produto.setNiaciana(100);
+        assertEquals(100, produto.getNiaciana());
     }
 
     @Test
-    void testeSetTriptofano60() {
+    void testeTriptofano60() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setTriptofano60(-1);
@@ -554,10 +591,11 @@ public class TestProduto {
         });
 
         produto.setTriptofano60(100);
+        assertEquals(100, produto.getTriptofano60());
     }
 
     @Test
-    void testeSetVitB6() {
+    void testeVitB6() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setVitB6(-1);
@@ -569,10 +607,11 @@ public class TestProduto {
         });
 
         produto.setVitB6(100);
+        assertEquals(100, produto.getVitB6());
     }
 
     @Test
-    void testeSetVitB12() {
+    void testeVitB12() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setVitB12(-1);
@@ -584,10 +623,11 @@ public class TestProduto {
         });
 
         produto.setVitB12(100);
+        assertEquals(100, produto.getVitB12());
     }
 
     @Test
-    void testeSetVitC() {
+    void testeVitC() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setVitC(-1);
@@ -599,10 +639,11 @@ public class TestProduto {
         });
 
         produto.setVitC(100);
+        assertEquals(100, produto.getVitC());
     }
 
     @Test
-    void testeSetFolatos() {
+    void testeFolatos() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setFolatos(-1);
@@ -614,10 +655,11 @@ public class TestProduto {
         });
 
         produto.setFolatos(100);
+        assertEquals(100, produto.getFolatos());
     }
 
     @Test
-    void testeSetCinza() {
+    void testeCinza() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setCinza(-1);
@@ -629,10 +671,11 @@ public class TestProduto {
         });
 
         produto.setCinza(100);
+        assertEquals(100, produto.getCinza());
     }
 
     @Test
-    void testeSetNa() {
+    void testeNa() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setNa(-1);
@@ -644,10 +687,11 @@ public class TestProduto {
         });
 
         produto.setNa(100);
+        assertEquals(100, produto.getNa());
     }
 
     @Test
-    void testeSetK() {
+    void testeK() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setK(-1);
@@ -659,10 +703,11 @@ public class TestProduto {
         });
 
         produto.setK(100);
+        assertEquals(100, produto.getK());
     }
 
     @Test
-    void testeSetCa() {
+    void testeCa() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setCa(-1);
@@ -674,10 +719,12 @@ public class TestProduto {
         });
 
         produto.setCa(100);
+        assertEquals(100, produto.getCa());
     }
 
+
     @Test
-    void testeSetP() {
+    void testeP() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setP(-1);
@@ -689,10 +736,11 @@ public class TestProduto {
         });
 
         produto.setP(100);
+        assertEquals(100, produto.getP());
     }
 
     @Test
-    void testeSetMg() {
+    void testeMg() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setMg(-1);
@@ -704,10 +752,11 @@ public class TestProduto {
         });
 
         produto.setMg(100);
+        assertEquals(100, produto.getMg());
     }
 
     @Test
-    void testeSetFe() {
+    void testeFe() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setFe(-1);
@@ -719,10 +768,11 @@ public class TestProduto {
         });
 
         produto.setFe(100);
+        assertEquals(100, produto.getFe());
     }
 
     @Test
-    void testeSetZn() {
+    void testeZn() {
 
         assertThrows(AssertionError.class, () -> {
             produto.setZn(-1);
@@ -733,337 +783,10 @@ public class TestProduto {
         });
 
         produto.setZn(100);
+        assertEquals(100, produto.getZn());
     }
 
-    @Test
-    void testeGetCodigo() {
 
-        produto.setCodigo("IS20");
-        assertEquals("IS20", produto.getCodigo());
 
-    }
 
-    @Test
-    void testeGetNome() {
-
-        produto.setNome("Daniel");
-        assertEquals("Daniel", produto.getNome());
-
-    }
-
-    @Test
-    void testeGetEnergiaKcal() {
-
-        produto.setEnergiaKcal(300);
-        assertEquals(300, produto.getEnergiaKcal());
-
-    }
-
-    @Test
-    void testeGetEnergiaKj() {
-
-        produto.setEnergiaKj(1000);
-        assertEquals(1000, produto.getEnergiaKj());
-
-    }
-    @Test
-    void testeGetAgua() {
-
-        produto.setAgua(80);
-        assertEquals(80, produto.getAgua());
-
-    }
-
-    @Test
-    void testeGetProteina() {
-
-        produto.setProteina(80);
-        assertEquals(80, produto.getProteina());
-
-    }
-
-    @Test
-    void testeGetGorduraTotal() {
-
-        produto.setGorduraTotal(80);
-        assertEquals(80, produto.getGorduraTotal());
-
-    }
-
-    @Test
-    void testeGetTotalHCDisponivel() {
-
-        produto.setTotalHCDisponivel(80);
-        assertEquals(80, produto.getTotalHCDisponivel());
-
-    }
-
-    @Test
-    void testeGetTotalHCexpressoEmMonossacaridos() {
-
-        produto.setTotalHCexpressoEmMonossacaridos(80);
-        assertEquals(80, produto.getTotalHCexpressoEmMonossacaridos());
-
-    }
-
-    @Test
-    void testeGetMonoPlusDissacaridos() {
-
-        produto.setMonoPlusDissacaridos(80);
-        assertEquals(80, produto.getMonoPlusDissacaridos());
-
-    }
-
-    @Test
-    void testeGetAcidosOrganicos() {
-
-        produto.setAcidosOrganicos(80);
-        assertEquals(80, produto.getAcidosOrganicos());
-
-    }
-
-    @Test
-    void testeGetAlcool() {
-
-        produto.setAlcool(80);
-        assertEquals(80, produto.getAlcool());
-
-    }
-
-    @Test
-    void testeGetAmido() {
-
-        produto.setAmido(80);
-        assertEquals(80, produto.getAmido());
-
-    }
-
-    @Test
-    void testeGetOligossacaridos() {
-
-        produto.setOligossacaridos(80);
-        assertEquals(80, produto.getOligossacaridos());
-
-    }
-
-    @Test
-    void testeGetFibraAlimentar() {
-
-        produto.setFibraAlimentar(80);
-        assertEquals(80, produto.getFibraAlimentar());
-
-    }
-
-    @Test
-    void testeGetAcidoGordosSaturados() {
-
-        produto.setAcidoGordosSaturados(80);
-        assertEquals(80, produto.getAcidoGordosSaturados());
-
-    }
-
-    @Test
-    void testeGetAcidosGordosMonoinsaturados() {
-
-        produto.setAcidosGordosMonoinsaturados(80);
-        assertEquals(80, produto.getAcidosGordosMonoinsaturados());
-
-    }
-
-    @Test
-    void testeGetAcidosGordosPolinsaturados() {
-
-        produto.setAcidosGordosPolinsaturados(80);
-        assertEquals(80, produto.getAcidosGordosPolinsaturados());
-
-    }
-
-    @Test
-    void testeGetAcidosGordosTrans() {
-
-        produto.setAcidosGordosTrans(80);
-        assertEquals(80, produto.getAcidosGordosTrans());
-
-    }
-
-    @Test
-    void testeGetRetonol() {
-
-        produto.setRetonol(80);
-        assertEquals(80, produto.getRetonol());
-
-    }
-    @Test
-    void testeGetAcidoLinoleico() {
-
-        produto.setAcidoLinoleico(80);
-        assertEquals(80, produto.getAcidoLinoleico());
-
-    }
-
-    @Test
-    void testeGetColesterol() {
-
-        produto.setColesterol(80);
-        assertEquals(80, produto.getColesterol());
-
-    }
-
-    @Test
-    void testeGetVitATotal() {
-
-        produto.setVitATotal(80);
-        assertEquals(80, produto.getVitATotal());
-
-    }
-
-    @Test
-    void testeGetCaroteno() {
-
-        produto.setCaroteno(80);
-        assertEquals(80, produto.getCaroteno());
-
-    }
-
-    @Test
-    void testeGetVitD() {
-
-        produto.setVitD(80);
-        assertEquals(80, produto.getVitD());
-
-    }
-
-    @Test
-    void testeGetTocoferol() {
-
-        produto.setTocoferol(80);
-        assertEquals(80, produto.getTocoferol());
-
-    }
-
-    @Test
-    void testeGetTiamina() {
-
-        produto.setTiamina(80);
-        assertEquals(80, produto.getTiamina());
-
-    }
-
-    @Test
-    void testeGetRiboflavina() {
-
-        produto.setRiboflavina(80);
-        assertEquals(80, produto.getRiboflavina());
-
-    }
-
-    @Test
-    void testeGetEquivalentesDeNiacina() {
-
-        produto.setEquivalentesDeNiacina(80);
-        assertEquals(80, produto.getEquivalentesDeNiacina());
-
-    }
-
-    @Test
-    void testeGetNiaciana() {
-
-        produto.setNiaciana(80);
-        assertEquals(80, produto.getNiaciana());
-
-    }
-    @Test
-    void testeGetTriptofano60() {
-
-        produto.setTriptofano60(80);
-        assertEquals(80, produto.getTriptofano60());
-
-    }
-
-    @Test
-    void testeGetVitB6() {
-
-        produto.setVitB6(80);
-        assertEquals(80, produto.getVitB6());
-
-    }
-
-    @Test
-    void testeGetVitC() {
-
-        produto.setVitC(80);
-        assertEquals(80, produto.getVitC());
-
-    }
-
-    @Test
-    void testeGetFolatos() {
-
-        produto.setFolatos(80);
-        assertEquals(80, produto.getFolatos());
-
-    }
-
-    @Test
-    void testeGetCinza() {
-
-        produto.setCinza(80);
-        assertEquals(80, produto.getCinza());
-
-    }
-
-    @Test
-    void testeGetNa() {
-
-        produto.setNa(80);
-        assertEquals(80, produto.getNa());
-
-    }
-
-    @Test
-    void testeGetK() {
-
-        produto.setK(80);
-        assertEquals(80, produto.getK());
-
-    }
-
-    @Test
-    void testeGetCa() {
-
-        produto.setCa(80);
-        assertEquals(80, produto.getCa());
-
-    }
-
-    @Test
-    void testeGetP() {
-
-        produto.setP(80);
-        assertEquals(80, produto.getP());
-
-    }
-
-    @Test
-    void testeGetMg() {
-
-        produto.setMg(80);
-        assertEquals(80, produto.getMg());
-
-    }
-    @Test
-    void testeGetFe() {
-
-        produto.setFe(80);
-        assertEquals(80, produto.getFe());
-
-    }
-
-    @Test
-    void testeGetZn() {
-
-        produto.setZn(80);
-        assertEquals(80, produto.getZn());
-
-    }
 }
