@@ -9,9 +9,11 @@ public class PlanoAlimentar extends Object {
 
     public PlanoAlimentar(String refeicao, String hora, String comida, double quantidade) {
 
-        assert !refeicao.equals("") && refeicao!=null : "Refeicao nao pode ser null";
-        assert !hora.equals("") && hora!=null: "Hora nao pode ser null";
-        assert !comida.equals("") && comida!=null: "Comida nao pode ser null";
+        assert refeicao!=null && !refeicao.equals("")  : "Refeicao nao pode ser null nem vazio";
+        assert refeicao.length()>2 && refeicao.length()<=100  : "O tamanho da refeiçao nao pode ser maior que 100 ou menor que 2";
+        assert hora!=null && !hora.equals("") : "Hora nao pode ser null";
+        assert hora.length()==5 : "O tamnho da Hora nao pode ser diferente de 5";
+        assert comida!=null &&!comida.equals("") : "Comida nao pode ser null";
         assert quantidade >=0 && quantidade < 4000 : "Quantidade não pode ser menor que 0 e maior que 4000";
 
         this.refeicao = refeicao;

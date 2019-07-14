@@ -40,6 +40,29 @@ class TestPlanoAlimentar {
         assertThrows(AssertionError.class, () -> {
             new PlanoAlimentar("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss","10:00","leite",200);
         });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco",null,"leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:0","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00",null,200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","l",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","leiteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",200);
+        });
+
+
     }
 
     @Test
