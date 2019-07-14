@@ -24,11 +24,15 @@ public class TestProduto {
 
     @Test
     void testeConstrutorProduto() {
-        produto = new Produto("IS958", "Arroz de frango", 205, 858, 56.6, 8.2,
+        Produto p = new Produto("IS958", "Arroz de frango", 205, 858, 56.6, 8.2,
                 7.6, 25.2, 27.7, 0.7, 0, 0, 24.4,
                 0.1, 1.0, 1.5, 3.9, 1.2, 0.0,
                 1.0, 31, 0.016, 16, 17, 0.16, 0.7, 0.06, 0.09, 3.8,
                 2.3, 1.5, 0.18, 0.18, 3.0, 11, 1.4, 361, 188, 13, 88, 23, 0.6, 0.8);
+
+        assertEquals(70,p.getCodigo());
+        assertEquals(1.7,p.getNome());
+
     }
 
     @Test
@@ -385,7 +389,7 @@ public class TestProduto {
 
 
         assertThrows(AssertionError.class, () -> {
-            produto.setCaroteno(5501);
+            produto.setCaroteno(50001);
         });
 
         produto.setCaroteno(1000);
@@ -580,7 +584,7 @@ public class TestProduto {
 
 
         assertThrows(AssertionError.class, () -> {
-            produto.setNa(5001);
+            produto.setNa(50001);
         });
 
         produto.setNa(100);
@@ -625,7 +629,7 @@ public class TestProduto {
 
 
         assertThrows(AssertionError.class, () -> {
-            produto.setP(1501);
+            produto.setP(50001);
         });
 
         produto.setP(100);
