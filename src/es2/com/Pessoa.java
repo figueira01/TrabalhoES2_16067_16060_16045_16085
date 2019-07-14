@@ -216,14 +216,7 @@ public class Pessoa {
 
 
     public String getNome() {
-        if(nome.isEmpty())
-        {
-            throw new AssertionError();
-        }
-        else if(nome.length()>50 || nome.length()<=2)
-        {
-            throw new AssertionError();
-        }return nome;
+        return nome;
     }
 
     public int getIdade() {
@@ -239,18 +232,44 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(nome.length()>50 || nome.length()<=2)
+        {
+            throw new AssertionError();
+        }this.nome = nome;
     }
 
     public void setIdade(int idade) {
+        if(idade<0 || idade>100)
+        {
+            throw new AssertionError();
+        }
         this.idade = idade;
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        if(sexo.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(sexo.length()>50 || sexo.length()<=2)
+        {
+            throw new AssertionError();
+        }this.sexo = sexo;
     }
 
     public void setProfissao(String profissao) {
+        if(profissao.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(profissao.length()>50 || profissao.length()<=2)
+        {
+            throw new AssertionError();
+        }
         this.profissao = profissao;
     }
 }

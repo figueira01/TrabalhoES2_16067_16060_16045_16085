@@ -13,57 +13,109 @@ import static org.junit.jupiter.api.Assertions.*;
 
  class testPessoa {
 
-    private DadosFisicos dadosFisicos;
-    private List<List<PlanoAlimentar>> planoAlimentar;
-    private Questionario questionario;
-    private Pessoa pessoaMasculina;
-    private Pessoa pessoaFemenina;
-    private Pessoa pessoaNoGenre;
-    private double TMB = 0;
-    private double TMBFA = 0;
-    private double TMBFT = 0;
-    private double TMBGET = 0;
+     private DadosFisicos dadosFisicos;
+     private List<List<PlanoAlimentar>> planoAlimentar;
+     private Questionario questionario;
+     private Pessoa pessoaMasculina;
+     private Pessoa pessoaFemenina;
+     private Pessoa pessoaNoGenre;
+     private double TMB = 0;
+     private double TMBFA = 0;
+     private double TMBFT = 0;
+     private double TMBGET = 0;
 
-    @BeforeEach
-    void setUp() throws Exception {
-        questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
-        dadosFisicos = new DadosFisicos(70,1.78,5,30,23,3, 22,60,65);
-        pessoaMasculina = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
-        pessoaFemenina = new Pessoa("Bruno miguel",21,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
-    }
+     @BeforeEach
+     void setUp() throws Exception {
+         questionario = new Questionario("aaaa", "aaa", "aaa", "aa", "aaa", "Sedentario", "aa", "aaa", 0.111, 0.11, 0.111, 0.11, 0.111, "aa", 38);
+         dadosFisicos = new DadosFisicos(70, 1.78, 5, 30, 23, 3, 22, 60, 65);
+         pessoaMasculina = new Pessoa("Bruno miguel", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario);
+         pessoaFemenina = new Pessoa("Bruno miguel", 21, "Femenino", "Estudante", dadosFisicos, planoAlimentar, questionario);
+     }
 
-    @AfterEach
-    void tearDown()
-    {
+     @AfterEach
+     void tearDown() {
 
-    }
+     }
 
-    @Test
-    void testContrutorPessoa()
-    {
-        Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
-    }
-
-    @Test
-    void testSetNome()
-    {
-        assertThrows(AssertionError.class, () ->
-            pessoaFemenina.setNome(""));
+     @Test
+     void testContrutorPessoa() {
+         Pessoa pessoa = new Pessoa("Bruno miguel", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario);
+         assertThrows(AssertionError.class, () -> new Pessoa("", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("aaa", 0, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("aaa", 21, "", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("aaaa", 21, "Masculino", "", dadosFisicos, planoAlimentar, questionario));
 
 
-        assertThrows(AssertionError.class, () ->
-            pessoaFemenina.setNome(null));
+     }
 
-        assertThrows(AssertionError.class, () ->
-            pessoaFemenina.setNome("S"));
+     @Test
+     void testSetNome() {
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setNome(""));
 
-        assertThrows(AssertionError.class, () ->
-            pessoaFemenina.setNome("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
-        );
 
-        pessoaFemenina.setNome("Bruno");
-        assertEquals("Bruno",pessoaFemenina.getNome());
-    }
+         assertThrows(NullPointerException.class, () ->
+                 pessoaFemenina.setNome(null));
+
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setNome("S"));
+
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setNome("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+         );
+
+         pessoaFemenina.setNome("Bruno");
+         assertEquals("Bruno", pessoaFemenina.getNome());
+     }
+
+     @Test
+     void testSetSexo() {
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setSexo(""));
+
+
+         assertThrows(NullPointerException.class, () ->
+                 pessoaFemenina.setSexo(null));
+
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setSexo("G"));
+
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setSexo("GREATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+         );
+
+         pessoaFemenina.setSexo("Masculino");
+         assertEquals("Masculino", pessoaFemenina.getSexo());
+     }
+
+     @Test
+     void testSetProfissao() {
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setProfissao(""));
+
+
+         assertThrows(NullPointerException.class, () ->
+                 pessoaFemenina.setProfissao(null));
+
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setProfissao("i"));
+
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setProfissao("Informaticooooooooooooooooooooooooooooooooooooooooooooooo")
+         );
+
+         pessoaFemenina.setProfissao("Estudante");
+         assertEquals("Estudante", pessoaFemenina.getProfissao());
+     }
+
+     @Test
+     public void testSetIdade() {
+
+         assertThrows(AssertionError.class, () -> pessoaFemenina.setIdade(-1));
+        assertThrows(AssertionError .class, () -> pessoaFemenina.setIdade(4000));
+        pessoaFemenina.setIdade(10);
+        assertEquals(10,pessoaFemenina.getIdade());
+ }
 
     @Test
     void testObjectDadosFisicos()
