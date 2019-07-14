@@ -21,15 +21,24 @@ public class Questionario {
 
     public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico)  {
 
-        assert !motivoConsulta.equals("") : "Motivo Consulta nao pode ser null";
-        assert !objectivo.equals("") : "Objetivo nao pode ser null";
-        assert !patologia.equals("") : "Patologia nao pode ser null";
-        assert !medicacao.equals("") : "Medicacao nao pode ser null";
-        assert !antecedentesFamiliares.equals("") : "Antecedentes Familiares nao pode ser null";
-        assert !atividadeFisica.equals("") : "Atividade Fisica nao pode ser null";
-        assert !funcaoIntestival.equals("") : "Funcao Intestival nao pode ser null";
-        assert !consumoAgua.equals("") : "Consumo de Agua nao pode ser null";
-        assert !lesao.equals("") : "Lesao nao pode ser null";
+        assert (motivoConsulta != null) && !motivoConsulta.equals("") : "Motivo Consulta nao pode ser null";
+        assert !(motivoConsulta.length()>100) : "Motivo não pode ter mais de 100 carateres";
+        assert (objectivo != null) && !objectivo.equals("") : "Objetivo nao pode ser null";
+        assert !(objectivo.length()>100): "Objetivo não pode ter mais de 100 carateres";
+        assert (patologia != null) && !patologia.equals("") : "Patologia nao pode ser null";
+        assert !(patologia.length()>100): "Patologia não pode ter mais de 100 carateres";
+        assert (medicacao != null) && !medicacao.equals("") : "Medicacao nao pode ser null";
+        assert !(medicacao.length()>100): "Medicacao não pode ter mais de 100 carateres";
+        assert (antecedentesFamiliares != null) && !antecedentesFamiliares.equals("") : "Antecedentes Familiares nao pode ser null";
+        assert !(antecedentesFamiliares.length()>100): "Antecedentes não pode ter mais de 100 carateres";
+        assert (atividadeFisica != null) && !atividadeFisica.equals("") : "Atividade Fisica nao pode ser null";
+        assert !(atividadeFisica.length()>100): "Atividade Fisica não pode ter mais de 100 carateres";
+        assert (funcaoIntestival != null) && !funcaoIntestival.equals("") : "Funcao Intestival nao pode ser null";
+        assert !(funcaoIntestival.length()>100): "Funcao Intestival não pode ter mais de 100 carateres";
+        assert (consumoAgua != null) && !consumoAgua.equals("") : "Consumo de Agua nao pode ser null";
+        assert !(consumoAgua.length()>100): "Consumo de Agua não pode ter mais de 100 carateres";
+        assert (lesao != null) && !lesao.equals("") : "Lesao nao pode ser null";
+        assert !(lesao.length()>100): "Lesao não pode ter mais de 100 carateres";
         assert colesterol > 0 && colesterol < 500 : "Colesterol não pode ser menor que 0 e maior que 500";
         assert glicemia > 0 && glicemia < 500 : "Glicemia não pode ser menor que 0 e maior que 500";
         assert urina > 0 && urina < 500 : "Urina não pode ser menor que 0 e maior que 500";
@@ -60,7 +69,10 @@ public class Questionario {
     }
 
     public void setMotivoConsulta(String motivoConsulta) {
-        this.motivoConsulta = motivoConsulta;
+
+        if ((motivoConsulta != null) && (!motivoConsulta.isEmpty()) && !(motivoConsulta.length()>100))
+            this.motivoConsulta = motivoConsulta;
+        else throw new AssertionError();
     }
 
     public String getObjectivo() {
@@ -68,7 +80,10 @@ public class Questionario {
     }
 
     public void setObjectivo(String objectivo) {
-        this.objectivo = objectivo;
+
+        if((objectivo != null) && (!objectivo.isEmpty()) && !(objectivo.length()>100))
+            this.objectivo = objectivo;
+        else throw new AssertionError();
     }
 
     public String getPatologia() {
@@ -76,7 +91,10 @@ public class Questionario {
     }
 
     public void setPatologia(String patologia) {
-        this.patologia = patologia;
+
+        if((patologia != null) && !patologia.isEmpty() && !(patologia.length()>100))
+            this.patologia = patologia;
+        else throw new AssertionError();
     }
 
     public String getMedicacao() {
@@ -84,7 +102,10 @@ public class Questionario {
     }
 
     public void setMedicacao(String medicacao) {
-        this.medicacao = medicacao;
+
+        if((medicacao != null) && !medicacao.isEmpty() && !(medicacao.length()>100))
+            this.medicacao = medicacao;
+        else throw new AssertionError();
     }
 
     public String getAntecedentesFamiliares() {
@@ -92,7 +113,10 @@ public class Questionario {
     }
 
     public void setAntecedentesFamiliares(String antecedentesFamiliares) {
-        this.antecedentesFamiliares = antecedentesFamiliares;
+        if((antecedentesFamiliares != null) && !antecedentesFamiliares.isEmpty() && !(antecedentesFamiliares.length()>100))
+            this.antecedentesFamiliares = antecedentesFamiliares;
+        else throw new AssertionError();
+
     }
 
     public String getAtividadeFisica() {
@@ -100,7 +124,10 @@ public class Questionario {
     }
 
     public void setAtividadeFisica(String atividadeFisica) {
-        this.atividadeFisica = atividadeFisica;
+
+        if((atividadeFisica != null) &&!atividadeFisica.isEmpty() && !(atividadeFisica.length()>100))
+            this.atividadeFisica = atividadeFisica;
+        else throw new AssertionError();
     }
 
     public String getFuncaoIntestival() {
@@ -108,7 +135,10 @@ public class Questionario {
     }
 
     public void setFuncaoIntestival(String funcaoIntestival) {
-        this.funcaoIntestival = funcaoIntestival;
+
+        if((funcaoIntestival != null) && !funcaoIntestival.isEmpty() && !(funcaoIntestival.length()>100))
+            this.funcaoIntestival = funcaoIntestival;
+        else throw new AssertionError();
     }
 
     public String getConsumoAgua() {
@@ -116,7 +146,10 @@ public class Questionario {
     }
 
     public void setConsumoAgua(String consumoAgua) {
-        this.consumoAgua = consumoAgua;
+
+        if((consumoAgua != null) && !consumoAgua.isEmpty() && !(consumoAgua.length()>100))
+            this.consumoAgua = consumoAgua;
+        else throw new AssertionError();
     }
 
     public double getColesterol() {
@@ -124,7 +157,10 @@ public class Questionario {
     }
 
     public void setColesterol(double colesterol) {
-        this.colesterol = colesterol;
+
+        if(colesterol > 0 && colesterol < 500)
+            this.colesterol = colesterol;
+        else throw new AssertionError();
     }
 
     public double getGlicemia() {
@@ -132,7 +168,10 @@ public class Questionario {
     }
 
     public void setGlicemia(double glicemia) {
-        this.glicemia = glicemia;
+
+        if(glicemia > 0 && glicemia < 500)
+            this.glicemia = glicemia;
+        else throw new AssertionError();
     }
 
     public double getUrina() {
@@ -140,7 +179,10 @@ public class Questionario {
     }
 
     public void setUrina(double urina) {
-        this.urina = urina;
+
+        if(urina > 0 && urina < 500)
+            this.urina = urina;
+        else throw new AssertionError();
     }
 
     public double getCreatina() {
@@ -148,7 +190,10 @@ public class Questionario {
     }
 
     public void setCreatina(double creatina) {
-        this.creatina = creatina;
+
+        if(creatina > 0 && creatina < 500)
+            this.creatina = creatina;
+        else throw new AssertionError();
     }
 
     public double getProteina() {
@@ -156,20 +201,23 @@ public class Questionario {
     }
 
     public void setProteina(double proteina) {
-        this.proteina = proteina;
+        if(proteina > 0 && proteina < 500)
+            this.proteina = proteina;
+        else throw new AssertionError();
     }
 
     public String getLesao() {
         return lesao;
     }
 
-    public int getTermico() {
-        return termico;
+    public void setLesao(String lesao) {
+
+        if((lesao != null) && !lesao.isEmpty() && !(lesao.length()>100))
+            this.lesao = lesao;
+        else throw new AssertionError();
     }
 
-    public void setLesao(String lesao) {
-        this.lesao = lesao;
-    }
+    public int getTermico() { return termico; }
 
     public void setTermico(int termico) throws Exception {
         if ((termico >= 38 && termico <= 41) || (termico == 0))
@@ -177,4 +225,5 @@ public class Questionario {
         else
             throw new Exception();
     }
+
 }
