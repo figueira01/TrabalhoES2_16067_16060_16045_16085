@@ -1,5 +1,7 @@
 package es2.com;
 
+import java.util.List;
+
 public class Pessoa {
 
     private String nome;
@@ -7,7 +9,7 @@ public class Pessoa {
     private String sexo;
     private String profissao;
     private DadosFisicos dadosFisicos;
-    private PlanoAlimentar habitosAlimentares;
+    private List<List<PlanoAlimentar>> habitosAlimentares;
     private Questionario questionario;
     private double metabolismoBasal = 0;
     private double metabolismoBasalFa = 0;
@@ -15,7 +17,7 @@ public class Pessoa {
     private double metabolismoBasalGET = 0;
     private double BMR = 0;
 
-    public Pessoa(String nome, int idade, String sexo, String profissao, DadosFisicos dadosFisicos, PlanoAlimentar planoAtual, Questionario questionario) {
+    public Pessoa(String nome, int idade, String sexo, String profissao, DadosFisicos dadosFisicos, List<List<PlanoAlimentar>> planoAtual, Questionario questionario) {
         assert !nome.equals("") :"Nome nao pode ser null nem vazio";
         assert idade > 0 && idade < 100 : "Idade não pode ser menor que  0 e maior que 100";
         assert !sexo.equals(""):"Sexo nao pode ser null nem vazio";
@@ -30,7 +32,7 @@ public class Pessoa {
         this.questionario = questionario;
     }
 
-    public PlanoAlimentar getHabitosAlimentares() {
+    public List<List<PlanoAlimentar>> getHabitosAlimentares() {
         return this.habitosAlimentares;
     }
 

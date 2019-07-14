@@ -7,12 +7,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
  class testPessoa {
 
     private DadosFisicos dadosFisicos;
-    private PlanoAlimentar planoAlimentar;
+    private List<List<PlanoAlimentar>> planoAlimentar;
     private Questionario questionario;
     private Pessoa pessoaMasculina;
     private Pessoa pessoaFemenina;
@@ -41,37 +43,7 @@ import static org.junit.jupiter.api.Assertions.*;
     {
         Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
     }
-
-    @Test
-    void testStringNome()
-    {
-        assertEquals("Bruno miguel",pessoaMasculina.getNome(),"Errado");
-    }
-
-    @Test
-    void testIdadeBetween0To90()
-    {
-        assertTrue(pessoaMasculina.getIdade() >= 0 && pessoaMasculina.getIdade() <= 90);
-    }
-
-    @Test
-    void testIdadeBeLow0OrHigh90()
-    {
-        assertFalse(pessoaMasculina.getIdade() < 0 || pessoaMasculina.getIdade() > 90);
-    }
-
-    @Test
-    void testStringSexo()
-    {
-        assertEquals("Masculino",pessoaMasculina.getSexo(),"Errado");
-    }
-
-    @Test
-    void testStringProfissao()
-    {
-        assertEquals("Estudante",pessoaMasculina.getProfissao(),"Errado");
-    }
-
+    
     @Test
     void testObjectDadosFisicos()
     {
