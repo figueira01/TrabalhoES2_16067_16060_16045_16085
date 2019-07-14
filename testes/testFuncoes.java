@@ -331,4 +331,6 @@ public class testFuncoes {
         produto.add(Collections.singletonList(new Produto("IS065","Nata não maturada pasteurizada 33% gordur",316,1323,61.6,2,33,2.9,3,2.9,0,0,0,0,0,18.5,7.5,0.9,1.1,0.9,97,0.36,360,186,0.28,1.1,0.02,0.16,0.7,0.2,0.5,0.03,0.2,1.7,0.5,37,105,32,62,3,0.1,0.2,0)));
         assertEquals(0,funcoes.CalculationEnergiaKj(planoAtual,"Pequeno almoco",false,produto));
     }
+
+    
 }
