@@ -45,11 +45,11 @@ public class Pessoa {
     public double CalcularTMB() throws Exception {
         if(sexo.equals("Femenino"))
         {
-          return metabolismoBasal = (66.5 + (13.8 * dadosFisicos.getPeso()) + (5 * dadosFisicos.getAltura()) - (6.8 * idade));
+          return metabolismoBasal = (66.5 + (13.8 * dadosFisicos.getPeso()) + (5 * (dadosFisicos.getAltura()*100)) - (6.8 * idade));
         }
         if(sexo.equals("Masculino"))
         {
-           return metabolismoBasal = (655.1 + (9.5 * dadosFisicos.getPeso()) + (1.8 * dadosFisicos.getAltura()) - (4.7 * idade));
+           return metabolismoBasal = (655.1 + (9.5 * dadosFisicos.getPeso()) + (1.8 * (dadosFisicos.getAltura()*100)) - (4.7 * idade));
         }
         throw new Exception();
     }
