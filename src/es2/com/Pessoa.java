@@ -17,13 +17,13 @@ public class Pessoa {
     private double BMR = 0;
 
     public Pessoa(String nome, int idade, String sexo, String profissao, DadosFisicos dadosFisicos, PlanoAlimentar planoAtual, Questionario questionario) {
-        assert nome !=null && nome!="" :"Nome nao pode ser null nem vazio";
+        assert !nome.equals("") :"Nome nao pode ser null nem vazio";
         assert idade > 0 && idade < 100 : "Idade não pode ser menor que  0 e maior que 100";
-        assert sexo !=null && sexo !="":"Sexo nao pode ser null nem vazio";
-        assert profissao !=null && profissao !="":"profissao nao pode ser null nem vazio";
-        assert dadosFisicos !=null :"Dados fisicos vazio";
-        assert planoAtual !=null :"Plano Atual vazio";
-        assert questionario !=null :"Questionario vazio";
+        assert !sexo.equals(""):"Sexo nao pode ser null nem vazio";
+        assert profissao !="":"profissao nao pode ser null nem vazio";
+        assert !dadosFisicos.equals("") :"Dados fisicos vazio";
+        assert !planoAtual.equals("") :"Plano Atual vazio";
+        assert !questionario.equals("") :"Questionario vazio";
 
         this.nome = nome;
         this.idade = idade;

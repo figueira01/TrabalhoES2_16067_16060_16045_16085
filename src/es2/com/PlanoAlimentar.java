@@ -11,11 +11,7 @@ public class PlanoAlimentar extends Object {
         this.refeicao = refeicao;
         this.hora = hora;
         this.comida = comida;
-        if(quantidade <= 500 && quantidade > 0)
-        {
-            this.quantidade = quantidade;
-        }else
-            throw new Exception();
+        this.quantidade = quantidade;
     }
 
 
