@@ -6,7 +6,6 @@ public class Pessoa {
     private int idade;
     private String sexo;
     private String profissao;
-
     private DadosFisicos dadosFisicos;
     private PlanoAlimentar habitosAlimentares;
     private Questionario questionario;
@@ -20,10 +19,7 @@ public class Pessoa {
         assert !nome.equals("") :"Nome nao pode ser null nem vazio";
         assert idade > 0 && idade < 100 : "Idade não pode ser menor que  0 e maior que 100";
         assert !sexo.equals(""):"Sexo nao pode ser null nem vazio";
-        assert profissao !="":"profissao nao pode ser null nem vazio";
-        assert !dadosFisicos.equals("") :"Dados fisicos vazio";
-        assert !planoAtual.equals("") :"Plano Atual vazio";
-        assert !questionario.equals("") :"Questionario vazio";
+        assert !profissao.equals(""):"profissao nao pode ser null nem vazio";
 
         this.nome = nome;
         this.idade = idade;

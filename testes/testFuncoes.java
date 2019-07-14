@@ -4,8 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +19,10 @@ public class testFuncoes {
     private String url = "CSV/PlanoAlimentarAtual.csv";
     private List<List<Produto>> produto = new ArrayList<>();
     private List<List<String>> planoS = new ArrayList<>();
+    private Pessoa pessoa;
+    private Questionario questionario;
+    private DadosFisicos dadosFisicos;
+    private PlanoAlimentar planoAlimentar;
 
     @BeforeEach
     void setUp()
@@ -31,6 +33,10 @@ public class testFuncoes {
         funcoes = new Funcoes();
         funcoes.LerPlanoAlimentar(url,planoAtual);
         funcoes.LerDadosProdutos(produto);
+        questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
+        dadosFisicos = new DadosFisicos(70,1.78,5,30,23,3, 22,60,65);
+        pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+
     }
 
     @AfterEach
@@ -336,5 +342,57 @@ public class testFuncoes {
     @Test
     public void WriteToCsvNull()  {
         assertThrows(NullPointerException.class,() -> funcoes.WriteToCsv(null,null,null));
+    }
+
+    @Test
+    public void WriteToCsvPlanoAtualNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsv(planoS,null,produto));
+    }
+
+    @Test
+    public void WriteToCsvProdutoNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsv(planoS,planoAtual,null));
+    }
+
+    @Test
+    public void WriteToCsvPrescritoNull()  {
+        assertThrows(NullPointerException.class,() -> funcoes.WriteToCsvPrescrito(null,null,null,null));
+    }
+
+    @Test
+    public void WWriteToCsvPrescritoPlanoAtualNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsvPrescrito(planoS,null,pessoa,produto));
+    }
+
+    @Test
+    public void WriteToCsvPrescritoProdutoNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsvPrescrito(planoS,planoAtual,pessoa,null));
+    }
+
+    @Test
+    public void WriteToCsvPrescritoPessoaNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsvPrescrito(planoS,planoAtual,null,produto));
+    }
+
+    @Test
+    public void csvWriterAppendNull()  {
+        assertThrows(NullPointerException.class,() -> funcoes.WriteToCsv(null,null,null));
+    }
+
+    @Test
+    public void csvWriterAppendAtualNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsv(planoS,null,produto));
+    }
+
+    @Test
+    public void csvWriterAppendProdutoNull()
+    {
+        assertThrows(IndexOutOfBoundsException.class,() -> funcoes.WriteToCsv(planoS,planoAtual,null));
     }
 }
