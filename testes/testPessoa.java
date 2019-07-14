@@ -5,14 +5,16 @@ import es2.com.Questionario;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
  class testPessoa {
 
     private DadosFisicos dadosFisicos;
-    private PlanoAlimentar planoAlimentar;
+    private List<List<PlanoAlimentar>> planoAlimentar;
     private Questionario questionario;
     private Pessoa pessoaMasculina;
     private Pessoa pessoaFemenina;
@@ -25,10 +27,9 @@ import static org.junit.jupiter.api.Assertions.*;
     @BeforeEach
     void setUp() throws Exception {
         questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
-        dadosFisicos = new DadosFisicos(70,178,5,30,23,3, 22,60,65);
+        dadosFisicos = new DadosFisicos(70,1.78,5,30,23,3, 22,60,65);
         pessoaMasculina = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
         pessoaFemenina = new Pessoa("Bruno miguel",21,"Femenino","Estudante",dadosFisicos,planoAlimentar,questionario);
-        pessoaNoGenre = new Pessoa("Bruno miguel",21,"","Estudante",dadosFisicos,planoAlimentar,questionario);
     }
 
     @AfterEach
@@ -42,37 +43,7 @@ import static org.junit.jupiter.api.Assertions.*;
     {
         Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
     }
-
-    @Test
-    void testStringNome()
-    {
-        assertEquals("Bruno miguel",pessoaMasculina.getNome(),"Errado");
-    }
-
-    @Test
-    void testIdadeBetween0To90()
-    {
-        assertTrue(pessoaMasculina.getIdade() >= 0 && pessoaMasculina.getIdade() <= 90);
-    }
-
-    @Test
-    void testIdadeBeLow0OrHigh90()
-    {
-        assertFalse(pessoaMasculina.getIdade() < 0 || pessoaMasculina.getIdade() > 90);
-    }
-
-    @Test
-    void testStringSexo()
-    {
-        assertEquals("Masculino",pessoaMasculina.getSexo(),"Errado");
-    }
-
-    @Test
-    void testStringProfissao()
-    {
-        assertEquals("Estudante",pessoaMasculina.getProfissao(),"Errado");
-    }
-
+    
     @Test
     void testObjectDadosFisicos()
     {
@@ -127,7 +98,7 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void testCalculoTMBWithFAEmpty() throws Exception {
 
-        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
+        Questionario questionarioFA = new Questionario("aaaa","aaa","aaa","aa","aaa","Nenhuma","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         Pessoa pessoaMasculinaFA = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioFA);
         pessoaMasculinaFA.CalcularTMB();
         assertThrows(Exception.class, pessoaMasculinaFA::CalcularTMBComFa);
@@ -228,16 +199,6 @@ import static org.junit.jupiter.api.Assertions.*;
         assertEquals(2004.34,TMBFT);
     }
 
-    @Test
-    void testCalculoTMBGETEmpty() throws Exception {
-
-        Questionario questionarioGET = new Questionario("aaaa","aaa","aaa","aa","aaa","Deambulando","aa","aaa",0.111,0.11,0.111,0.11,0.111,"",41);
-        Pessoa pessoaMasculinaGET = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionarioGET);
-        pessoaMasculinaGET.CalcularTMB();
-        pessoaMasculinaGET.CalcularTMBComFa();
-        pessoaMasculinaGET.CalcularTMBComFT();
-        assertThrows(Exception.class, pessoaMasculinaGET::CalcularGET);
-    }
 
     @Test
     void testCalculoGETPacientenaocomplicado() throws Exception {
@@ -360,12 +321,6 @@ import static org.junit.jupiter.api.Assertions.*;
         assertEquals(2806.0759999999996,TMBGET);
     }
 
-    @Test
-    void testCalculoSchofieldEquationBeLow0()
-    {
-        pessoaMasculina = new Pessoa("Bruno miguel",-1,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
-        assertThrows(Exception.class,() -> pessoaMasculina.CalcularSchofieldEquation());
-    }
 
     @Test
     void testCalculoSchofieldEquationNoGenro()

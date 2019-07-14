@@ -47,10 +47,12 @@ public class Produto {
     private double Fe;
     private double Zn;
 
-    public Produto(String codigo, String nome, double energiaKcal, double energiaKj, double agua, double proteina, double gorduraTotal, double totalHCDisponivel, double totalHCexpressoEmMonossacaridos, double monoPlusDissacaridos, double acidosOrganicos, double alcool, double amido, double oligossacaridos, double fibraAlimentar, double acidoGordosSaturados, double acidosGordosMonoinsaturados, double acidosGordosPolinsaturados, double acidosGordosTrans, double acidoLinoleico, double colesterol, double retonol,  double vitATotal, double caroteno, double vitD, double tocoferol, double tiamina, double riboflavina, double equivalentesDeNiacina, double niaciana, double triptofano60, double vitB6, double vitB12, double vitC, double folatos, double cinza, double na, double k, double ca, double p, double mg, double fe, double zn) {
 
-        assert !codigo.equals("") : "Codigo nao pode ser null";
-        assert !nome.equals("") : "Nome nao pode ser null";
+
+    public Produto(String codigo, String nome, double energiaKcal, double energiaKj, double agua, double proteina, double gorduraTotal, double totalHCDisponivel, double totalHCexpressoEmMonossacaridos, double monoPlusDissacaridos, double acidosOrganicos, double alcool, double amido, double oligossacaridos, double fibraAlimentar, double acidoGordosSaturados, double acidosGordosMonoinsaturados, double acidosGordosPolinsaturados, double acidosGordosTrans, double acidoLinoleico, double colesterol, double retonol, double vitATotal, double caroteno, double vitD, double tocoferol, double tiamina, double riboflavina, double equivalentesDeNiacina, double niaciana, double triptofano60, double vitB6, double vitB12, double vitC, double folatos, double cinza, double na, double k, double ca, double p, double mg, double fe, double zn) {
+
+        assert !codigo.equals("") && codigo!=null : "Codigo nao pode ser null";
+        assert !nome.equals("")  && nome!=null: "Nome nao pode ser null";
         assert energiaKcal > -1 && energiaKcal < 2000 : "Energia Kcal não pode ser menor que 0 e maior que 2000";
         assert energiaKj > -1 && energiaKj < 4000 : "Energia Kj não pode ser menor que 0 e maior que 4000";
         assert agua > -1 && agua < 100 : "Agua não pode ser menor que 0 e maior que 500";
@@ -71,7 +73,7 @@ public class Produto {
         assert acidoLinoleico > -1 && acidoLinoleico < 500 : "Acido Linoleico não pode ser menor que 0 e maior que 500";
         assert colesterol > -1 && colesterol < 1500 : "Colesterol não pode ser menor que -1 e maior que 500";
         assert vitATotal > -1 && vitATotal < 15000 : "Vitamina A Total não pode ser menor que -1 e maior que 15000";
-        assert caroteno > -1 && caroteno < 40500 : "Caroteno não pode ser menor que -1 e maior que 1000";
+        assert caroteno > -1 && caroteno < 50000 : "Caroteno não pode ser menor que -1 e maior que 50000";
         assert vitD > -1 && vitD < 500 : "Vitamina D não pode ser menor que -1 e maior que 500";
         assert tocoferol > -1 && tocoferol < 500 : "Tocoferol não pode ser menor que -1 e maior que 500";
         assert tiamina > -1 && tiamina < 500 : "Tiamina não pode ser menor que -1 e maior que 500";
@@ -81,12 +83,12 @@ public class Produto {
         assert vitB6 > -1 && vitB6 < 500 : "Vitamina B6 não pode ser menor que -1 e maior que 500";
         assert vitB12 > -1 && vitB12 < 500 : "Vitamina B12 não pode ser menor que -1 e maior que 500";
         assert vitC > -1 && vitC < 500 : "vitC não pode ser menor que -1 e maior que 500";
-        assert folatos > -1 && folatos < 4500 : "Folatos não pode ser menor que 0 e maior que 2500";
+        assert folatos > -1 && folatos < 4500 : "Folatos não pode ser menor que 0 e maior que 4500";
         assert cinza > -1 && cinza < 500 : "Cinza não pode ser menor que 0 e maior que 500";
-        assert na > -1 && na < 50000 : "Na não pode ser menor que 0 e maior que 6000";
-        assert k > -1 && k < 4900 : "k não pode ser menor que 0 e maior que 1900";
+        assert na > -1 && na < 50000 : "Na não pode ser menor que 0 e maior que 50000";
+        assert k > -1 && k < 4900 : "k não pode ser menor que 0 e maior que 4900";
         assert ca > -1 && ca < 1500 : "Ca não pode ser menor que 0 e maior que 1500";
-        assert p > -1 && p < 16500 : "P não pode ser menor que 0 e maior que 1500";
+        assert p > -1 && p < 50000 : "P não pode ser menor que 0 e maior que 50000";
         assert mg > -1 && mg < 1500 : "Mg não pode ser menor que 0 e maior que 1500";
         assert fe > -1 && fe < 1500 : "Fe não pode ser menor que 0 e maior que 1500";
         assert zn > -1 && zn < 500 : "Zn não pode ser menor que 0 e maior que 1500";
@@ -133,6 +135,401 @@ public class Produto {
         P = p;
         Mg = mg;
         Fe = fe;
+        Zn = zn;
+    }
+
+    public void setCodigo(String codigo) {
+
+        if(codigo==null || codigo.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(codigo.length()>50 || codigo.length()<=2)
+        {
+            throw new AssertionError();
+        }
+        this.codigo = codigo;
+    }
+
+    public void setNome(String nome) {
+
+        if(nome==null || nome.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(nome.length()>50 || nome.length()<=2)
+        {
+            throw new AssertionError();
+        }
+        this.nome = nome;
+    }
+
+    public void setEnergiaKcal(double energiaKcal) {
+
+        if(energiaKcal<0 || energiaKcal>2000)
+        {
+            throw new AssertionError();
+        }
+        this.energiaKcal = energiaKcal;
+    }
+
+    public void setEnergiaKj(double energiaKj) {
+
+        if(energiaKj<0 || energiaKj>4000)
+        {
+            throw new AssertionError();
+        }
+        this.energiaKj = energiaKj;
+    }
+
+    public void setAgua(double agua) {
+
+        if(agua<0 || agua>100)
+        {
+            throw new AssertionError();
+        }
+        this.agua = agua;
+    }
+
+    public void setProteina(double proteina) {
+
+        if(proteina<0 || proteina>500)
+        {
+            throw new AssertionError();
+        }
+        this.proteina = proteina;
+    }
+
+    public void setGorduraTotal(double gorduraTotal) {
+
+        if(gorduraTotal<0 || gorduraTotal>500)
+        {
+            throw new AssertionError();
+        }
+        this.gorduraTotal = gorduraTotal;
+    }
+
+    public void setTotalHCDisponivel(double totalHCDisponivel) {
+
+        if(totalHCDisponivel<0 || totalHCDisponivel>500)
+        {
+            throw new AssertionError();
+        }
+        this.totalHCDisponivel = totalHCDisponivel;
+    }
+
+    public void setTotalHCexpressoEmMonossacaridos(double totalHCexpressoEmMonossacaridos) {
+
+        if(totalHCexpressoEmMonossacaridos<0 || totalHCexpressoEmMonossacaridos>500)
+        {
+            throw new AssertionError();
+        }
+        this.totalHCexpressoEmMonossacaridos = totalHCexpressoEmMonossacaridos;
+    }
+
+    public void setMonoPlusDissacaridos(double monoPlusDissacaridos) {
+
+        if(monoPlusDissacaridos<0 || monoPlusDissacaridos>500)
+        {
+            throw new AssertionError();
+        }
+        this.monoPlusDissacaridos = monoPlusDissacaridos;
+    }
+
+    public void setAcidosOrganicos(double acidosOrganicos) {
+
+        if(acidosOrganicos<0 || acidosOrganicos>500)
+        {
+            throw new AssertionError();
+        }
+        this.acidosOrganicos = acidosOrganicos;
+    }
+
+    public void setAlcool(double alcool) {
+
+        if(alcool<0 || alcool>500)
+        {
+            throw new AssertionError();
+        }
+        this.alcool = alcool;
+    }
+
+    public void setAmido(double amido) {
+
+        if(amido<0 || amido>500)
+        {
+            throw new AssertionError();
+        }
+        this.amido = amido;
+    }
+
+    public void setOligossacaridos(double oligossacaridos) {
+
+        if(oligossacaridos<0 || oligossacaridos>500)
+        {
+            throw new AssertionError();
+        }
+        this.oligossacaridos = oligossacaridos;
+    }
+
+    public void setFibraAlimentar(double fibraAlimentar) {
+
+        if(fibraAlimentar<0 || fibraAlimentar>500)
+        {
+            throw new AssertionError();
+        }
+        this.fibraAlimentar = fibraAlimentar;
+    }
+
+    public void setAcidoGordosSaturados(double acidoGordosSaturados) {
+
+        if(acidoGordosSaturados<0 || acidoGordosSaturados>500)
+        {
+            throw new AssertionError();
+        }
+        this.acidoGordosSaturados = acidoGordosSaturados;
+    }
+
+    public void setAcidosGordosMonoinsaturados(double acidosGordosMonoinsaturados) {
+
+        if(acidosGordosMonoinsaturados<0 || acidosGordosMonoinsaturados>500)
+        {
+            throw new AssertionError();
+        }
+        this.acidosGordosMonoinsaturados = acidosGordosMonoinsaturados;
+    }
+
+    public void setAcidosGordosPolinsaturados(double acidosGordosPolinsaturados) {
+
+        if(acidosGordosPolinsaturados<0 || acidosGordosPolinsaturados>500)
+        {
+            throw new AssertionError();
+        }
+        this.acidosGordosPolinsaturados = acidosGordosPolinsaturados;
+    }
+
+    public void setAcidosGordosTrans(double acidosGordosTrans) {
+
+        if(acidosGordosTrans<0 || acidosGordosTrans>500)
+        {
+            throw new AssertionError();
+        }
+        this.acidosGordosTrans = acidosGordosTrans;
+    }
+
+    public void setRetonol(double retonol) {
+
+        if(retonol<0 || retonol>500)
+        {
+            throw new AssertionError();
+        }
+        this.retonol = retonol;
+    }
+
+    public void setAcidoLinoleico(double acidoLinoleico) {
+
+        if(acidoLinoleico<0 || acidoLinoleico>500)
+        {
+            throw new AssertionError();
+        }
+        this.acidoLinoleico = acidoLinoleico;
+    }
+
+    public void setColesterol(double colesterol) {
+
+        if(colesterol<0 || colesterol>1500)
+        {
+            throw new AssertionError();
+        }
+        this.colesterol = colesterol;
+    }
+
+    public void setVitATotal(double vitATotal) {
+
+        if(vitATotal<0 || vitATotal>15000)
+        {
+            throw new AssertionError();
+        }
+        this.vitATotal = vitATotal;
+    }
+
+    public void setCaroteno(double caroteno) {
+
+        if(caroteno<0 || caroteno>50000)
+        {
+            throw new AssertionError();
+        }
+        this.caroteno = caroteno;
+    }
+
+    public void setVitD(double vitD) {
+
+        if(vitD<0 || vitD>500)
+        {
+            throw new AssertionError();
+        }
+        this.vitD = vitD;
+    }
+
+    public void setTocoferol(double tocoferol) {
+
+        if(tocoferol<0 || tocoferol>500)
+        {
+            throw new AssertionError();
+        }
+        this.tocoferol = tocoferol;
+    }
+
+    public void setTiamina(double tiamina) {
+
+        if(tiamina<0 || tiamina>500)
+        {
+            throw new AssertionError();
+        }
+        this.tiamina = tiamina;
+    }
+
+    public void setRiboflavina(double riboflavina) {
+
+        if(riboflavina<0 || riboflavina>500)
+        {
+            throw new AssertionError();
+        }
+        this.riboflavina = riboflavina;
+    }
+
+    public void setEquivalentesDeNiacina(double equivalentesDeNiacina) {
+
+        if(equivalentesDeNiacina<0 || equivalentesDeNiacina>500)
+        {
+            throw new AssertionError();
+        }
+        this.equivalentesDeNiacina = equivalentesDeNiacina;
+    }
+
+    public void setNiaciana(double niaciana) {
+
+        if(niaciana<0 || niaciana>500)
+        {
+            throw new AssertionError();
+        }
+        this.niaciana = niaciana;
+    }
+
+    public void setTriptofano60(double triptofano60) {
+
+        if(triptofano60<0 || triptofano60>500)
+        {
+            throw new AssertionError();
+        }
+        this.triptofano60 = triptofano60;
+    }
+
+    public void setVitB6(double vitB6) {
+
+        if(vitB6<0 || vitB6>500)
+        {
+            throw new AssertionError();
+        }
+        this.vitB6 = vitB6;
+    }
+
+    public void setVitB12(double vitB12) {
+
+        if(vitB12<0 || vitB12>500)
+        {
+            throw new AssertionError();
+        }
+        this.vitB12 = vitB12;
+    }
+
+    public void setVitC(double vitC) {
+
+        if(vitC<0 || vitC>500)
+        {
+            throw new AssertionError();
+        }
+        this.vitC = vitC;
+    }
+
+    public void setFolatos(double folatos) {
+
+        if(folatos<0 || folatos>4500)
+        {
+            throw new AssertionError();
+        }
+        this.folatos = folatos;
+    }
+
+    public void setCinza(double cinza) {
+
+        if(cinza<0 || cinza>500)
+        {
+            throw new AssertionError();
+        }
+        this.cinza = cinza;
+    }
+
+    public void setNa(double na) {
+
+        if(na<0 || na>50000)
+        {
+            throw new AssertionError();
+        }
+        Na = na;
+    }
+
+    public void setK(double k) {
+
+        if(k<0 || k>4900)
+        {
+            throw new AssertionError();
+        }
+        this.k = k;
+    }
+
+    public void setCa(double ca) {
+
+        if(ca<0 || ca>1500)
+        {
+            throw new AssertionError();
+        }
+        Ca = ca;
+    }
+
+    public void setP(double p) {
+
+        if(p<0 || p>50000)
+        {
+            throw new AssertionError();
+        }
+        P = p;
+    }
+
+    public void setMg(double mg) {
+
+        if(mg<0 || mg>1500)
+        {
+            throw new AssertionError();
+        }
+        Mg = mg;
+    }
+
+    public void setFe(double fe) {
+
+        if(fe<0 || fe>1500)
+        {
+            throw new AssertionError();
+        }
+        Fe = fe;
+    }
+
+    public void setZn(double zn) {
+
+        if(zn<0 || zn>500)
+        {
+            throw new AssertionError();
+        }
         Zn = zn;
     }
 

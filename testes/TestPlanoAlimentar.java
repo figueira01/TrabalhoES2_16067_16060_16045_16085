@@ -12,7 +12,7 @@ class TestPlanoAlimentar {
 
     @BeforeEach
     void setUp() throws Exception {
-        planoAlimentar = new PlanoAlimentar("Pequeno-almoco","","leite",200);
+        planoAlimentar = new PlanoAlimentar("Pequeno-almoco","10:00","leite",200);
     }
 
     @AfterEach
@@ -20,43 +20,132 @@ class TestPlanoAlimentar {
     }
 
     @Test
-    void testPlanoAlimentar() throws Exception {
-        PlanoAlimentar planoAlimentar = new PlanoAlimentar("Pequeno-almoco","","leite",200);
+    void testPlanoAlimentar()  {
+        PlanoAlimentar planoAlimentar = new PlanoAlimentar("Pequeno-almoco","10:00","leite",200);
+
+        assertEquals("Pequeno-almoco",planoAlimentar.getRefeicao());
+        assertEquals("10:00",planoAlimentar.getHora());
+        assertEquals("leite",planoAlimentar.getComida());
+        assertEquals(200,planoAlimentar.getQuantidade());
+
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("","10:00","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar(null,"10:00","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("a","10:00","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss","10:00","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco",null,"leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:0","leite",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00",null,200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","l",200);
+        });
+        assertThrows(AssertionError.class, () -> {
+            new PlanoAlimentar("Pequeno-almoco","10:00","leiteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",200);
+        });
+
+
     }
 
     @Test
     void testRefeicao()
     {
-        assertEquals("Pequeno-almoco",planoAlimentar.getRefeicao());
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setRefeicao("");
+        });
+
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setRefeicao(null);
+        });
+
+        assertThrows(AssertionError.class, () -> {//MIN CARACTER
+            planoAlimentar.setRefeicao("S");
+        });
+
+        assertThrows(AssertionError.class, () -> {// MAX CARACTER
+            planoAlimentar.setRefeicao("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+        });
+
+        planoAlimentar.setRefeicao("Ceia");
+        assertEquals("Ceia",planoAlimentar.getRefeicao());
     }
 
     @Test
     void testHora()
     {
-        assertEquals("",planoAlimentar.getHora());
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setHora("");
+        });
+
+
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setHora(null);
+        });
+
+        assertThrows(AssertionError.class, () -> {//MIN CARACTER
+            planoAlimentar.setHora("20:000");
+        });
+
+        planoAlimentar.setHora("22:00");
+        assertEquals("22:00",planoAlimentar.getHora());
     }
 
     @Test
     void testComida()
     {
-        assertEquals("leite",planoAlimentar.getComida());
+
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setComida("");
+        });
+
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setComida(null);
+        });
+
+        assertThrows(AssertionError.class, () -> {//MIN CARACTER
+            planoAlimentar.setComida("f");
+        });
+        assertThrows(AssertionError.class, () -> {//MAXCARACTER
+            planoAlimentar.setComida("feijoesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        });
+
+        planoAlimentar.setComida("Feijoes");
+        assertEquals("Feijoes",planoAlimentar.getComida());
     }
 
     @Test
     void testQuantidade()
     {
-        assertEquals(200,planoAlimentar.getQuantidade());
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setQuantidade(-1);
+        });
+
+        assertThrows(AssertionError.class, () -> {
+            planoAlimentar.setQuantidade(4001);
+        });
+
+        planoAlimentar.setQuantidade(2000);
+        assertEquals(2000,planoAlimentar.getQuantidade());
     }
 
-    @Test
-    void testQuantidadeBeLow0() {
-        assertThrows(Exception.class,() -> {planoAlimentar.setQuantidade(-1);});
-    }
 
-    @Test
-    void testQuantidadeAbove500()
-    {
-        assertThrows(Exception.class,() -> {planoAlimentar.setQuantidade(500.1);});
-    }
 
 }
