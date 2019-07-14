@@ -73,7 +73,7 @@ public class Produto {
         assert acidoLinoleico > -1 && acidoLinoleico < 500 : "Acido Linoleico não pode ser menor que 0 e maior que 500";
         assert colesterol > -1 && colesterol < 1500 : "Colesterol não pode ser menor que -1 e maior que 500";
         assert vitATotal > -1 && vitATotal < 15000 : "Vitamina A Total não pode ser menor que -1 e maior que 15000";
-        assert caroteno > -1 && caroteno < 40500 : "Caroteno não pode ser menor que -1 e maior que 5500";
+        assert caroteno > -1 && caroteno < 50000 : "Caroteno não pode ser menor que -1 e maior que 50000";
         assert vitD > -1 && vitD < 500 : "Vitamina D não pode ser menor que -1 e maior que 500";
         assert tocoferol > -1 && tocoferol < 500 : "Tocoferol não pode ser menor que -1 e maior que 500";
         assert tiamina > -1 && tiamina < 500 : "Tiamina não pode ser menor que -1 e maior que 500";
@@ -85,10 +85,10 @@ public class Produto {
         assert vitC > -1 && vitC < 500 : "vitC não pode ser menor que -1 e maior que 500";
         assert folatos > -1 && folatos < 4500 : "Folatos não pode ser menor que 0 e maior que 4500";
         assert cinza > -1 && cinza < 500 : "Cinza não pode ser menor que 0 e maior que 500";
-        assert na > -1 && na < 20000 : "Na não pode ser menor que 0 e maior que 5000";
+        assert na > -1 && na < 50000 : "Na não pode ser menor que 0 e maior que 50000";
         assert k > -1 && k < 4900 : "k não pode ser menor que 0 e maior que 4900";
         assert ca > -1 && ca < 1500 : "Ca não pode ser menor que 0 e maior que 1500";
-        assert p > -1 && p < 1500 : "P não pode ser menor que 0 e maior que 1500";
+        assert p > -1 && p < 50000 : "P não pode ser menor que 0 e maior que 50000";
         assert mg > -1 && mg < 1500 : "Mg não pode ser menor que 0 e maior que 1500";
         assert fe > -1 && fe < 1500 : "Fe não pode ser menor que 0 e maior que 1500";
         assert zn > -1 && zn < 500 : "Zn não pode ser menor que 0 e maior que 1500";
@@ -347,7 +347,7 @@ public class Produto {
 
     public void setCaroteno(double caroteno) {
 
-        if(caroteno<0 || caroteno>5500)
+        if(caroteno<0 || caroteno>50000)
         {
             throw new AssertionError();
         }
@@ -464,7 +464,7 @@ public class Produto {
 
     public void setNa(double na) {
 
-        if(na<0 || na>5000)
+        if(na<0 || na>50000)
         {
             throw new AssertionError();
         }
@@ -491,7 +491,7 @@ public class Produto {
 
     public void setP(double p) {
 
-        if(p<0 || p>1500)
+        if(p<0 || p>50000)
         {
             throw new AssertionError();
         }
