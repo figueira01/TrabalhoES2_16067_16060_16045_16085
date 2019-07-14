@@ -26,7 +26,7 @@ public class TestProduto
     }
 
     @Test
-    void testeProduto()
+    void testeConstrutorProduto()
     {
     produto = new Produto("IS958","Arroz de frango",205,858,56.6, 8.2,
             7.6,25.2,27.7,0.7,0,0,24.4,
@@ -36,9 +36,19 @@ public class TestProduto
     }
 
     @Test
-    void testeCodigo()
+    void testeSetCodigo()
     {
-        assertEquals("IS958",produto.getCodigo());
+
+        assertThrows(AssertionError.class,() -> {
+            produto.setCodigo("");
+        });
+
+        String c=null;
+        assertThrows(AssertionError.class,() -> {
+            produto.setCodigo(c);
+        });
+
+        produto.setCodigo("200");
     }
 
 
