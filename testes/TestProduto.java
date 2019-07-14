@@ -78,13 +78,21 @@ public class TestProduto {
     @Test
     void testeSetCodigo() {
 
-        assertThrows(AssertionError.class, () -> {
+        assertThrows(AssertionError.class, () -> {//CODIGO EMPTY
             produto.setCodigo("");
         });
 
 
-        assertThrows(AssertionError.class, () -> {
+        assertThrows(AssertionError.class, () -> {// CODIGO NULL
             produto.setCodigo(null);
+        });
+
+        assertThrows(AssertionError.class, () -> {//MIN CARACTER
+            produto.setCodigo("S");
+        });
+
+        assertThrows(AssertionError.class, () -> {// MAX CARACTER
+            produto.setCodigo("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         });
 
         produto.setCodigo("IS900");
@@ -100,6 +108,14 @@ public class TestProduto {
 
         assertThrows(AssertionError.class, () -> {
             produto.setNome(null);
+        });
+
+        assertThrows(AssertionError.class, () -> {//MIN CARACTER
+            produto.setNome("S");
+        });
+
+        assertThrows(AssertionError.class, () -> {// MAX CARACTER
+            produto.setNome("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         });
 
         produto.setNome("Jose");

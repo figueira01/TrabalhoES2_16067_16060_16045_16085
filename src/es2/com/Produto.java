@@ -51,8 +51,8 @@ public class Produto {
 
     public Produto(String codigo, String nome, double energiaKcal, double energiaKj, double agua, double proteina, double gorduraTotal, double totalHCDisponivel, double totalHCexpressoEmMonossacaridos, double monoPlusDissacaridos, double acidosOrganicos, double alcool, double amido, double oligossacaridos, double fibraAlimentar, double acidoGordosSaturados, double acidosGordosMonoinsaturados, double acidosGordosPolinsaturados, double acidosGordosTrans, double acidoLinoleico, double colesterol, double retonol, double vitATotal, double caroteno, double vitD, double tocoferol, double tiamina, double riboflavina, double equivalentesDeNiacina, double niaciana, double triptofano60, double vitB6, double vitB12, double vitC, double folatos, double cinza, double na, double k, double ca, double p, double mg, double fe, double zn) {
 
-        assert !codigo.equals("") : "Codigo nao pode ser null";
-        assert !nome.equals("") : "Nome nao pode ser null";
+        assert !codigo.equals("") && codigo!=null : "Codigo nao pode ser null";
+        assert !nome.equals("")  && nome!=null: "Nome nao pode ser null";
         assert energiaKcal > -1 && energiaKcal < 2000 : "Energia Kcal não pode ser menor que 0 e maior que 2000";
         assert energiaKj > -1 && energiaKj < 4000 : "Energia Kj não pode ser menor que 0 e maior que 4000";
         assert agua > -1 && agua < 100 : "Agua não pode ser menor que 0 e maior que 500";
@@ -144,12 +144,20 @@ public class Produto {
         {
             throw new AssertionError();
         }
+        else if(codigo.length()>50 || codigo.length()<=2)
+        {
+            throw new AssertionError();
+        }
         this.codigo = codigo;
     }
 
     public void setNome(String nome) {
 
         if(nome==null || nome.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(nome.length()>50 || nome.length()<=2)
         {
             throw new AssertionError();
         }
