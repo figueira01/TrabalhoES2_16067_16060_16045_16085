@@ -63,6 +63,7 @@ public class Produto {
         assert totalHCDisponivel > -1 && totalHCDisponivel < 500 : "Total HCD Disponivel não pode ser menor que -1 e maior que 500";
         assert totalHCexpressoEmMonossacaridos > -1 && totalHCexpressoEmMonossacaridos < 500 : "Total HC Expressao em Monossacaridos não pode ser menor que -1 e maior que 500";
         assert monoPlusDissacaridos > -1 && monoPlusDissacaridos < 500 : "Monoplus Dissacaridos não pode ser menor que -1 e maior que 500";
+        assert acidosOrganicos > -1 && acidosOrganicos < 500 : "acidosOrganicos não pode ser menor que -1 e maior que 500";
         assert alcool > -1 && alcool < 500: "Alcool não pode ser menor que -1 e maior que 5000";
         assert amido > -1 && amido < 500 : "Amido não pode ser menor que -1 e maior que 500";
         assert oligossacaridos > -1 && oligossacaridos < 500 : "Oligossacaridos não pode ser menor que -1 e maior que 500";
@@ -94,6 +95,7 @@ public class Produto {
         assert mg > -1 && mg < 1500 : "Mg não pode ser menor que 0 e maior que 1500";
         assert fe > -1 && fe < 1500 : "Fe não pode ser menor que 0 e maior que 1500";
         assert zn > -1 && zn < 500 : "Zn não pode ser menor que 0 e maior que 1500";
+        assert riboflavina > -1 && riboflavina < 500 : "riboflavina não pode ser menor que 0 e maior que 1500";
         
         this.codigo = codigo;
         this.nome = nome;
