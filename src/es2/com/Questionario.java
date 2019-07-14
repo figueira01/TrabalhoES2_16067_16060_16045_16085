@@ -19,23 +19,23 @@ public class Questionario {
     private int termico;
 
 
-    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico) throws Exception {
+    public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico)  {
 
-        assert motivoConsulta != null && motivoConsulta != "" : "Motivo Consulta nao pode ser null";
-        assert objectivo != null && objectivo != "" : "Objetivo nao pode ser null";
-        assert patologia != null && patologia != "" : "Patologia nao pode ser null";
-        assert medicacao != null && medicacao != "" : "Medicacao nao pode ser null";
-        assert antecedentesFamiliares != null && antecedentesFamiliares != "" : "Antecedentes Familiares nao pode ser null";
-        assert atividadeFisica != null && atividadeFisica != "" : "Atividade Fisica nao pode ser null";
-        assert funcaoIntestival != null && funcaoIntestival != "" : "Funcao Intestival nao pode ser null";
-        assert consumoAgua != null && consumoAgua != "" : "Consumo de Agua nao pode ser null";
-        assert lesao != null && lesao != "" : "Lesao nao pode ser null";
+        assert !motivoConsulta.equals("") : "Motivo Consulta nao pode ser null";
+        assert !objectivo.equals("") : "Objetivo nao pode ser null";
+        assert !patologia.equals("") : "Patologia nao pode ser null";
+        assert !medicacao.equals("") : "Medicacao nao pode ser null";
+        assert !antecedentesFamiliares.equals("") : "Antecedentes Familiares nao pode ser null";
+        assert !atividadeFisica.equals("") : "Atividade Fisica nao pode ser null";
+        assert !funcaoIntestival.equals("") : "Funcao Intestival nao pode ser null";
+        assert !consumoAgua.equals("") : "Consumo de Agua nao pode ser null";
+        assert !lesao.equals("") : "Lesao nao pode ser null";
         assert colesterol > 0 && colesterol < 500 : "Colesterol não pode ser menor que 0 e maior que 500";
         assert glicemia > 0 && glicemia < 500 : "Glicemia não pode ser menor que 0 e maior que 500";
         assert urina > 0 && urina < 500 : "Urina não pode ser menor que 0 e maior que 500";
         assert creatina > 0 && creatina < 500 : "Creatina não pode ser menor que 0 e maior que 500";
         assert proteina > 0 && proteina < 500 : "Proteina não pode ser menor que 0 e maior que 500";
-        assert termico >= 38 && termico <= 41 : "Termico não pode ser menor que 38 e maior que 41";
+        assert (termico >= 38 && termico <= 41) || (termico == 0) : "Termico não pode ser menor que 38 e maior que 41";
 
         this.motivoConsulta = motivoConsulta;
         this.objectivo = objectivo;
@@ -51,11 +51,9 @@ public class Questionario {
         this.creatina = creatina;
         this.proteina = proteina;
         this.lesao = lesao;
-        if ((termico >= 38 && termico <= 41) || (termico == 0))
-            this.termico = termico;
-        else
-            throw new Exception();
+        this.termico = termico;
     }
+
 
     public String getMotivoConsulta() {
         return motivoConsulta;

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,7 +40,7 @@ public class testFuncoes {
     }
 
     @Test
-    public void testLerDadosFisicosNull()   {
+    public void testLerDadosFisicosNull()  {
         assertThrows(NullPointerException.class,() -> funcoes.LerDadosFisicos(null));
     }
 
@@ -332,5 +333,8 @@ public class testFuncoes {
         assertEquals(0,funcoes.CalculationEnergiaKj(planoAtual,"Pequeno almoco",false,produto));
     }
 
-    
+    @Test
+    public void WriteToCsvNull()  {
+        assertThrows(NullPointerException.class,() -> funcoes.WriteToCsv(null,null,null));
+    }
 }
