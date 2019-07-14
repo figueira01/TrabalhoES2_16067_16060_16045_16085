@@ -216,7 +216,14 @@ public class Pessoa {
 
 
     public String getNome() {
-        return nome;
+        if(nome.isEmpty())
+        {
+            throw new AssertionError();
+        }
+        else if(nome.length()>50 || nome.length()<=2)
+        {
+            throw new AssertionError();
+        }return nome;
     }
 
     public int getIdade() {

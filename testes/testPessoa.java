@@ -43,7 +43,28 @@ import static org.junit.jupiter.api.Assertions.*;
     {
         Pessoa pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
     }
-    
+
+    @Test
+    void testSetNome()
+    {
+        assertThrows(AssertionError.class, () ->
+            pessoaFemenina.setNome(""));
+
+
+        assertThrows(AssertionError.class, () ->
+            pessoaFemenina.setNome(null));
+
+        assertThrows(AssertionError.class, () ->
+            pessoaFemenina.setNome("S"));
+
+        assertThrows(AssertionError.class, () ->
+            pessoaFemenina.setNome("ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+        );
+
+        pessoaFemenina.setNome("Bruno");
+        assertEquals("Bruno",pessoaFemenina.getNome());
+    }
+
     @Test
     void testObjectDadosFisicos()
     {
