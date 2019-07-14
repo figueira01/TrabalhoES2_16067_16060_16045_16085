@@ -15,7 +15,7 @@ public class DadosFisicos extends Object{
     private double h20;
 
 
-    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double h20) throws InvalidException {
+    public DadosFisicos(double peso, double altura, double gorduraCorporal, double gorduraVisceral, double idadeMetabolica, double osso, double imc, double musculo, double h20) throws AssertionError {
 
 
         assert peso >0 && peso<300 :"Peso nao pode ser menor que 0 ou maior que 300";

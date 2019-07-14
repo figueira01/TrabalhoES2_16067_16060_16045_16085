@@ -31,7 +31,7 @@ public class TestDadosFisicos
     }
 
     @Test
-    void testeConstrutorDadosFisicos() throws InvalidException {
+    void testeConstrutorDadosFisicos() throws AssertionError {
 
         DadosFisicos df = new DadosFisicos(70,1.7,5,30,23,3, 22,60,65);
 
@@ -44,6 +44,11 @@ public class TestDadosFisicos
         assertEquals(22,df.getImc());
         assertEquals(60,df.getMusculo());
         assertEquals(65,df.getH20());
+
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(400,1.7,5,30,23,3, 22,60,65);
+        });
+
 
     }
 
@@ -174,97 +179,74 @@ public class TestDadosFisicos
     }
 
     @Test
-    void testGorduraViscularAbove59()
-    {
-        dadosFisicos.setGorduraVisceral(60);
-        assertFalse(dadosFisicos.getGorduraVisceral() <= 59);
+    void testeGetPeso() {
+
+        dadosFisicos.setPeso(50);
+        assertEquals(50,dadosFisicos.getPeso());
+
     }
 
     @Test
-    void testIdadeMetabolica()
-    {
-        assertEquals(23,dadosFisicos.getIdadeMetabolica());
+    void testeGetAltura() {
+
+        dadosFisicos.setAltura(1.80);
+        assertEquals(1.80,dadosFisicos.getAltura());
+
     }
 
     @Test
-    void testOsso()
-    {
-        assertEquals(5,dadosFisicos.getOsso());
+    void testeGetGorduraCorporal()  {
+
+        dadosFisicos.setGorduraCorporal(6);
+        assertEquals(6,dadosFisicos.getGorduraCorporal());
+
+    }
+    @Test
+    void testeGetGorduraVisceral()  {
+
+        dadosFisicos.setGorduraVisceral(6);
+        assertEquals(6,dadosFisicos.getGorduraVisceral());
+
     }
 
     @Test
-    void testOssoBeLow5()
-    {
+    void testeGetIdadeMetabolica()  {
+
+        dadosFisicos.setIdadeMetabolica(20);
+        assertEquals(20,dadosFisicos.getIdadeMetabolica());
+
+    }
+
+    @Test
+    void testeGetOsso()  {
+
         dadosFisicos.setOsso(4);
-        assertFalse(dadosFisicos.getOsso() >= 5);
-    }
+        assertEquals(4,dadosFisicos.getOsso());
 
-    @Test
-    void testOssoAbove15()
-    {
-        dadosFisicos.setOsso(16);
-        assertFalse(dadosFisicos.getOsso() <= 5);
     }
-
     @Test
-    void testIMC()
-    {
+    void testeGetIMC()  {
+
+        dadosFisicos.setImc(22);
         assertEquals(22,dadosFisicos.getImc());
+
+    }
+    @Test
+    void testeGetMusculo()  {
+
+        dadosFisicos.setMusculo(80);
+        assertEquals(80,dadosFisicos.getMusculo());
+
+    }
+    @Test
+    void testeGetH2O()  {
+
+        dadosFisicos.setH20(80);
+        assertEquals(80,dadosFisicos.getH20());
+
     }
 
-    @Test
-    void testIMCBeLow15()
-    {
-        dadosFisicos.setImc(14);
-        assertFalse(dadosFisicos.getImc() >=15);
-    }
 
-    @Test
-    void testIMCAbove45()
-    {
-        dadosFisicos.setImc(46);
-        assertFalse(dadosFisicos.getImc() <=45);
-    }
-
-    @Test
-    void testMusculo()
-    {
-        assertEquals(40,dadosFisicos.getMusculo());
-    }
-
-    @Test
-    void testMusculoAbove50()
-    {
-        dadosFisicos.setMusculo(51);
-        assertFalse(dadosFisicos.getMusculo() <=50);
-    }
-
-    @Test
-    void testMusculoBeLow20()
-    {
-        dadosFisicos.setMusculo(19);
-        assertFalse(dadosFisicos.getMusculo() >=20);
-    }
-
-    @Test
-    void testH2O()
-    {
-        assertEquals(76,dadosFisicos.getH20());
-    }
-
-    @Test
-    void testH2OBeLOw65()
-    {
-        dadosFisicos.setH20(64);
-        assertFalse(dadosFisicos.getH20() >=65);
-    }
-
-    @Test
-    void testH2OAbove80()
-    {
-        dadosFisicos.setH20(81);
-        assertFalse(dadosFisicos.getH20() <=80);
-    }
 
 
 }
