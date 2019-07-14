@@ -25,7 +25,7 @@ public class Client {
         funcoes.LerPlanoAlimentar(fichPlanoPrescrito,planoPrescrito);
         funcoes.LerPlanoAlimentarS(fichPlanoAtual,planoAtualS);
         funcoes.LerPlanoAlimentarS(fichPlanoPrescrito,planoPrescritoS);
-        Pessoa pessoa = new Pessoa("Eu",22,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual.get(0).get(0),questionarios.get(0).get(0));
+        Pessoa pessoa = new Pessoa("Eu",22,"Masculino","Estudante",dadosFisicos.get(0).get(0),planoAtual,questionarios.get(0).get(0));
         funcoes.WriteToCsv(planoAtualS,planoAtual,produtos);
         funcoes.WriteToCsvPrescrito(planoPrescritoS,planoPrescrito,pessoa,produtos);
     }

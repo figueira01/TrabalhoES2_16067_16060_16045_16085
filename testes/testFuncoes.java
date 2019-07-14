@@ -36,7 +36,7 @@ public class testFuncoes {
         funcoes.LerDadosProdutos(produto);
         questionario = new Questionario("aaaa","aaa","aaa","aa","aaa","Sedentario","aa","aaa",0.111,0.11,0.111,0.11,0.111,"aa",38);
         dadosFisicos = new DadosFisicos(70,1.78,5,30,23,3, 22,60,65);
-        pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAlimentar,questionario);
+        pessoa = new Pessoa("Bruno miguel",21,"Masculino","Estudante",dadosFisicos,planoAtual,questionario);
 
     }
 
@@ -68,7 +68,7 @@ public class testFuncoes {
         List<List<Produto>> dadosProduto = new ArrayList<>();
         funcoes.LerDadosProdutos(dadosProduto);
     }
-    
+
     @Test
     public void LerPlanoAlimentar()
     {
