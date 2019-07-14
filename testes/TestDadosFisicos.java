@@ -24,13 +24,6 @@ public class TestDadosFisicos
     }
 
     @Test
-    void testeDadosFisicos() throws InvalidException {
-
-        DadosFisicos dadosFisicos = new DadosFisicos(70,1.78,5,30,23,3,
-                22,30,30);
-    }
-
-    @Test
     void testeConstrutorDadosFisicos() throws AssertionError {
 
         DadosFisicos df = new DadosFisicos(70,1.7,5,30,23,3, 22,60,65);
@@ -47,6 +40,58 @@ public class TestDadosFisicos
 
         assertThrows(AssertionError.class,() -> {
             new DadosFisicos(400,1.7,5,30,23,3, 22,60,65);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(-1,1.7,5,30,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,-2,5,30,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,3.7,5,30,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,-5,30,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,150,30,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,-1,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,100,23,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,120,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,0,3, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,-1, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,10, 22,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,3, 101,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,3, -2,60,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,3, 20,150,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,3, 20,-4,65);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,3, 20,80,-2);
+        });
+        assertThrows(AssertionError.class,() -> {
+            new DadosFisicos(80,1.7,20,5,20,3, 20,80,160);
         });
 
 
