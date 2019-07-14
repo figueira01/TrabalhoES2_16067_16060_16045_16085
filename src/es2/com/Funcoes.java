@@ -15,7 +15,7 @@ public class Funcoes {
     private static final String COMMA_DELIMITER = ";";
     String d=";";
 
-    public void  LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos) throws InvalidException {
+    public void LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos) throws InvalidException {
 
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/DadosFisicos.csv"))) {
             String line;
