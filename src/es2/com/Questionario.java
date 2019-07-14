@@ -20,6 +20,23 @@ public class Questionario {
 
 
     public Questionario(String motivoConsulta, String objectivo, String patologia, String medicacao, String antecedentesFamiliares, String atividadeFisica, String funcaoIntestival, String consumoAgua, double colesterol, double glicemia, double urina, double creatina, double proteina, String lesao,int termico) throws Exception {
+
+        assert motivoConsulta != null && motivoConsulta != "" : "Motivo Consulta nao pode ser null";
+        assert objectivo != null && objectivo != "" : "Objetivo nao pode ser null";
+        assert patologia != null && patologia != "" : "Patologia nao pode ser null";
+        assert medicacao != null && medicacao != "" : "Medicacao nao pode ser null";
+        assert antecedentesFamiliares != null && antecedentesFamiliares != "" : "Antecedentes Familiares nao pode ser null";
+        assert atividadeFisica != null && atividadeFisica != "" : "Atividade Fisica nao pode ser null";
+        assert funcaoIntestival != null && funcaoIntestival != "" : "Funcao Intestival nao pode ser null";
+        assert consumoAgua != null && consumoAgua != "" : "Consumo de Agua nao pode ser null";
+        assert lesao != null && lesao != "" : "Lesao nao pode ser null";
+        assert colesterol > 0 && colesterol < 500 : "Colesterol não pode ser menor que 0 e maior que 500";
+        assert glicemia > 0 && glicemia < 500 : "Glicemia não pode ser menor que 0 e maior que 500";
+        assert urina > 0 && urina < 500 : "Urina não pode ser menor que 0 e maior que 500";
+        assert creatina > 0 && creatina < 500 : "Creatina não pode ser menor que 0 e maior que 500";
+        assert proteina > 0 && proteina < 500 : "Proteina não pode ser menor que 0 e maior que 500";
+        assert termico >= 38 && termico <= 41 : "Termico não pode ser menor que 38 e maior que 41";
+
         this.motivoConsulta = motivoConsulta;
         this.objectivo = objectivo;
         this.patologia = patologia;

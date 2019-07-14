@@ -14,8 +14,7 @@ public class TestDadosFisicos
 
     @BeforeEach
     void setUp() throws InvalidException {
-        dadosFisicos = new DadosFisicos(1000,178,5,30,23,5,
-                22,40,76);
+        dadosFisicos = new DadosFisicos(70,1.7,5,30,23,3, 22,60,65);
     }
 
     @AfterEach
@@ -27,101 +26,151 @@ public class TestDadosFisicos
     @Test
     void testeDadosFisicos() throws InvalidException {
 
-        DadosFisicos dadosFisicos = new DadosFisicos(70,178,5,30,23,3,
-                22,60,65);
+        DadosFisicos dadosFisicos = new DadosFisicos(70,1.78,5,30,23,3,
+                22,30,30);
     }
 
     @Test
     void testeConstrutorDadosFisicos() throws InvalidException {
 
-        DadosFisicos df = new DadosFisicos(70,178,5,30,23,3,
-                22,60,65);
+        DadosFisicos df = new DadosFisicos(70,1.7,5,30,23,3, 22,60,65);
 
-        assertEquals(70,dadosFisicos.getPeso());
-        assertEquals(178,dadosFisicos.getAltura());
-        assertEquals(5,dadosFisicos.getGorduraCorporal());
-        assertEquals(30,dadosFisicos.getGorduraVisceral());
-        assertEquals(23,dadosFisicos.getIdadeMetabolica());
-        assertEquals(30,dadosFisicos.getOsso());
-        assertEquals(30,dadosFisicos.getImc());
-        assertEquals(30,dadosFisicos.getMusculo());
-        assertEquals(30,dadosFisicos.getH20());
+        assertEquals(70,df.getPeso());
+        assertEquals(1.7,df.getAltura());
+        assertEquals(5,df.getGorduraCorporal());
+        assertEquals(30,df.getGorduraVisceral());
+        assertEquals(23,df.getIdadeMetabolica());
+        assertEquals(3,df.getOsso());
+        assertEquals(22,df.getImc());
+        assertEquals(60,df.getMusculo());
+        assertEquals(65,df.getH20());
 
-
-        assertThrows(InvalidException.class,() -> {
-            new DadosFisicos(-1,178,5,30,23,3,
-                    22,60,65);;});
-
-        //dadosFisicos.setPeso(350);
-        assertThrows(InvalidException.class,() -> {
-            new DadosFisicos(400,178,5,30,23,3,
-                    22,60,65);;});
     }
 
     @Test
-    void testepesoBeLow1()
-    {
-        dadosFisicos.setPeso(-1);
-        assertFalse( dadosFisicos.getPeso() >= 1);
+    void testeSetPeso() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setPeso(301);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setPeso(-1);
+        });
+
+        dadosFisicos.setPeso(50);
+
     }
 
     @Test
-    void testepesoUp300()
-    {
-        dadosFisicos.setPeso(301);
-        assertFalse( dadosFisicos.getPeso() <= 300);
+    void testeSetAltura() throws AssertionError {
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setAltura(3);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setAltura(0);
+        });
+
+        dadosFisicos.setAltura(1.80);
     }
 
     @Test
-    void testeAltura()
-    {
-        assertEquals(178,dadosFisicos.getAltura());
-    }
-    @Test
-    void testeAlturaBeLow45()
-    {
-        dadosFisicos.setAltura(44);
-        assertFalse(dadosFisicos.getAltura() >= 45);
+    void testeSetGorduraCorporal() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setGorduraCorporal(90);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setGorduraCorporal(0);
+        });
+
+        dadosFisicos.setGorduraCorporal(6);
     }
 
     @Test
-    void testeAlturaAbove270()
-    {
-        dadosFisicos.setAltura(271);
-        assertFalse(dadosFisicos.getAltura() <= 270);
+    void testeSetGorduraVisceral() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setGorduraVisceral(90);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setGorduraVisceral(0);
+        });
+
+        dadosFisicos.setGorduraVisceral(6);
     }
 
     @Test
-    void testGorduraCorporal()
-    {
-        assertEquals(5,dadosFisicos.getGorduraCorporal());
+    void testeSetIdadeMetabolica() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setIdadeMetabolica(100);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setIdadeMetabolica(0);
+        });
+
+        dadosFisicos.setIdadeMetabolica(20);
     }
 
     @Test
-    void testGorduraCorporalBeLow4()
-    {
-        dadosFisicos.setGorduraCorporal(3);
-        assertFalse(dadosFisicos.getGorduraCorporal() >= 4);
+    void testeSetOsso() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setOsso(6);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setOsso(-1);
+        });
+
+        dadosFisicos.setOsso(4);
     }
 
     @Test
-    void testGorduraCorporalAbove30()
-    {
-        dadosFisicos.setGorduraCorporal(31);
-        assertFalse(dadosFisicos.getGorduraCorporal() <= 30);
+    void testeSetIMC() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setImc(51);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setImc(-1);
+        });
+
+        dadosFisicos.setImc(12);
     }
 
     @Test
-    void testGorduraViscular()
-    {
-        assertEquals(30,dadosFisicos.getGorduraVisceral());
+    void testeSetMusculo() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setMusculo(101);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setMusculo(-1);
+        });
+
+        dadosFisicos.setMusculo(80);
     }
 
     @Test
-    void testGorduraViscularBeLow1()
-    {
-        dadosFisicos.setGorduraVisceral(0);
-        assertFalse(dadosFisicos.getGorduraVisceral() >= 1);
+    void testeSetH20() throws AssertionError {
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setH20(101);
+        });
+
+        assertThrows(AssertionError.class,() -> {
+            dadosFisicos.setH20(-1);
+        });
+
+        dadosFisicos.setH20(60);
     }
 
     @Test
