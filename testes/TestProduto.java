@@ -30,9 +30,49 @@ public class TestProduto {
                 1.0, 31, 0.016, 16, 17, 0.16, 0.7, 0.06, 0.09, 3.8,
                 2.3, 1.5, 0.18, 0.18, 3.0, 11, 1.4, 361, 188, 13, 88, 23, 0.6, 0.8);
 
-        assertEquals(70,p.getCodigo());
-        assertEquals(1.7,p.getNome());
-
+        assertEquals("IS958",p.getCodigo());
+        assertEquals("Arroz de frango",p.getNome());
+        assertEquals(205,p.getEnergiaKcal());
+        assertEquals(858,p.getEnergiaKj());
+        assertEquals(56.6,p.getAgua());
+        assertEquals(8.2,p.getProteina());
+        assertEquals(7.6,p.getGorduraTotal());
+        assertEquals(25.2,p.getTotalHCDisponivel());
+        assertEquals(27.7,p.getTotalHCexpressoEmMonossacaridos());
+        assertEquals(0.7,p.getMonoPlusDissacaridos());
+        assertEquals(0,p.getAcidosOrganicos());
+        assertEquals(0,p.getAlcool());
+        assertEquals(24.4,p.getAmido());
+        assertEquals(0.1,p.getOligossacaridos());
+        assertEquals(1.0,p.getFibraAlimentar());
+        assertEquals(1.5,p.getAcidoGordosSaturados());
+        assertEquals(3.9,p.getAcidosGordosMonoinsaturados());
+        assertEquals(1.2,p.getAcidosGordosPolinsaturados());
+        assertEquals(0.0,p.getAcidosGordosTrans());
+        assertEquals(1.0,p.getAcidoLinoleico());
+        assertEquals(31,p.getColesterol());
+        assertEquals(0.016,p.getRetonol());
+        assertEquals(16,p.getVitATotal());
+        assertEquals(17,p.getCaroteno());
+        assertEquals(0.16,p.getVitD());
+        assertEquals(0.7,p.getTocoferol());
+        assertEquals(0.06,p.getTiamina());
+        assertEquals(0.09,p.getRiboflavina());
+        assertEquals(3.8,p.getEquivalentesDeNiacina());
+        assertEquals(2.3,p.getNiaciana());
+        assertEquals(1.5,p.getTriptofano60());
+        assertEquals(0.18,p.getVitB6());
+        assertEquals(0.18,p.getVitB12());
+        assertEquals(3.0,p.getVitC());
+        assertEquals(11,p.getFolatos());
+        assertEquals(1.4,p.getCinza());
+        assertEquals(361,p.getNa());
+        assertEquals(188,p.getK());
+        assertEquals(13,p.getCa());
+        assertEquals(88,p.getP());
+        assertEquals(23,p.getMg());
+        assertEquals(0.6,p.getFe());
+        assertEquals(0.8,p.getZn());
     }
 
     @Test
