@@ -73,7 +73,7 @@ public class Produto {
         assert acidoLinoleico > -1 && acidoLinoleico < 500 : "Acido Linoleico não pode ser menor que 0 e maior que 500";
         assert colesterol > -1 && colesterol < 1500 : "Colesterol não pode ser menor que -1 e maior que 500";
         assert vitATotal > -1 && vitATotal < 15000 : "Vitamina A Total não pode ser menor que -1 e maior que 15000";
-        assert caroteno > -1 && caroteno < 4500 : "Caroteno não pode ser menor que -1 e maior que 4500";
+        assert caroteno > -1 && caroteno < 40500 : "Caroteno não pode ser menor que -1 e maior que 5500";
         assert vitD > -1 && vitD < 500 : "Vitamina D não pode ser menor que -1 e maior que 500";
         assert tocoferol > -1 && tocoferol < 500 : "Tocoferol não pode ser menor que -1 e maior que 500";
         assert tiamina > -1 && tiamina < 500 : "Tiamina não pode ser menor que -1 e maior que 500";
@@ -85,7 +85,7 @@ public class Produto {
         assert vitC > -1 && vitC < 500 : "vitC não pode ser menor que -1 e maior que 500";
         assert folatos > -1 && folatos < 4500 : "Folatos não pode ser menor que 0 e maior que 4500";
         assert cinza > -1 && cinza < 500 : "Cinza não pode ser menor que 0 e maior que 500";
-        assert na > -1 && na < 5000 : "Na não pode ser menor que 0 e maior que 5000";
+        assert na > -1 && na < 20000 : "Na não pode ser menor que 0 e maior que 5000";
         assert k > -1 && k < 4900 : "k não pode ser menor que 0 e maior que 4900";
         assert ca > -1 && ca < 1500 : "Ca não pode ser menor que 0 e maior que 1500";
         assert p > -1 && p < 1500 : "P não pode ser menor que 0 e maior que 1500";
