@@ -920,6 +920,10 @@ public class Funcoes {
         csvWriter.append("Refeicao");
         csvWriter.append(d);
         csvWriter.append("Hora");
+        csvWriter.append(d);
+        csvWriter.append("Comida");
+        csvWriter.append(d);
+        csvWriter.append("Quantidade");
         csvWriter.append("\n");
 
         for(List<String> rowData : planoAtual){
@@ -950,6 +954,10 @@ public class Funcoes {
         csvWriter.append("Refeicao");
         csvWriter.append(d);
         csvWriter.append("Hora");
+        csvWriter.append(d);
+        csvWriter.append("Comida");
+        csvWriter.append(d);
+        csvWriter.append("Quantidade");
         csvWriter.append("\n");
 
         for(List<String> rowData : planoPrescritoS){
