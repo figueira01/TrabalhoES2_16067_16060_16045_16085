@@ -1,5 +1,4 @@
 import es2.com.DadosFisicos;
-import es2.com.Exceptions.InvalidException;
 import es2.com.Pessoa;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +11,7 @@ public class TestDadosFisicos {
 
 
     @BeforeEach
-    void setUp() throws InvalidException {
+    void setUp() {
         dadosFisicos = new DadosFisicos(70, 1.7, 5, 30, 23, 3, 22, 60, 65);
     }
 

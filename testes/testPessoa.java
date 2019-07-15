@@ -40,21 +40,37 @@ import static org.junit.jupiter.api.Assertions.*;
      @Test
      void testContrutorPessoa() {
          Pessoa pessoa = new Pessoa("Bruno miguel", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario);
+         assertEquals("Bruno miguel", pessoa.getNome());
+         assertEquals(21, pessoa.getIdade());
+         assertEquals("Masculino", pessoa.getSexo());
+         assertEquals("Estudante", pessoa.getProfissao());
+
+
          assertThrows(AssertionError.class, () -> new Pessoa("", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
-         assertThrows(AssertionError.class, () -> new Pessoa("aaa", 0, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
-         assertThrows(AssertionError.class, () -> new Pessoa("aaa", 21, "", "Estudante", dadosFisicos, planoAlimentar, questionario));
-         assertThrows(AssertionError.class, () -> new Pessoa("aaaa", 21, "Masculino", "", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa(null, 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("s", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("anananananananananaananaananananananaanannaananananananan", 21, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 0, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 121, "Masculino", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, null, "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "m", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "masculinaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "Estudante", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "Masculino", "", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "Masculino", null, dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "Masculino", "s", dadosFisicos, planoAlimentar, questionario));
+         assertThrows(AssertionError.class, () -> new Pessoa("Bruno", 21, "Masculino", "informaticooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo", dadosFisicos, planoAlimentar, questionario));
 
 
      }
 
      @Test
-     void testSetNome() {
+     void testNome() {
          assertThrows(AssertionError.class, () ->
                  pessoaFemenina.setNome(""));
 
 
-         assertThrows(NullPointerException.class, () ->
+         assertThrows(AssertionError.class, () ->
                  pessoaFemenina.setNome(null));
 
          assertThrows(AssertionError.class, () ->
@@ -69,12 +85,12 @@ import static org.junit.jupiter.api.Assertions.*;
      }
 
      @Test
-     void testSetSexo() {
+     void testSexo() {
          assertThrows(AssertionError.class, () ->
                  pessoaFemenina.setSexo(""));
 
 
-         assertThrows(NullPointerException.class, () ->
+         assertThrows(AssertionError.class, () ->
                  pessoaFemenina.setSexo(null));
 
          assertThrows(AssertionError.class, () ->
@@ -89,12 +105,12 @@ import static org.junit.jupiter.api.Assertions.*;
      }
 
      @Test
-     void testSetProfissao() {
+     void testProfissao() {
          assertThrows(AssertionError.class, () ->
                  pessoaFemenina.setProfissao(""));
 
 
-         assertThrows(NullPointerException.class, () ->
+         assertThrows(AssertionError.class, () ->
                  pessoaFemenina.setProfissao(null));
 
          assertThrows(AssertionError.class, () ->
@@ -109,10 +125,14 @@ import static org.junit.jupiter.api.Assertions.*;
      }
 
      @Test
-     public void testSetIdade() {
+     public void testIdade() {
 
-         assertThrows(AssertionError.class, () -> pessoaFemenina.setIdade(-1));
-        assertThrows(AssertionError .class, () -> pessoaFemenina.setIdade(4000));
+         assertThrows(AssertionError.class, () ->
+                 pessoaFemenina.setIdade(-1));
+
+        assertThrows(AssertionError .class, () ->
+                pessoaFemenina.setIdade(4000));
+
         pessoaFemenina.setIdade(10);
         assertEquals(10,pessoaFemenina.getIdade());
  }
