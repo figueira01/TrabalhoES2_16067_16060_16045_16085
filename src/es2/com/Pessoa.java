@@ -18,10 +18,13 @@ public class Pessoa {
     private double BMR = 0;
 
     public Pessoa(String nome, int idade, String sexo, String profissao, DadosFisicos dadosFisicos, List<List<PlanoAlimentar>> planoAtual, Questionario questionario) {
-        assert !nome.equals("") :"Nome nao pode ser null nem vazio";
+        assert nome!= null && !nome.equals("") :"Nome nao pode ser null nem vazio";
+        assert nome.length()>2 && nome.length()<50 : "O tamanho do nome nao pode ser menor que 2 ou maior que 50";
         assert idade > 0 && idade < 100 : "Idade não pode ser menor que  0 e maior que 100";
-        assert !sexo.equals(""):"Sexo nao pode ser null nem vazio";
-        assert !profissao.equals(""):"profissao nao pode ser null nem vazio";
+        assert sexo!= null && !sexo.equals(""):"Sexo nao pode ser null nem vazio";
+        assert sexo.length()>2 && sexo.length()<50 : "O tamanho do codigo nao pode ser menor que 2 ou maior que 50";
+        assert profissao != null && !profissao.equals(""):"profissao nao pode ser null nem vazio";
+        assert profissao.length()>2 && profissao.length()<50 : "O tamanho da profissao nao pode ser menor que 2 ou maior que 50";
 
         this.nome = nome;
         this.idade = idade;
@@ -232,7 +235,7 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-        if(nome.isEmpty())
+        if(nome== null || nome.isEmpty())
         {
             throw new AssertionError();
         }
@@ -251,7 +254,7 @@ public class Pessoa {
     }
 
     public void setSexo(String sexo) {
-        if(sexo.isEmpty())
+        if(sexo== null || sexo.isEmpty())
         {
             throw new AssertionError();
         }
@@ -262,7 +265,7 @@ public class Pessoa {
     }
 
     public void setProfissao(String profissao) {
-        if(profissao.isEmpty())
+        if(profissao== null || profissao.isEmpty())
         {
             throw new AssertionError();
         }

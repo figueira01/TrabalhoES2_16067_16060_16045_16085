@@ -208,6 +208,12 @@ class TestQuestionario {
                     "Brufen", "Alzheimer", "Moderada", "Normal", "1L",
                     100, 100, 100, 100, 100, "ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", 39);
         });
+
+        assertThrows(AssertionError.class, () -> {
+            new Questionario("Procura de ajuda profissional", "Perder Peso", "Autismo",
+                    "Brufen", "Alzheimer", "Moderada", "Moderada", "1L",
+                    501, 501, 501, 501, 501, "Nenhuma", 42);
+        });
     }
     @Test
     void TestSetMotivoConsultaSucess() {

@@ -1,5 +1,5 @@
 import es2.com.*;
-import es2.com.Exceptions.InvalidException;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,7 +53,7 @@ public class testFuncoes {
     }
 
     @Test
-    public void testLerDadosFisicos() throws InvalidException {
+    public void testLerDadosFisicos()  {
         List<List<DadosFisicos>> dadosFisicos = new ArrayList<>();
         funcoes.LerDadosFisicos(dadosFisicos);
     }

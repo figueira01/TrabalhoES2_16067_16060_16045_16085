@@ -1,6 +1,5 @@
 package es2.com;
 
-import es2.com.Exceptions.InvalidException;
 
 public class DadosFisicos extends Object{
 
