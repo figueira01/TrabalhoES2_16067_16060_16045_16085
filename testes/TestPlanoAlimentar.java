@@ -47,7 +47,7 @@ class TestPlanoAlimentar {
             new PlanoAlimentar("Pequeno-almoco",null,"leite",200);
         });
         assertThrows(AssertionError.class, () -> {
-            new PlanoAlimentar("Pequeno-almoco","10:0","leite",200);
+            new PlanoAlimentar("Pequeno-almoco","10:0000","leite",200);
         });
         assertThrows(AssertionError.class, () -> {
             new PlanoAlimentar("Pequeno-almoco","10:00","",200);
@@ -108,7 +108,7 @@ class TestPlanoAlimentar {
         });
 
         assertThrows(AssertionError.class, () -> {//MIN CARACTER
-            planoAlimentar.setHora("20:000");
+            planoAlimentar.setHora("20:00000");
         });
 
         planoAlimentar.setHora("22:00");

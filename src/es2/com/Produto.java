@@ -54,7 +54,7 @@ public class Produto {
         assert codigo!=null && !codigo.equals("")  : "Codigo nao pode ser null";
         assert codigo.length()>2 && codigo.length()<50 : "O tamanho do codigo nao pode ser menor que 2 ou maior que 50";
         assert nome!= null && !nome.equals("") : "Nome nao pode ser null";
-        assert nome.length()>2 && nome.length()<50 : "O tamanho do nome nao pode ser menor que 2 ou maior que 50";
+        assert nome.length()>2 && nome.length()<100 : "O tamanho do nome nao pode ser menor que 2 ou maior que 50";
         assert energiaKcal > -1 && energiaKcal < 2000 : "Energia Kcal não pode ser menor que 0 e maior que 2000";
         assert energiaKj > -1 && energiaKj < 4000 : "Energia Kj não pode ser menor que 0 e maior que 4000";
         assert agua > -1 && agua < 100 : "Agua não pode ser menor que 0 e maior que 500";

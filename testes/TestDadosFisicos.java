@@ -133,7 +133,7 @@ public class TestDadosFisicos {
         });
 
         assertThrows(AssertionError.class, () -> {
-            dadosFisicos.setGorduraCorporal(0);
+            dadosFisicos.setGorduraCorporal(-1);
         });
 
         dadosFisicos.setGorduraCorporal(6);
@@ -148,7 +148,7 @@ public class TestDadosFisicos {
         });
 
         assertThrows(AssertionError.class, () -> {
-            dadosFisicos.setGorduraVisceral(0);
+            dadosFisicos.setGorduraVisceral(-1);
         });
 
         dadosFisicos.setGorduraVisceral(6);
@@ -163,7 +163,7 @@ public class TestDadosFisicos {
         });
 
         assertThrows(AssertionError.class, () -> {
-            dadosFisicos.setIdadeMetabolica(0);
+            dadosFisicos.setIdadeMetabolica(-1);
         });
 
         dadosFisicos.setIdadeMetabolica(20);
