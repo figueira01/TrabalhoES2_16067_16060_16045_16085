@@ -107,9 +107,7 @@ public class testFuncoes {
 
     @Test
     public void CalculationgetAcidoGordosSaturadosForEachWithArrayElementPlanoAlimentar() throws Exception {
-        List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
-        planoAtual.add(Collections.singletonList(new PlanoAlimentar("pequeno-almoco","ss","Nata não maturada pasteurizada 33% gordura",432.1)));
-        assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool,produto));
+        assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(null,refeicao,bool,produto));
     }
 
     @Test
