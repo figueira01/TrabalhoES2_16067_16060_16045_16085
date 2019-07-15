@@ -49,8 +49,7 @@ public class testFuncoes {
 
     @Test
     public void testLerDadosFisicosNull()  {
-        assertThrows(NullPointerException.class,() ->
-                funcoes.LerDadosFisicos(null));
+        assertThrows(NullPointerException.class,() -> funcoes.LerDadosFisicos(null));
     }
 
     @Test
@@ -79,16 +78,13 @@ public class testFuncoes {
     @Test
     public void LerPlanoAlimentarString()
     {
-
         funcoes.LerPlanoAlimentarS(url,planoS);
-
     }
 
     @Test
     public void LerPlanoAlimentarStringArrayWrong()
     {
-        assertThrows(NullPointerException.class,() ->
-                funcoes.LerPlanoAlimentarS(url,null));
+        assertThrows(NullPointerException.class,() -> funcoes.LerPlanoAlimentarS(url,null));
     }
 
     @Test
@@ -98,20 +94,32 @@ public class testFuncoes {
     }
 
     @Test
-    public void CalculationAcidoGordosSaturadosForEachWithArrayEmptyPlanoAlimentar()  {
+    public void CalculationgetAcidoGordosSaturadosForEachWithArrayEmptyPlanoAlimentar()  {
         List<List<PlanoAlimentar>> planoAtual = new ArrayList<>();
         assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool,produto));
     }
 
     @Test
-    public void CalculationAcidoGordosSaturadosForEachWithArrayEmptyProduto() {
+    public void CalculationgetAcidoGordosSaturadosForEachWithArrayEmptyProduto() {
         List<List<Produto>> produto = new ArrayList<>();
         assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool,produto));
     }
 
     @Test
-    public void CalculationAcidoGordosSaturadosForEachWithArrayPlanoAlimentarAndProdutoAndPrescricaoTrueAndNameProdutoEqualToPlano()  {
+    public void CalculationgetAcidoGordosSaturadosForEachWithArrayElementPlanoAlimentar() throws Exception {
+        assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(null,refeicao,bool,produto));
+    }
 
+    @Test
+    public void CalculationgetAcidoGordosSaturadosForEachWithArrayElementProduto()  {
+        List<List<Produto>> produto = new ArrayList<>();
+        produto.add(Collections.singletonList(new Produto("IS065","Nata não maturada pasteurizada 33% gordura",316,1323,61.6,2,33,2.9,3,2.9,0,0,0,0,0,18.5,7.5,0.9,1.1,0.9,97,0.36,360,186,0.28,1.1,0.02,0.16,0.7,0.2,0.5,0.03,0.2,1.7,0.5,37,105,32,62,3,0.1,0.2,0)));
+        assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool,produto));
+
+    }
+
+    @Test
+    public void CalculationgetAcidoGordosSaturadosForEachWithArrayPlanoAlimentarAndProdutoAndPrescricaoTrueAndNameProdutoEqualToPlano()  {
         assertEquals(113.478,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool,produto));
     }
 
@@ -133,6 +141,11 @@ public class testFuncoes {
         List<List<Produto>> produto = new ArrayList<>();
         produto.add(Collections.singletonList(new Produto("IS065","Nata não maturada pasteurizada 33% gordur",316,1323,61.6,2,33,2.9,3,2.9,0,0,0,0,0,18.5,7.5,0.9,1.1,0.9,97,0.36,360,186,0.28,1.1,0.02,0.16,0.7,0.2,0.5,0.03,0.2,1.7,0.5,37,105,32,62,3,0.1,0.2,0)));
         assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,false,produto));
+    }
+
+    @Test
+    public void CalculationgetAcidoGordosSaturadosPrescicaoFalseButNameFoodEqualPlanoAndProdutoAndRefeicaoEquals()  {
+        assertEquals(12.6,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,false,produto));
     }
 
     @Test
@@ -2974,7 +2987,6 @@ public class testFuncoes {
 
     @Test
     public void WriteToCsvNull()  {
-
         assertThrows(NullPointerException.class,() -> funcoes.WriteToCsv(null,null,null));
     }
 
