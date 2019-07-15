@@ -1,6 +1,5 @@
 package es2.com;
 
-import es2.com.Exceptions.InvalidException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +14,7 @@ public class Funcoes {
     private static final String COMMA_DELIMITER = ";";
     String d=";";
 
-    public void LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos) throws InvalidException {
+    public void LerDadosFisicos(List<List<DadosFisicos>> dadosFisicos)  {
 
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/DadosFisicos.csv"))) {
             String line;
