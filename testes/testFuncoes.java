@@ -105,10 +105,6 @@ public class testFuncoes {
         assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(planoAtual,refeicao,bool,produto));
     }
 
-    @Test
-    public void CalculationgetAcidoGordosSaturadosForEachWithArrayElementPlanoAlimentar() throws Exception {
-        assertEquals(0,funcoes.CalculationgetAcidoGordosSaturados(null,refeicao,bool,produto));
-    }
 
     @Test
     public void CalculationgetAcidoGordosSaturadosForEachWithArrayElementProduto()  {
